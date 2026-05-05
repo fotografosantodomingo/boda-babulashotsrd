@@ -1,75 +1,76 @@
+"use client";
+
+import type { MouseEvent } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+
+function targetLanguagePath(pathname: string, targetLocale: "es" | "en") {
+  const currentPath = pathname || "/";
+
+  if (targetLocale === "es") {
+    return currentPath.replace(/^\/en(?=\/|$)/, "") || "/";
+  }
+
+  if (currentPath === "/" || currentPath === "/en" || currentPath === "/en/") {
+    return "/en/";
+  }
+
+  if (currentPath.startsWith("/en/")) {
+    return currentPath;
+  }
+
+  return `/en${currentPath}`;
+}
+
 export function ThemeLanguageControls() {
-  const script = `
-    (function () {
-      var root = document.documentElement;
-      var path = window.location.pathname;
-      var isEnglish = path === "/en/" || path === "/en" || path.indexOf("/en/") === 0;
-      var savedTheme = window.localStorage.getItem("theme");
-      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      var theme = savedTheme || (prefersDark ? "dark" : "light");
-      var themeButton = document.querySelector("[data-theme-toggle]");
-      var languageLink = document.querySelector("[data-language-toggle]");
-      var header = document.querySelector("[data-site-header]");
+  const pathname = usePathname() || "/";
+  const router = useRouter();
+  const isEnglish = pathname === "/en" || pathname === "/en/" || pathname.startsWith("/en/");
+  const targetLocale = isEnglish ? "es" : "en";
+  const languagePath = useMemo(() => targetLanguagePath(pathname, targetLocale), [pathname, targetLocale]);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-      function englishPath(value) {
-        if (value === "/") return "/en/";
-        if (value.indexOf("/en") === 0) return value;
-        return "/en" + value;
-      }
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : prefersDark ? "dark" : "light";
 
-      function spanishPath(value) {
-        if (value === "/en/" || value === "/en") return "/";
-        if (value.indexOf("/en/") === 0) return value.replace(/^\\/en/, "") || "/";
-        return value;
-      }
+    document.documentElement.dataset.theme = initialTheme;
+    setTheme(initialTheme);
+  }, []);
 
-      function paint(nextTheme) {
-        root.dataset.theme = nextTheme;
-        if (themeButton) {
-          themeButton.textContent = nextTheme === "dark" ? "Light" : "Dark";
-          themeButton.setAttribute("aria-label", nextTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-        }
-      }
+  function handleThemeToggle() {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
+  }
 
-      paint(theme);
-
-      if (themeButton) {
-        themeButton.addEventListener("click", function () {
-          theme = root.dataset.theme === "dark" ? "light" : "dark";
-          window.localStorage.setItem("theme", theme);
-          paint(theme);
-        });
-      }
-
-      if (languageLink) {
-        languageLink.href = isEnglish ? spanishPath(path) : englishPath(path);
-        languageLink.textContent = isEnglish ? "ES" : "EN";
-        languageLink.setAttribute("hreflang", isEnglish ? "es-DO" : "en");
-      }
-
-      if (header && isEnglish) {
-        header.querySelector("[data-brand]").textContent = "Weddings";
-        header.querySelector("[data-brand]").href = "/en/";
-        header.querySelector("[data-nav-main]").textContent = "Dominican Republic";
-        header.querySelector("[data-nav-main]").href = "/en/";
-        header.querySelector("[data-nav-punta]").href = "/en/fotografo-bodas-punta-cana/";
-        header.querySelector("[data-nav-santo]").href = "/en/fotografo-bodas-santo-domingo/";
-        header.querySelector("[data-nav-romana]").href = "/en/fotografo-bodas-la-romana/";
-        header.querySelector("[data-nav-book]").textContent = "Book";
-        header.querySelector("[data-nav-book]").href = "/en/#contacto";
-      }
-    })();
-  `;
+  function handleLanguageSwitch(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    router.push(languagePath);
+  }
 
   return (
     <div className="site-controls" aria-label="Opciones del sitio">
-      <button className="control-button" type="button" data-theme-toggle aria-label="Switch theme">
-        Dark
+      <button
+        className="control-button"
+        type="button"
+        onClick={handleThemeToggle}
+        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      >
+        {theme === "dark" ? "Light" : "Dark"}
       </button>
-      <a className="control-button" data-language-toggle href="/en/" hrefLang="en">
-        EN
+      <a
+        className="control-button"
+        href={languagePath}
+        hrefLang={isEnglish ? "es-DO" : "en"}
+        onClick={handleLanguageSwitch}
+        aria-label={isEnglish ? "Cambiar a español" : "Switch to English"}
+        data-language-target={languagePath}
+      >
+        {isEnglish ? "ES" : "EN"}
       </a>
-      <script dangerouslySetInnerHTML={{ __html: script }} />
     </div>
   );
 }
