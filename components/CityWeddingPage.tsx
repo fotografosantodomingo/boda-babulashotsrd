@@ -119,6 +119,7 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
           width={1600}
           height={2000}
           priority
+          fetchPriority="high"
           className="city-hero-image"
         />
         <div className="city-hero-content">

@@ -3,7 +3,7 @@ import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWedd
 
 export const metadata: Metadata = {
   title: "Fotógrafo de bodas en República Dominicana | Babula Shots",
-  description: "Fotógrafo de bodas en Santo Domingo, Punta Cana, La Romana, Samaná y toda República Dominicana. Bodas destino, playa y resorts.",
+  description: "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video profesional.",
   alternates: {
     canonical: "/",
     languages: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: "es_DO",
     siteName: "Babula Shots",
     type: "website",
-    images: [{ url: "/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp", width: 1706, height: 1954 }]
+    images: [{ url: "/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp", width: 1200, height: 1374 }]
   }
 };
 

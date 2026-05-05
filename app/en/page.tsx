@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Babula Shots",
     type: "website",
-    images: [{ url: "/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp", width: 1706, height: 1954 }]
+    images: [{ url: "/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp", width: 1200, height: 1374 }]
   }
 };
 

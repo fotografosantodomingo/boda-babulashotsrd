@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "Fotógrafo de bodas en República Dominicana | Babula Shots",
     template: "%s"
   },
-  description: "Fotógrafo de bodas en Santo Domingo, Punta Cana y toda República Dominicana. Estilo natural, cobertura completa y reserva online.",
+  description: "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video profesional.",
   openGraph: {
     siteName: "Babula Shots",
     locale: "es_DO",

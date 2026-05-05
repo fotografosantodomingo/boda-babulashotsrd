@@ -1,7 +1,7 @@
 :root {
   --bg: #fff;
   --text: #050505;
-  --muted: #626262;
+  --muted: #555;
   --line: #d8d8d8;
   --panel: #f4f2ee;
   --inverse: #050505;
@@ -24,7 +24,7 @@
 :root[data-theme="light"] {
   --bg: #fff;
   --text: #050505;
-  --muted: #626262;
+  --muted: #555;
   --line: #d8d8d8;
   --panel: #f4f2ee;
   color-scheme: light;
@@ -43,6 +43,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font: 16px/1.5 inherit;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -478,9 +479,15 @@ h1 {
   font-style: normal;
 }
 
-.city-card strong {
+.city-card-title {
+  color: var(--text);
   font-size: 1.3rem;
+  font-weight: 700;
   line-height: 1.12;
+}
+
+.footer p {
+  color: rgba(255,255,255,.78);
 }
 
 .footer {
@@ -530,13 +537,14 @@ h1 {
   padding: .85rem;
 }
 
-.brand-network-links strong {
-  color: #fff;
-}
-
 .brand-network-links span {
   color: rgba(255,255,255,.68);
   font-size: .9rem;
+}
+
+.brand-network-links .brand-network-title {
+  color: #fff;
+  font-weight: 700;
 }
 
 @media (max-width: 991px) {

@@ -265,9 +265,10 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
           <Image
             src="/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp"
             alt="Fotógrafo de bodas en República Dominicana"
-            width={1706}
-            height={1954}
+            width={1200}
+            height={1374}
             priority
+            fetchPriority="high"
             className="city-hero-image"
           />
           <div className="city-hero-content">
@@ -312,7 +313,7 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
               {weddingCities.map((city) => (
                 <Link key={city.slug} href={`${isEnglish ? "/en" : ""}${cityPath(city.slug)}`} className="city-card">
                   <span>{city.province}</span>
-                  <strong>{isEnglish ? `Wedding photographer in ${city.city}` : city.h1}</strong>
+                  <span className="city-card-title">{isEnglish ? `Wedding photographer in ${city.city}` : city.h1}</span>
                   <em>
                     {isEnglish
                       ? `Professional wedding photography in ${city.city} for ceremonies, destination weddings, portraits and edited online galleries.`
@@ -337,10 +338,16 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
                   ]
                 : [
                     "Babula Shots es un fotógrafo de bodas en República Dominicana especializado en bodas destino, ceremonias en playa y celebraciones en Santo Domingo, Punta Cana, La Romana, Samaná, Puerto Plata, Bayahíbe y Las Terrenas. Nuestro estilo combina documentación real, dirección natural y una edición editorial pensada para parejas que quieren recuerdos elegantes y auténticos.",
-                    "Cada boda tiene una logística distinta: resort, playa, iglesia, Zona Colonial, villa privada, finca o montaña. Por eso diseñamos la cobertura a partir de la locación, el horario, la luz disponible y los momentos que más importan para la pareja.",
+                    "Cada boda tiene una logística distinta: resort, playa, iglesia, Zona Colonial, villa privada, finca o montaña. También orientamos a las parejas sobre requisitos para casarse en RD y recomendamos confirmar detalles legales con la Junta Central Electoral.",
                     "Desde la preparación hasta el último baile, el objetivo es entregar una galería emocional, consistente y lista para compartir, imprimir y conservar."
                   ]
-              ).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              ).map((paragraph) => paragraph.includes("Junta Central Electoral") ? (
+                <p key={paragraph}>
+                  Cada boda tiene una logística distinta: resort, playa, iglesia, Zona Colonial, villa privada, finca o montaña.
+                  También orientamos a las parejas sobre requisitos para casarse en RD y recomendamos confirmar detalles legales con{" "}
+                  <a href="https://jce.gob.do/" target="_blank" rel="noopener noreferrer">la Junta Central Electoral</a>.
+                </p>
+              ) : <p key={paragraph}>{paragraph}</p>)}
             </div>
           </div>
         </section>
@@ -358,7 +365,7 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
               {featuredGuides.map((post) => (
                 <Link key={post.slug} href={`${isEnglish ? "/en" : ""}/${post.slug}`} className="city-card">
                   <span>{isEnglish ? "Guide" : "Guía"}</span>
-                  <strong>{post.h1}</strong>
+                  <span className="city-card-title">{post.h1}</span>
                   <em>{post.description}</em>
                 </Link>
               ))}

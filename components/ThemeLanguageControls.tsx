@@ -1,57 +1,75 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
-
-function englishPath(pathname: string) {
-  if (pathname === "/") return "/en";
-  if (pathname.startsWith("/en")) return pathname;
-  return `/en${pathname}`;
-}
-
-function spanishPath(pathname: string) {
-  if (pathname === "/en") return "/";
-  if (pathname.startsWith("/en/")) return pathname.replace(/^\/en/, "") || "/";
-  return pathname;
-}
-
 export function ThemeLanguageControls() {
-  const pathname = usePathname() || "/";
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const script = `
+    (function () {
+      var root = document.documentElement;
+      var path = window.location.pathname;
+      var isEnglish = path === "/en/" || path === "/en" || path.indexOf("/en/") === 0;
+      var savedTheme = window.localStorage.getItem("theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = savedTheme || (prefersDark ? "dark" : "light");
+      var themeButton = document.querySelector("[data-theme-toggle]");
+      var languageLink = document.querySelector("[data-language-toggle]");
+      var header = document.querySelector("[data-site-header]");
 
-  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
-  const alternateHref = useMemo(() => (isEnglish ? spanishPath(pathname) : englishPath(pathname)), [isEnglish, pathname]);
+      function englishPath(value) {
+        if (value === "/") return "/en/";
+        if (value.indexOf("/en") === 0) return value;
+        return "/en" + value;
+      }
 
-  useEffect(() => {
-    const savedTheme = window.localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const nextTheme = savedTheme === "dark" || (!savedTheme && prefersDark) ? "dark" : "light";
+      function spanishPath(value) {
+        if (value === "/en/" || value === "/en") return "/";
+        if (value.indexOf("/en/") === 0) return value.replace(/^\\/en/, "") || "/";
+        return value;
+      }
 
-    setTheme(nextTheme);
-    document.documentElement.dataset.theme = nextTheme;
-  }, []);
+      function paint(nextTheme) {
+        root.dataset.theme = nextTheme;
+        if (themeButton) {
+          themeButton.textContent = nextTheme === "dark" ? "Light" : "Dark";
+          themeButton.setAttribute("aria-label", nextTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+        }
+      }
 
-  function toggleTheme() {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem("theme", nextTheme);
-  }
+      paint(theme);
+
+      if (themeButton) {
+        themeButton.addEventListener("click", function () {
+          theme = root.dataset.theme === "dark" ? "light" : "dark";
+          window.localStorage.setItem("theme", theme);
+          paint(theme);
+        });
+      }
+
+      if (languageLink) {
+        languageLink.href = isEnglish ? spanishPath(path) : englishPath(path);
+        languageLink.textContent = isEnglish ? "ES" : "EN";
+        languageLink.setAttribute("hreflang", isEnglish ? "es-DO" : "en");
+      }
+
+      if (header && isEnglish) {
+        header.querySelector("[data-brand]").textContent = "Weddings";
+        header.querySelector("[data-brand]").href = "/en/";
+        header.querySelector("[data-nav-main]").textContent = "Dominican Republic";
+        header.querySelector("[data-nav-main]").href = "/en/fotografo-bodas-republica-dominicana/";
+        header.querySelector("[data-nav-punta]").href = "/en/fotografo-bodas-punta-cana/";
+        header.querySelector("[data-nav-santo]").href = "/en/fotografo-bodas-santo-domingo/";
+        header.querySelector("[data-nav-romana]").href = "/en/fotografo-bodas-la-romana/";
+        header.querySelector("[data-nav-book]").textContent = "Book";
+        header.querySelector("[data-nav-book]").href = "/en/#contacto";
+      }
+    })();
+  `;
 
   return (
-    <div className="site-controls" aria-label={isEnglish ? "Site settings" : "Opciones del sitio"}>
-      <button
-        className="control-button"
-        type="button"
-        onClick={toggleTheme}
-        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      >
-        {theme === "dark" ? "Light" : "Dark"}
+    <div className="site-controls" aria-label="Opciones del sitio">
+      <button className="control-button" type="button" data-theme-toggle aria-label="Switch theme">
+        Dark
       </button>
-      <Link className="control-button" href={alternateHref} hrefLang={isEnglish ? "es-DO" : "en"}>
-        {isEnglish ? "ES" : "EN"}
-      </Link>
+      <a className="control-button" data-language-toggle href="/en/" hrefLang="en">
+        EN
+      </a>
+      <script dangerouslySetInnerHTML={{ __html: script }} />
     </div>
   );
 }
