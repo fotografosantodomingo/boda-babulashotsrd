@@ -96,6 +96,20 @@ function nearbyHref(name: string) {
   return findCityBySlug(slug) ? cityPath(slug) : null;
 }
 
+function cityGuideLinks(slug: string, isEnglish: boolean) {
+  const prefix = isEnglish ? "/en" : "";
+  const puntaGuide = slug === "punta-cana"
+    ? [{ href: `${prefix}/mejores-lugares-para-bodas-punta-cana`, label: isEnglish ? "Best wedding venues in Punta Cana" : "Mejores lugares para bodas en Punta Cana" }]
+    : [];
+
+  return [
+    ...puntaGuide,
+    { href: `${prefix}/cuanto-cuesta-fotografo-bodas-republica-dominicana`, label: isEnglish ? "Wedding photographer cost in Dominican Republic" : "Cuánto cuesta un fotógrafo de bodas en RD" },
+    { href: `${prefix}/boda-destino-republica-dominicana`, label: isEnglish ? "Destination wedding in Dominican Republic" : "Boda destino en República Dominicana" },
+    { href: `${prefix}/fotografo-bodas-playa-punta-cana`, label: isEnglish ? "Beach wedding photography in Punta Cana" : "Fotografía para bodas en playa Punta Cana" }
+  ].slice(0, 4);
+}
+
 export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; locale?: "es" | "en" }) {
   const isEnglish = locale === "en";
   const cityTitle = isEnglish ? `Wedding photographer in ${city.city}` : city.h1;
@@ -309,12 +323,28 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
                   <span key={near}>{isEnglish ? `Wedding photographer in ${near}` : `Fotógrafo de bodas en ${near}`}</span>
                 );
               })}
-              <Link href={`${isEnglish ? "/en" : ""}/fotografo-bodas-republica-dominicana`}>
+              <Link href={isEnglish ? "/en/" : "/"}>
                 {isEnglish ? "Wedding photographer in Dominican Republic" : "Fotógrafo de bodas en República Dominicana"}
               </Link>
-              <Link href={`${isEnglish ? "/en" : ""}/cuanto-cuesta-fotografo-bodas-republica-dominicana`}>
-                {isEnglish ? "Wedding photographer cost in Dominican Republic" : "Cuánto cuesta un fotógrafo de bodas en RD"}
-              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap split">
+          <p className="section-tag">{isEnglish ? "Related guides" : "Guías relacionadas"}</p>
+          <div>
+            <h2>{isEnglish ? `Wedding planning resources for ${city.city}` : `Recursos para bodas en ${city.city}`}</h2>
+            <p>
+              {isEnglish
+                ? "These guides connect pricing, venues and destination wedding planning with the local photography pages."
+                : "Estas guías conectan precios, venues y planificación de bodas destino con las páginas locales de fotografía."}
+            </p>
+            <div className="internal-links">
+              {cityGuideLinks(city.slug, isEnglish).map((link) => (
+                <Link key={link.href} href={link.href}>{link.label}</Link>
+              ))}
             </div>
           </div>
         </div>

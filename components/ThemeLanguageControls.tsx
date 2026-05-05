@@ -51,7 +51,7 @@ export function ThemeLanguageControls() {
         header.querySelector("[data-brand]").textContent = "Weddings";
         header.querySelector("[data-brand]").href = "/en/";
         header.querySelector("[data-nav-main]").textContent = "Dominican Republic";
-        header.querySelector("[data-nav-main]").href = "/en/fotografo-bodas-republica-dominicana/";
+        header.querySelector("[data-nav-main]").href = "/en/";
         header.querySelector("[data-nav-punta]").href = "/en/fotografo-bodas-punta-cana/";
         header.querySelector("[data-nav-santo]").href = "/en/fotografo-bodas-santo-domingo/";
         header.querySelector("[data-nav-romana]").href = "/en/fotografo-bodas-la-romana/";

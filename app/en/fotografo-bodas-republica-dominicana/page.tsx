@@ -5,17 +5,17 @@ export const metadata: Metadata = {
   title: "Wedding photographer in Dominican Republic | Babula Shots",
   description: "Wedding photographer in Dominican Republic for Santo Domingo, Punta Cana, La Romana, Samaná, Puerto Plata and destination weddings.",
   alternates: {
-    canonical: "/en/fotografo-bodas-republica-dominicana",
+    canonical: "/en",
     languages: {
-      "es-DO": "/fotografo-bodas-republica-dominicana",
-      en: "/en/fotografo-bodas-republica-dominicana",
-      "x-default": "/fotografo-bodas-republica-dominicana"
+      "es-DO": "/",
+      en: "/en",
+      "x-default": "/"
     }
   },
   openGraph: {
     title: "Wedding photographer in Dominican Republic | Babula Shots",
     description: "Professional coverage for Dominican Republic weddings with a natural, editorial and cinematic style.",
-    url: "/en/fotografo-bodas-republica-dominicana",
+    url: "/en",
     locale: "en_US",
     siteName: "Babula Shots",
     type: "website",
@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function EnglishDominicanRepublicWeddingPage() {
-  return <DominicanRepublicWeddingHome canonicalPath="/fotografo-bodas-republica-dominicana" locale="en" />;
+  return <DominicanRepublicWeddingHome canonicalPath="/" locale="en" />;
 }

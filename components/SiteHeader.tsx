@@ -8,7 +8,7 @@ export function SiteHeader() {
         Boda
       </Link>
       <nav className="site-nav" aria-label="Navegación principal">
-        <Link href="/fotografo-bodas-republica-dominicana" data-nav-main>República Dominicana</Link>
+        <Link href="/" data-nav-main>República Dominicana</Link>
         <Link href="/fotografo-bodas-punta-cana" data-nav-punta>Punta Cana</Link>
         <Link href="/fotografo-bodas-santo-domingo" data-nav-santo>Santo Domingo</Link>
         <Link href="/fotografo-bodas-la-romana" data-nav-romana>La Romana</Link>

@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
       { heading: "Cómo pedir una cotización precisa", body: "Envía fecha, locación, cantidad de invitados, hora de ceremonia, si deseas video y si necesitas sesión pre-boda. Con eso se prepara una propuesta clara." }
     ],
     links: [
-      { href: "/fotografo-bodas-republica-dominicana", label: "Fotógrafo de bodas en República Dominicana" },
+      { href: "/", label: "Fotógrafo de bodas en República Dominicana" },
       { href: "/fotografo-bodas-santo-domingo", label: "Fotógrafo de bodas en Santo Domingo" },
       { href: "/fotografo-bodas-punta-cana", label: "Fotógrafo de bodas en Punta Cana" }
     ]
@@ -126,6 +126,86 @@ export const blogPosts: BlogPost[] = [
       { href: "/fotografo-bodas-las-terrenas", label: "Fotógrafo de bodas Las Terrenas" },
       { href: "/fotografo-bodas-samana", label: "Fotógrafo de bodas Samaná" },
       { href: "/fotografo-bodas-puerto-plata", label: "Fotógrafo de bodas Puerto Plata" }
+    ]
+  },
+  {
+    slug: "fotografia-de-bodas-en-republica-dominicana-primer-baile-romantico",
+    title: "Primer baile en bodas en República Dominicana | Babula Shots",
+    description: "Guía para fotografiar el primer baile en bodas en República Dominicana: luz, timing, locaciones y consejos para parejas.",
+    h1: "Primer baile en bodas en República Dominicana",
+    intro: "El primer baile es uno de los momentos más emotivos de una boda en República Dominicana porque resume la conexión de la pareja, el ambiente de la celebración y la transición entre ceremonia, cena y fiesta. Para fotografiarlo bien no basta con apuntar la cámara: hay que entender la luz, el espacio, la música, la reacción de los invitados y el ritmo del evento.",
+    sections: [
+      { heading: "Por qué el primer baile merece planificación", body: "En bodas de playa en Punta Cana, villas privadas en La Romana, salones en Santo Domingo o celebraciones íntimas en Samaná, el primer baile puede ocurrir con condiciones de luz muy distintas. Si se hace al atardecer, la fotografía puede aprovechar una atmósfera suave y romántica. Si ocurre en interiores, se necesita controlar flash, luz ambiental y movimiento para mantener una estética natural. Babula Shots revisa el programa con la pareja y el planner para decidir dónde colocarse, qué fondo usar y cómo capturar tanto los retratos de la pareja como las emociones de familiares e invitados." },
+      { heading: "Locaciones ideales para fotos del primer baile", body: "Punta Cana funciona muy bien para primeros bailes frente al mar, especialmente en beach clubs y resorts donde la pista se integra con la recepción. La Romana y Casa de Campo permiten una sensación más privada y editorial, con villas, terrazas y espacios elegantes. Santo Domingo ofrece salones, hoteles y restaurantes con una estética urbana y sofisticada. En cada caso, el objetivo es que el lugar acompañe la emoción sin distraer del momento principal." },
+      { heading: "Consejos para parejas antes del baile", body: "No es necesario preparar una coreografía complicada. Los mejores resultados suelen venir de movimientos simples: caminar, girar lentamente, abrazarse y mantener contacto visual. También recomendamos hablar con el DJ o la banda para saber cuándo empieza la canción, mantener una pista limpia y avisar al fotógrafo si habrá humo, luces especiales, fuegos fríos o entrada sorpresa. Esos detalles cambian exposición, composición y posición." },
+      { heading: "Cómo lo fotografiamos", body: "Durante el primer baile buscamos una mezcla de plano abierto, retratos cerrados, movimiento del vestido, manos, miradas y reacciones. Si la pareja se casa en playa, cuidamos el horizonte y la temperatura de color. Si la boda es en interior, equilibramos luz ambiente con flash para no perder la atmósfera. Después del baile, normalmente seguimos con brindis, cena o fiesta, así que el flujo debe ser rápido y natural." }
+    ],
+    links: [
+      { href: "/", label: "Fotógrafo de bodas en República Dominicana" },
+      { href: "/fotografo-bodas-punta-cana", label: "fotógrafo de bodas en Punta Cana" },
+      { href: "/fotografo-bodas-santo-domingo", label: "fotografía de bodas en Santo Domingo" },
+      { href: "/cuanto-cuesta-fotografo-bodas-republica-dominicana", label: "precios de fotografía de bodas" },
+      { href: "/boda-destino-republica-dominicana", label: "boda destino en República Dominicana" }
+    ]
+  },
+  {
+    slug: "celebra-el-amor-en-el-caribe-desde-ceremonias-intimas-hasta-grandes-eventos",
+    title: "Bodas en el Caribe en República Dominicana | Babula Shots",
+    description: "Guía para bodas en el Caribe dominicano: Punta Cana, Samaná, La Romana, resorts, villas y fotografía profesional.",
+    h1: "Bodas en el Caribe en República Dominicana",
+    intro: "República Dominicana es uno de los destinos más buscados del Caribe para bodas por su mezcla de playas, resorts, villas privadas, clima cálido y conexiones internacionales. Una boda en el Caribe puede ser íntima y relajada o convertirse en una celebración completa con invitados, recepción, fiesta y varios días de experiencia.",
+    sections: [
+      { heading: "Qué tipo de boda funciona en el Caribe", body: "Las parejas suelen elegir entre ceremonias en playa, bodas en resorts, celebraciones privadas en villas o eventos premium en lugares como Casa de Campo, Cap Cana y Las Terrenas. La decisión cambia la fotografía: una ceremonia íntima pide discreción y cercanía, mientras que una boda grande necesita cobertura completa, coordinación con planners y atención a familia, decoración, fiesta y detalles." },
+      { heading: "Mejores destinos para casarse", body: "Punta Cana es fuerte para resorts, beach clubs, Bávaro, Cap Cana, Macao y Uvero Alto. Samaná y Las Terrenas ofrecen una estética más natural, con playas menos urbanas, villas y paisajes verdes. La Romana combina lujo, privacidad y espacios como Casa de Campo y Altos de Chavón. Santo Domingo es ideal para parejas que quieren una boda elegante, urbana o religiosa con recepción en hotel o restaurante privado." },
+      { heading: "Fotografía para bodas destino", body: "En una boda destino, la fotografía también documenta viaje, ambiente, familia y experiencia. No se trata solo de ceremonia y retratos. Capturamos preparación, llegada de invitados, detalles del lugar, emoción real y fiesta para que la galería cuente el contexto completo de casarse en República Dominicana." },
+      { heading: "Planificación práctica", body: "Antes de reservar, conviene revisar permisos del venue, horarios de ceremonia, plan de lluvia, distancia entre habitaciones y recepción, reglas para proveedores externos y tiempo para retratos. Estas decisiones afectan directamente el resultado visual. Una buena línea de tiempo permite disfrutar el evento sin sacrificar fotos importantes." }
+    ],
+    links: [
+      { href: "/", label: "fotógrafo de bodas República Dominicana" },
+      { href: "/fotografo-bodas-punta-cana", label: "bodas en Punta Cana" },
+      { href: "/fotografo-bodas-samana", label: "fotógrafo de bodas en Samaná" },
+      { href: "/fotografo-bodas-la-romana", label: "fotógrafo de bodas en La Romana" },
+      { href: "/mejores-lugares-para-bodas-punta-cana", label: "mejores lugares para bodas en Punta Cana" }
+    ]
+  },
+  {
+    slug: "buscas-un-lugar-unico-para-tu-preboda",
+    title: "Lugares para sesión preboda en República Dominicana",
+    description: "Ideas de lugares para sesión preboda en República Dominicana: Punta Cana, Zona Colonial, Jarabacoa, Las Terrenas y más.",
+    h1: "Lugares para sesión preboda en República Dominicana",
+    intro: "Una sesión preboda ayuda a la pareja a sentirse cómoda frente a la cámara antes del día de la boda y también crea imágenes útiles para invitaciones, save the date, web de boda o recuerdos personales. República Dominicana ofrece escenarios muy distintos: playa, ciudad histórica, montaña, jardines, villas y resorts.",
+    sections: [
+      { heading: "Punta Cana y playas del Este", body: "Punta Cana, Bávaro, Cap Cana y Macao son opciones fuertes para parejas que quieren una sesión luminosa, romántica y tropical. La playa funciona mejor temprano en la mañana o cerca del atardecer, cuando la luz es suave y el calor baja. También se pueden combinar zonas de arena, muelles, vegetación y espacios del resort para lograr variedad." },
+      { heading: "Santo Domingo y Zona Colonial", body: "La Zona Colonial ofrece fachadas, calles, puertas antiguas, patios y una energía urbana elegante. Es ideal para parejas que quieren una sesión editorial sin salir de la ciudad. Naco, Piantini, hoteles y restaurantes privados también pueden funcionar cuando la pareja busca una estética más moderna o sofisticada." },
+      { heading: "Jarabacoa, Constanza y montaña", body: "Las sesiones preboda en montaña tienen una sensación distinta: clima fresco, vegetación, fincas, villas y paisajes abiertos. Jarabacoa y Constanza son ideales para parejas que no quieren playa y prefieren una historia visual más íntima, natural y tranquila." },
+      { heading: "Cómo elegir el lugar correcto", body: "El mejor lugar depende de la personalidad de la pareja, ropa, horario, traslado y estilo visual. Antes de la sesión recomendamos definir si quieren algo romántico, elegante, documental, editorial o relajado. Con esa dirección se puede elegir una ruta simple y evitar perder tiempo cambiando demasiadas veces de locación." }
+    ],
+    links: [
+      { href: "/", label: "fotógrafo de bodas en República Dominicana" },
+      { href: "/fotografo-bodas-punta-cana", label: "sesión preboda en Punta Cana" },
+      { href: "/fotografo-bodas-santo-domingo", label: "fotos de boda en Santo Domingo" },
+      { href: "/fotografo-bodas-jarabacoa", label: "fotógrafo de bodas en Jarabacoa" },
+      { href: "/boda-destino-republica-dominicana", label: "boda destino en República Dominicana" }
+    ]
+  },
+  {
+    slug: "los-extranjeros-pueden-contraer-matrimonio-civil-en-la-republica-dominicana",
+    title: "Requisitos para casarse en República Dominicana",
+    description: "Información para extranjeros que desean casarse en República Dominicana y planificar una boda destino con fotografía profesional.",
+    h1: "Requisitos para casarse en República Dominicana",
+    intro: "Los extranjeros pueden contraer matrimonio civil en República Dominicana si cumplen los requisitos legales correspondientes. Por eso el país es una opción muy atractiva para bodas destino: permite combinar una ceremonia válida, viaje familiar, celebración en playa o ciudad y una experiencia visual muy caribeña.",
+    sections: [
+      { heading: "Documentos habituales", body: "Los documentos pueden variar según nacionalidad y situación civil, pero normalmente se solicita pasaporte válido, acta de nacimiento, declaración o certificado de soltería, documentos de divorcio si aplica y traducciones o legalizaciones cuando corresponda. Siempre recomendamos confirmar requisitos actualizados con la Junta Central Electoral o con el oficial civil responsable de la ceremonia." },
+      { heading: "Dónde casarse en República Dominicana", body: "Punta Cana es una de las zonas más elegidas por parejas extranjeras por resorts, playa y facilidad logística. Santo Domingo funciona bien para ceremonias civiles, bodas religiosas y recepciones urbanas. La Romana, Casa de Campo, Samaná y Las Terrenas son ideales para celebraciones privadas, villas y bodas destino con una estética más exclusiva o natural." },
+      { heading: "Cómo coordinar fotografía y ceremonia civil", body: "La ceremonia civil suele tener momentos breves pero importantes: entrada, lectura, firmas, intercambio de anillos, beso, retratos familiares y celebración. Coordinamos el horario con la pareja para aprovechar buena luz antes o después del acto legal, especialmente si la boda ocurre frente al mar o en exteriores." },
+      { heading: "Consejos para parejas extranjeras", body: "Es importante preparar documentos con tiempo, confirmar traducciones, revisar permisos del venue y definir una línea de tiempo realista. Para fotografía, recomendamos reservar espacio para retratos de pareja, familia y detalles del entorno. Así la galería refleja tanto el valor legal del momento como la emoción de una boda destino en República Dominicana." }
+    ],
+    links: [
+      { href: "/", label: "fotógrafo de bodas República Dominicana" },
+      { href: "/fotografo-bodas-punta-cana", label: "wedding photographer Punta Cana" },
+      { href: "/fotografo-bodas-santo-domingo", label: "fotografía de bodas en Santo Domingo" },
+      { href: "/boda-destino-republica-dominicana", label: "boda destino en República Dominicana" },
+      { href: "/cuanto-cuesta-fotografo-bodas-republica-dominicana", label: "cuánto cuesta un fotógrafo de bodas" }
     ]
   }
 ];
