@@ -1,0 +1,219 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { CityWeddingPage } from "@/components/CityWeddingPage";
+import { SeoJsonLd } from "@/components/SeoJsonLd";
+import { blogPosts, findBlogPost } from "@/lib/blogPosts";
+import { cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
+
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return [
+    ...weddingCities.map((city) => ({ slug: `fotografo-bodas-${city.slug}` })),
+    ...blogPosts.map((post) => ({ slug: post.slug }))
+  ];
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const citySlug = slug.startsWith("fotografo-bodas-") ? slug.replace("fotografo-bodas-", "") : "";
+  const city = citySlug ? findCityBySlug(citySlug) : null;
+
+  if (city) {
+    const esUrl = cityPath(city.slug);
+    const enUrl = `/en${esUrl}`;
+    const title = `Wedding photographer in ${city.city} | Babula Shots`;
+    const description = `Wedding photographer in ${city.city} for destination weddings, ceremonies, portraits and edited galleries in Dominican Republic.`;
+
+    return {
+      title,
+      description,
+      alternates: {
+        canonical: enUrl,
+        languages: {
+          "es-DO": esUrl,
+          en: enUrl,
+          "x-default": esUrl
+        }
+      },
+      openGraph: {
+        title,
+        description,
+        url: enUrl,
+        images: [{ url: city.images[0], width: 1600, height: 2000, alt: title }],
+        type: "website",
+        locale: "en_US",
+        siteName: "Babula Shots"
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [city.images[0]]
+      }
+    };
+  }
+
+  const post = findBlogPost(slug);
+  if (!post) return {};
+  const title = `${post.title} | Babula Shots`;
+
+  return {
+    title,
+    description: post.description,
+    alternates: {
+      canonical: `/en/${post.slug}`,
+      languages: {
+        "es-DO": `/${post.slug}`,
+        en: `/en/${post.slug}`,
+        "x-default": `/${post.slug}`
+      }
+    },
+    openGraph: {
+      title,
+      description: post.description,
+      url: `/en/${post.slug}`,
+      locale: "en_US",
+      siteName: "Babula Shots",
+      images: [{ url: "/images/fotografo-de-bodas-4.webp", width: 1366, height: 2048 }]
+    }
+  };
+}
+
+export default async function EnglishSlugPage({ params }: PageProps) {
+  const { slug } = await params;
+  const citySlug = slug.startsWith("fotografo-bodas-") ? slug.replace("fotografo-bodas-", "") : "";
+  const city = citySlug ? findCityBySlug(citySlug) : null;
+
+  if (city) {
+    const canonical = `https://boda.babulashotsrd.com/en${cityPath(city.slug)}`;
+    const questions = [
+      {
+        question: `How much does a wedding photographer in ${city.city} cost?`,
+        answer: `Pricing depends on duration, venue, number of photographers, final delivery and whether the wedding in ${city.city} requires travel. Send date, location and coverage type for an exact quote.`
+      },
+      {
+        question: `Do you photograph destination weddings in ${city.city}?`,
+        answer: `Yes. Babula Shots photographs destination weddings in ${city.city} and other areas of Dominican Republic, including beaches, resorts, private villas, countryside venues, churches and intimate events.`
+      },
+      {
+        question: "Do you deliver edited photos?",
+        answer: "Yes. Delivery includes a final edited gallery with professional selection, consistent visual style and files ready to download, share and print."
+      }
+    ];
+    const schema = [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Babula Shots",
+        url: canonical,
+        image: `https://boda.babulashotsrd.com${city.images[0]}`,
+        telephone: "+18097209547",
+        email: "info@babulashotsrd.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Santo Domingo",
+          addressCountry: "DO"
+        },
+        areaServed: {
+          "@type": "City",
+          name: city.city
+        },
+        priceRange: "$$",
+        sameAs: ["https://www.instagram.com/babulashotsrd/"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: `Wedding photography in ${city.city}`,
+        serviceType: "Wedding photography",
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Babula Shots",
+          telephone: "+18097209547",
+          url: "https://boda.babulashotsrd.com/"
+        },
+        areaServed: {
+          "@type": "City",
+          name: city.city
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: questions.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer
+          }
+        }))
+      }
+    ];
+
+    return (
+      <>
+        <SeoJsonLd data={schema} />
+        <CityWeddingPage city={city} locale="en" />
+      </>
+    );
+  }
+
+  const post = findBlogPost(slug);
+  if (!post) notFound();
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    mainEntityOfPage: `https://boda.babulashotsrd.com/en/${post.slug}`,
+    author: { "@type": "Organization", name: "Babula Shots" },
+    publisher: {
+      "@type": "Organization",
+      name: "Babula Shots",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://boda.babulashotsrd.com/images/cropped-babulashotslogo-1.webp"
+      }
+    }
+  };
+
+  return (
+    <>
+      <SeoJsonLd data={schema} />
+      <main>
+        <section className="article-hero">
+          <div className="wrap copy-stack">
+            <p className="eyebrow">Wedding guide · Babula Shots</p>
+            <h1>{post.h1}</h1>
+            <p>{post.intro}</p>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="wrap article-grid">
+            <article className="article-copy">
+              {post.sections.map((section) => (
+                <section key={section.heading}>
+                  <h2>{section.heading}</h2>
+                  <p>{section.body}</p>
+                </section>
+              ))}
+            </article>
+            <aside className="article-links" aria-label="Related pages">
+              <h2>Related links</h2>
+              {post.links.map((link) => (
+                <Link key={link.href} href={`/en${link.href}`}>{link.label}</Link>
+              ))}
+            </aside>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
