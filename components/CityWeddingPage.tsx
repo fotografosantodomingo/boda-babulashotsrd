@@ -12,6 +12,85 @@ const services = [
   "Video, reels y highlight clips"
 ];
 
+export const citySeoEnhancements: Record<string, {
+  logistics: string;
+  englishLogistics: string;
+  photoAdvice: string;
+  englishPhotoAdvice: string;
+  faq: Array<{ question: string; answer: string; englishQuestion: string; englishAnswer: string }>;
+}> = {
+  "punta-cana": {
+    logistics: "En Punta Cana muchas bodas ocurren dentro de resorts, beach clubs o villas privadas, por eso coordinamos horarios con wedding planners, permisos internos, distancia entre habitaciones, ceremonia y recepción, y el momento exacto de luz para retratos frente al mar. La cobertura se diseña para no perder tiempo caminando entre áreas del hotel y para aprovechar playa, jardines, muelles, terrazas y espacios de fiesta sin interrumpir la experiencia de los invitados.",
+    englishLogistics: "In Punta Cana many weddings happen inside resorts, beach clubs or private villas, so we coordinate timelines with planners, internal permissions, walking distance between rooms, ceremony and reception, and the exact light window for beach portraits. Coverage is designed to avoid losing time between hotel areas and to use the beach, gardens, docks, terraces and party spaces without interrupting the guest experience.",
+    photoAdvice: "Para bodas en playa recomendamos retratos principales cerca del atardecer, detalles antes de la ceremonia y una lista corta de fotos familiares. Así la pareja consigue una galería variada con ceremonia, ambiente de resort, retratos naturales y fiesta sin sentir que el día se convierte en una sesión larga.",
+    englishPhotoAdvice: "For beach weddings we recommend main portraits near sunset, details before the ceremony and a short family photo list. That gives the couple a varied gallery with ceremony, resort atmosphere, natural portraits and party coverage without turning the day into one long photo session.",
+    faq: [
+      {
+        question: "¿Qué resorts de Punta Cana funcionan mejor para fotos de boda?",
+        answer: "Los mejores resultados suelen venir de espacios con playa limpia, sombra cercana, jardines y una recepción bien iluminada. Kukua, Jellyfish, Cap Cana, Bávaro y resorts con terrazas frente al mar ofrecen mucha variedad visual.",
+        englishQuestion: "Which Punta Cana resorts work best for wedding photos?",
+        englishAnswer: "The strongest results usually come from venues with a clean beach, nearby shade, gardens and a well-lit reception. Kukua, Jellyfish, Cap Cana, Bávaro and oceanfront resort terraces offer strong visual variety."
+      }
+    ]
+  },
+  "santo-domingo": {
+    logistics: "En Santo Domingo la clave está en combinar ciudad, arquitectura y tiempos de traslado. Para bodas en Zona Colonial, iglesias, hoteles o restaurantes privados, revisamos parqueo, permisos, distancia entre locaciones y momentos de menor tráfico. Esto permite crear retratos urbanos elegantes sin perder el ritmo de la ceremonia y la recepción.",
+    englishLogistics: "In Santo Domingo the key is combining city atmosphere, architecture and travel time. For weddings in the Colonial Zone, churches, hotels or private restaurants, we review parking, permissions, distance between locations and lower-traffic windows. This creates elegant urban portraits without losing the rhythm of the ceremony and reception.",
+    photoAdvice: "La Zona Colonial funciona muy bien para retratos editoriales, detalles de vestido, fotos familiares y sesiones rápidas entre ceremonia y recepción. Recomendamos planificar una ruta corta para aprovechar fachadas, calles, patios y luz natural sin cansar a la pareja.",
+    englishPhotoAdvice: "The Colonial Zone works beautifully for editorial portraits, dress details, family photos and quick sessions between ceremony and reception. We recommend a short route to use facades, streets, courtyards and natural light without exhausting the couple.",
+    faq: [
+      {
+        question: "¿Hacen fotos de boda civil en Santo Domingo?",
+        answer: "Sí. Cubrimos bodas civiles, firmas, celebraciones íntimas y recepciones pequeñas en Santo Domingo, con opción de retratos urbanos antes o después de la ceremonia.",
+        englishQuestion: "Do you photograph civil weddings in Santo Domingo?",
+        englishAnswer: "Yes. We cover civil weddings, signatures, intimate celebrations and small receptions in Santo Domingo, with urban portraits before or after the ceremony."
+      }
+    ]
+  },
+  "la-romana": {
+    logistics: "La Romana suele mezclar venues premium, villas privadas, playa y espacios como Casa de Campo o Altos de Chavón. Antes de la boda revisamos accesos, tiempos internos, reglas del venue y distancia entre preparación, ceremonia, retratos y recepción para lograr una cobertura fluida.",
+    englishLogistics: "La Romana often combines premium venues, private villas, beach settings and places like Casa de Campo or Altos de Chavón. Before the wedding we review access, internal travel times, venue rules and distance between getting ready, ceremony, portraits and reception to keep coverage smooth.",
+    photoAdvice: "Para Casa de Campo y Altos de Chavón recomendamos reservar tiempo para retratos editoriales y detalles arquitectónicos. La mezcla de piedra, vegetación, luz cálida y espacios privados permite una galería muy elegante si el horario está bien organizado.",
+    englishPhotoAdvice: "For Casa de Campo and Altos de Chavón we recommend reserving time for editorial portraits and architectural details. Stone textures, greenery, warm light and private spaces create an elegant gallery when the timeline is well organized.",
+    faq: [
+      {
+        question: "¿Trabajan bodas en Casa de Campo?",
+        answer: "Sí. Cubrimos bodas en Casa de Campo, Altos de Chavón, Minitas Beach, villas privadas y locaciones cercanas de La Romana y Bayahíbe.",
+        englishQuestion: "Do you photograph weddings in Casa de Campo?",
+        englishAnswer: "Yes. We cover weddings in Casa de Campo, Altos de Chavón, Minitas Beach, private villas and nearby La Romana and Bayahíbe locations."
+      }
+    ]
+  },
+  samana: {
+    logistics: "Samaná requiere una planificación flexible porque muchas bodas combinan playa, villa, montaña y traslados más largos. Revisamos clima, acceso, horarios de luz y plan alterno para lluvia, especialmente en celebraciones íntimas, elopements y bodas destino cerca de Las Galeras, Playa Rincón o Cayo Levantado.",
+    englishLogistics: "Samaná needs flexible planning because many weddings combine beach, villa, mountains and longer transfers. We review weather, access, light timing and rain alternatives, especially for intimate celebrations, elopements and destination weddings near Las Galeras, Playa Rincón or Cayo Levantado.",
+    photoAdvice: "La fuerza visual de Samaná está en su naturaleza. Recomendamos retratos con luz suave, momentos documentales durante el traslado y una cobertura que use paisaje sin convertirlo en protagonista por encima de la pareja.",
+    englishPhotoAdvice: "Samaná's visual strength is its natural landscape. We recommend portraits in soft light, documentary moments during transitions and coverage that uses the scenery without letting it overpower the couple.",
+    faq: [
+      {
+        question: "¿Cubren bodas pequeñas o elopements en Samaná?",
+        answer: "Sí. Samaná es ideal para bodas íntimas, elopements y sesiones de pareja en playa, villa o montaña. Ajustamos la cobertura a pocas horas o día completo.",
+        englishQuestion: "Do you cover small weddings or elopements in Samaná?",
+        englishAnswer: "Yes. Samaná is ideal for intimate weddings, elopements and couple sessions on the beach, in villas or in mountain settings. Coverage can be a few hours or full day."
+      }
+    ]
+  },
+  "puerto-plata": {
+    logistics: "Puerto Plata y la costa norte tienen una mezcla de hoteles, playas, villas y zonas con viento como Cabarete. Planificamos la cobertura considerando clima, hora de atardecer, distancia entre locaciones y opciones de retrato si el viento o la lluvia cambian el plan.",
+    englishLogistics: "Puerto Plata and the north coast mix hotels, beaches, villas and windier areas like Cabarete. We plan coverage around weather, sunset, distance between locations and portrait alternatives if wind or rain changes the plan.",
+    photoAdvice: "En la costa norte funcionan muy bien los retratos con movimiento, vestidos ligeros, atardeceres y escenas de playa más relajadas. Para mantener elegancia, cuidamos dirección, composición y color durante todo el evento.",
+    englishPhotoAdvice: "On the north coast, movement, light dresses, sunsets and relaxed beach scenes work beautifully. To keep the gallery elegant, we guide direction, composition and color across the entire event.",
+    faq: [
+      {
+        question: "¿También trabajan en Cabarete y Sosúa?",
+        answer: "Sí. Desde Puerto Plata cubrimos Cabarete, Sosúa, Playa Dorada, villas privadas y celebraciones en la costa norte.",
+        englishQuestion: "Do you also work in Cabarete and Sosúa?",
+        englishAnswer: "Yes. From Puerto Plata we cover Cabarete, Sosúa, Playa Dorada, private villas and celebrations across the north coast."
+      }
+    ]
+  }
+};
+
 function nearbyHref(name: string) {
   const slug = slugForCityName(name);
   return findCityBySlug(slug) ? cityPath(slug) : null;
@@ -23,6 +102,7 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
   const cityDescription = isEnglish
     ? `Wedding photographer in ${city.city} for destination weddings, ceremonies, portraits and edited galleries in Dominican Republic.`
     : city.description;
+  const enhancement = citySeoEnhancements[city.slug];
   const quoteSubject = encodeURIComponent(`Fotógrafo de bodas en ${city.city}`);
   const calendarText = encodeURIComponent(`Consulta boda en ${city.city} con Babula Shots`);
   const calendarDetails = encodeURIComponent(
@@ -120,6 +200,20 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
           </div>
         </div>
       </section>
+
+      {enhancement ? (
+        <section className="section">
+          <div className="wrap split">
+            <p className="section-tag">{isEnglish ? "Local expertise" : "Experiencia local"}</p>
+            <div className="copy-stack">
+              <h2>{isEnglish ? `Wedding logistics in ${city.city}` : `Logística de bodas en ${city.city}`}</h2>
+              <p>{isEnglish ? enhancement.englishLogistics : enhancement.logistics}</p>
+              <h3>{isEnglish ? `Photo planning tips for ${city.city}` : `Consejos de fotografía para ${city.city}`}</h3>
+              <p>{isEnglish ? enhancement.englishPhotoAdvice : enhancement.photoAdvice}</p>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="wrap split">
@@ -254,6 +348,12 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
                   : "Sí. La entrega incluye una galería final editada con selección profesional, estilo visual consistente y archivos listos para descargar, compartir e imprimir."}
               </p>
             </article>
+            {enhancement?.faq.map((item) => (
+              <article key={item.question}>
+                <h3>{isEnglish ? item.englishQuestion : item.question}</h3>
+                <p>{isEnglish ? item.englishAnswer : item.answer}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CityWeddingPage } from "@/components/CityWeddingPage";
+import { CityWeddingPage, citySeoEnhancements } from "@/components/CityWeddingPage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { blogPosts, findBlogPost } from "@/lib/blogPosts";
 import { cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
@@ -104,6 +104,13 @@ export default async function EnglishSlugPage({ params }: PageProps) {
         answer: "Yes. Delivery includes a final edited gallery with professional selection, consistent visual style and files ready to download, share and print."
       }
     ];
+    const enhancement = citySeoEnhancements[city.slug];
+    if (enhancement) {
+      questions.push(...enhancement.faq.map((item) => ({
+        question: item.englishQuestion,
+        answer: item.englishAnswer
+      })));
+    }
     const schema = [
       {
         "@context": "https://schema.org",
@@ -152,6 +159,24 @@ export default async function EnglishSlugPage({ params }: PageProps) {
             text: item.answer
           }
         }))
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://boda.babulashotsrd.com/en/"
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: `Wedding photographer in ${city.city}`,
+            item: canonical
+          }
+        ]
       }
     ];
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
+import { blogPosts } from "@/lib/blogPosts";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
 type DominicanRepublicWeddingHomeProps = {
@@ -45,6 +46,8 @@ const venues = [
   "Playa Bonita (Las Terrenas)",
   "Playa Dorada (Puerto Plata)"
 ];
+
+const featuredGuides = blogPosts.slice(0, 7);
 
 const faqItems = [
   {
@@ -187,6 +190,18 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
     },
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Babula Shots Wedding Photography",
+      url: isEnglish ? "https://boda.babulashotsrd.com/en/" : "https://boda.babulashotsrd.com/",
+      inLanguage: isEnglish ? "en" : "es-DO",
+      publisher: {
+        "@type": "Organization",
+        name: "Babula Shots",
+        url: "https://boda.babulashotsrd.com/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": "https://boda.babulashotsrd.com/#localbusiness",
       name: "Babula Shots",
@@ -326,6 +341,27 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
                     "Desde la preparación hasta el último baile, el objetivo es entregar una galería emocional, consistente y lista para compartir, imprimir y conservar."
                   ]
               ).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section alt-section">
+          <div className="wrap">
+            <p className="section-tag">{isEnglish ? "Wedding guides" : "Guías de boda"}</p>
+            <h2>{isEnglish ? "Planning resources for destination weddings" : "Recursos para planificar bodas destino"}</h2>
+            <p className="section-intro">
+              {isEnglish
+                ? "These guides support the city pages with pricing, venue and destination wedding context for couples comparing locations in Dominican Republic."
+                : "Estas guías apoyan las páginas locales con contexto de precios, venues y bodas destino para parejas que comparan locaciones en República Dominicana."}
+            </p>
+            <div className="city-card-grid">
+              {featuredGuides.map((post) => (
+                <Link key={post.slug} href={`${isEnglish ? "/en" : ""}/${post.slug}`} className="city-card">
+                  <span>{isEnglish ? "Guide" : "Guía"}</span>
+                  <strong>{post.h1}</strong>
+                  <em>{post.description}</em>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
