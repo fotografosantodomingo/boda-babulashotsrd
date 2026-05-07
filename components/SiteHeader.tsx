@@ -26,6 +26,9 @@ export function SiteHeader() {
         <Link href={isEnglish ? "/en/fotografo-bodas-la-romana" : "/fotografo-bodas-la-romana"} data-nav-romana>
           La Romana
         </Link>
+        <a href="https://inmobiliaria.babulashotsrd.com/" data-nav-real-estate>
+          {isEnglish ? "Real Estate" : "Inmobiliaria"}
+        </a>
         <Link href={isEnglish ? "/en/#contacto" : "/#contacto"} data-nav-book>
           {isEnglish ? "Book" : "Reserva"}
         </Link>
