@@ -285,10 +285,6 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
             <p className="eyebrow">{homeCopy.eyebrow}</p>
             <h1>{homeCopy.h1}</h1>
             <p>{homeCopy.heroText}</p>
-            <div className="hero-actions">
-              <a className="button button-light" href="#contacto">{homeCopy.reserve}</a>
-              <a className="button button-ghost" href="tel:+18097209547">{homeCopy.call}</a>
-            </div>
           </div>
         </section>
 
