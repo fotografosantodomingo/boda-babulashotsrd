@@ -171,12 +171,12 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
         "https://www.instagram.com/babulashotsrd/",
         "https://babulashotsrd.com/",
         "https://estudio.babulashotsrd.com/",
-        "https://drone.babulashotsrd.com/",
+        "https://dron.babulashotsrd.com/",
         "https://inmobiliaria.babulashotsrd.com/"
       ],
       subOrganization: [
         { "@type": "Organization", name: "Babula Studio", url: "https://estudio.babulashotsrd.com/" },
-        { "@type": "Organization", name: "Babula Drone", url: "https://drone.babulashotsrd.com/" },
+        { "@type": "Organization", name: "Babula Drone", url: "https://dron.babulashotsrd.com/" },
         { "@type": "Organization", name: "Babula Real Estate", url: "https://inmobiliaria.babulashotsrd.com/" }
       ]
     },
@@ -218,7 +218,7 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
         "https://www.instagram.com/babulashotsrd/",
         "https://babulashotsrd.com/",
         "https://estudio.babulashotsrd.com/",
-        "https://drone.babulashotsrd.com/",
+        "https://dron.babulashotsrd.com/",
         "https://inmobiliaria.babulashotsrd.com/"
       ]
     },

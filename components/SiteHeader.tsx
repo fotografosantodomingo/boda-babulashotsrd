@@ -1,12 +1,9 @@
 import Link from "next/link";
 import { ThemeLanguageControls } from "@/components/ThemeLanguageControls";
-import { bodaUrl, droneUrl, inmobiliariaUrl, mainBrandUrl, niche } from "@/lib/seo";
+import { mainBrandUrl, niche } from "@/lib/seo";
 
-const navItems: Array<{ label: string; href: string; current?: boolean; external?: boolean }> = [
+const navItems: Array<{ label: string; href: string; external?: boolean }> = [
   { label: "Home", href: mainBrandUrl, external: true },
-  { label: "Bodas", href: bodaUrl + "/", current: true },
-  { label: "Inmobiliaria", href: inmobiliariaUrl, external: true },
-  { label: "Drone", href: droneUrl, external: true },
   { label: "Contacto", href: "#contacto" }
 ];
 
@@ -36,9 +33,8 @@ export function SiteHeader() {
         {navItems.map((item) => (
           <a
             key={item.label}
-            className={`site-nav-link${item.current ? " is-current" : ""}`}
+            className="site-nav-link"
             href={item.href}
-            aria-current={item.current ? "page" : undefined}
             {...(item.external ? { rel: "noopener" } : {})}
           >
             {item.label}
@@ -61,9 +57,8 @@ export function SiteHeader() {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                className={`site-drawer-link${item.current ? " is-current" : ""}`}
+                className="site-drawer-link"
                 href={item.href}
-                aria-current={item.current ? "page" : undefined}
                 {...(item.external ? { rel: "noopener" } : {})}
               >
                 {item.label}
