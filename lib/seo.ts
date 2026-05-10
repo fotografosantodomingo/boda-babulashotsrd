@@ -36,3 +36,14 @@ export function assetPath(path: string) {
 export function whatsappUrl(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Babula Shots Bodas",
+  url: siteUrl,
+  telephone: phoneE164,
+  email,
+  parentOrganization: { "@type": "Organization", name: "Babula Shots", url: mainBrandUrl },
+  sameAs: [mainBrandUrl, bodaUrl, inmobiliariaUrl, droneUrl, santoDomingoHubUrl, "https://www.instagram.com/babulashotsrd/"]
+};

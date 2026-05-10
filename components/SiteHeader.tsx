@@ -4,6 +4,10 @@ import { mainBrandUrl, niche } from "@/lib/seo";
 
 const navItems: Array<{ label: string; href: string; external?: boolean }> = [
   { label: "Home", href: mainBrandUrl, external: true },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Ubicaciones", href: "/ubicaciones/" },
+  { label: "Precios", href: "/precios/" },
+  { label: "FAQ", href: "/faq/" },
   { label: "Contacto", href: "#contacto" }
 ];
 
