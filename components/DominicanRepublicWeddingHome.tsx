@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CallbackForm } from "@/components/CallbackForm";
 import { CrossSiteCta } from "@/components/CrossSiteCta";
 import { HeroImage } from "@/components/HeroImage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
@@ -104,8 +105,7 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
         ctaEyebrow: "Booking",
         ctaTitle: "Book your wedding photographer in Dominican Republic",
         ctaText: "Send your date, location and coverage type to receive a personalized quote.",
-        quote: "Request quote",
-        calendar: "Schedule a call"
+        quote: "Request quote"
       }
     : {
         h1: "Fotógrafo de bodas en República Dominicana",
@@ -135,10 +135,8 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
         ctaEyebrow: "Reserva",
         ctaTitle: "Reserva tu fotógrafo de bodas en República Dominicana",
         ctaText: "Envía fecha, locación y tipo de cobertura para recibir una cotización personalizada.",
-        quote: "Solicitar cotización",
-        calendar: "Agendar llamada"
+        quote: "Solicitar cotización"
       };
-  const calendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Consulta%20boda%20con%20Babula%20Shots&details=Consulta%20para%20confirmar%20disponibilidad%20de%20fotograf%C3%ADa%20de%20bodas%20en%20Rep%C3%BAblica%20Dominicana.%20Contacto%3A%20info%40babulashotsrd.com%20%2F%20809%20720%2095%2047";
   const homeFaqItems = isEnglish
     ? [
         {
@@ -490,18 +488,18 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
               <p className="eyebrow">{homeCopy.ctaEyebrow}</p>
               <h2>{homeCopy.ctaTitle}</h2>
               <p>{homeCopy.ctaText}</p>
+              <div className="cta-actions">
+                <a className="button button-light" href="mailto:info@babulashotsrd.com?subject=Fot%C3%B3grafo%20de%20bodas%20RD">
+                  {homeCopy.quote}
+                </a>
+                <a className="button button-light" href="tel:+18097209547">809 720 95 47</a>
+                <a className="button button-light" href="https://wa.me/18097209547" target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </div>
             </div>
-            <div className="cta-actions">
-              <a className="button button-light" href="mailto:info@babulashotsrd.com?subject=Fot%C3%B3grafo%20de%20bodas%20RD">
-                {homeCopy.quote}
-              </a>
-              <a className="button button-light" href="tel:+18097209547">809 720 95 47</a>
-              <a className="button button-light" href={calendarUrl} target="_blank" rel="noopener noreferrer">
-                {homeCopy.calendar}
-              </a>
-              <a className="button button-light" href="https://wa.me/18097209547" target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
+            <div className="cta-form">
+              <CallbackForm locale={isEnglish ? "en" : "es"} />
             </div>
           </div>
         </section>

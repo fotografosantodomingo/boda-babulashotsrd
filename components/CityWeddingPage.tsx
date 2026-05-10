@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CallbackForm } from "@/components/CallbackForm";
 import { HeroImage } from "@/components/HeroImage";
 import { cityPath, findCityBySlug, slugForCityName, type WeddingCity } from "@/lib/weddingCities";
 
@@ -119,11 +120,6 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
     : city.description;
   const enhancement = citySeoEnhancements[city.slug];
   const quoteSubject = encodeURIComponent(`Fotógrafo de bodas en ${city.city}`);
-  const calendarText = encodeURIComponent(`Consulta boda en ${city.city} con Babula Shots`);
-  const calendarDetails = encodeURIComponent(
-    `Consulta para confirmar disponibilidad de fotografía de bodas en ${city.city}. Contacto: info@babulashotsrd.com / 809 720 95 47`
-  );
-  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calendarText}&details=${calendarDetails}`;
 
   return (
     <main>
@@ -393,18 +389,18 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
             <p className="eyebrow">{isEnglish ? "Availability" : "Disponibilidad"}</p>
             <h2>{isEnglish ? `Book your wedding photographer in ${city.city}` : `Reserva tu fotógrafo de bodas en ${city.city}`}</h2>
             <p>{isEnglish ? "Send your date, location and wedding type to confirm availability." : "Envía tu fecha, locación y tipo de boda para confirmar disponibilidad."}</p>
+            <div className="cta-actions">
+              <a className="button button-light" href={`mailto:info@babulashotsrd.com?subject=${quoteSubject}`}>
+                {isEnglish ? "Request quote" : "Solicitar cotización"}
+              </a>
+              <a className="button button-light" href="tel:+18097209547">809 720 95 47</a>
+              <a className="button button-light" href="https://wa.me/18097209547" target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            </div>
           </div>
-          <div className="cta-actions">
-            <a className="button button-light" href={`mailto:info@babulashotsrd.com?subject=${quoteSubject}`}>
-              {isEnglish ? "Request quote" : "Solicitar cotización"}
-            </a>
-            <a className="button button-light" href="tel:+18097209547">809 720 95 47</a>
-            <a className="button button-light" href={calendarUrl} target="_blank" rel="noopener noreferrer">
-              {isEnglish ? "Schedule a call" : "Agendar llamada"}
-            </a>
-            <a className="button button-light" href="https://wa.me/18097209547" target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
+          <div className="cta-form">
+            <CallbackForm locale={isEnglish ? "en" : "es"} />
           </div>
         </div>
       </section>

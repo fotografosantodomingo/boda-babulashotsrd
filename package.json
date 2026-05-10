@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "gen:social-card": "node scripts/gen-social-card.mjs",
-    "check:meta": "node scripts/check-meta.mjs"
+    "check:meta": "node scripts/check-meta.mjs",
+    "deploy:callback-worker": "cd worker && npx wrangler deploy"
   },
   "dependencies": {
     "next": "^16.2.4",
