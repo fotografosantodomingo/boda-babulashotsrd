@@ -2,7 +2,9 @@ type CallbackFormProps = {
   locale?: "es" | "en";
 };
 
-const WORKER_URL = "https://callback.babulashotsrd.com/submit";
+// FormSubmit forwards form data to this email — no signup, no API key.
+// First submission triggers a confirmation email; click the link once to activate.
+const FORM_ENDPOINT = "https://formsubmit.co/info@babulashotsrd.com";
 
 export function CallbackForm({ locale = "es" }: CallbackFormProps) {
   const isEnglish = locale === "en";
@@ -73,12 +75,16 @@ export function CallbackForm({ locale = "es" }: CallbackFormProps) {
       </div>
       <form
         className="callback-form"
-        action={WORKER_URL}
+        action={FORM_ENDPOINT}
         method="POST"
         encType="application/x-www-form-urlencoded"
         data-callback-form
         aria-label={t.legend}
       >
+        <input type="hidden" name="_subject" value="Babula Shots — nuevo callback (boda)" />
+        <input type="hidden" name="_next" value="https://boda.babulashotsrd.com/?sent=ok" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
         <fieldset>
           <legend className="callback-legend">{t.legend}</legend>
 
@@ -158,13 +164,13 @@ export function CallbackForm({ locale = "es" }: CallbackFormProps) {
 
           <input type="hidden" name="niche" value="boda" />
           <input type="hidden" name="locale" value={locale} />
-          {/* Honeypot anti-spam: real users do not see/fill this. */}
+          {/* FormSubmit honeypot: real users don't fill this; bots do — submission silently dropped. */}
           <div className="callback-hp" aria-hidden="true">
             <label htmlFor="cb-website">Website</label>
             <input
               id="cb-website"
               type="text"
-              name="website"
+              name="_honey"
               tabIndex={-1}
               autoComplete="off"
             />
