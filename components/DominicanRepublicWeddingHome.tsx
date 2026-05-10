@@ -4,6 +4,7 @@ import { CrossSiteCta } from "@/components/CrossSiteCta";
 import { HeroImage } from "@/components/HeroImage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { blogPosts } from "@/lib/blogPosts";
+import { mainBrandUrl } from "@/lib/seo";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
 type DominicanRepublicWeddingHomeProps = {
@@ -252,8 +253,20 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
         {
           "@type": "ListItem",
           position: 1,
-          name: "Inicio",
-          item: "https://boda.babulashotsrd.com/"
+          name: isEnglish ? "Home" : "Inicio",
+          item: mainBrandUrl + "/"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: isEnglish ? "Weddings" : "Bodas",
+          item: isEnglish ? "https://boda.babulashotsrd.com/en/" : "https://boda.babulashotsrd.com/"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: homeCopy.h1,
+          item: canonicalUrl.endsWith("/") ? canonicalUrl : `${canonicalUrl}/`
         }
       ]
     }
@@ -377,7 +390,7 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
             <p className="section-tag">{homeCopy.portfolioTag}</p>
             <h2>{homeCopy.portfolioTitle}</h2>
             <div className="gallery-grid">
-              {portfolioImages.map((image) => (
+              {portfolioImages.map((image, index) => (
                 <Image
                   key={image.src}
                   src={image.src}
@@ -385,6 +398,9 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
                   width={1200}
                   height={1500}
                   className="gallery-image"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
                 />
               ))}
             </div>

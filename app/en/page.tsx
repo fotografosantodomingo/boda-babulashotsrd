@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWeddingHome";
+import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Wedding photographer in Dominican Republic | Babula Shots",
-  description: "Wedding photographer in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic. Destination weddings, beaches and resorts.",
+  description: "Wedding photographer in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic. Destination weddings and beach resorts. Quote on WhatsApp.",
   alternates: {
     canonical: "/en",
     languages: {
       "es-DO": "/",
+      es: "/",
       en: "/en",
       "x-default": "/"
     }
@@ -15,11 +17,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wedding photographer in Dominican Republic | Babula Shots",
     description: "Professional wedding photography in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic.",
-    url: "/en",
+    url: canonicalUrl("/en"),
     locale: "en_US",
     siteName: "Babula Shots",
     type: "website",
-    images: [{ url: "/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp", width: 1200, height: 1374 }]
+    images: [
+      {
+        url: "/images/social-card-1200x630.webp",
+        width: 1200,
+        height: 630,
+        alt: "Babula Shots Bodas"
+      }
+    ]
   }
 };
 

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CityWeddingPage, citySeoEnhancements } from "@/components/CityWeddingPage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { blogPosts, findBlogPost } from "@/lib/blogPosts";
+import { canonicalUrl } from "@/lib/seo";
 import { cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
 
 type PageProps = {
@@ -60,6 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         canonical: enUrl,
         languages: {
           "es-DO": esUrl,
+          es: esUrl,
           en: enUrl,
           "x-default": esUrl
         }
@@ -67,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       openGraph: {
         title,
         description,
-        url: enUrl,
+        url: canonicalUrl(enUrl),
         images: [{ url: city.images[0], width: 1600, height: 2000, alt: title }],
         type: "website",
         locale: "en_US",
@@ -93,6 +95,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/en/${post.slug}`,
       languages: {
         "es-DO": `/${post.slug}`,
+        es: `/${post.slug}`,
         en: `/en/${post.slug}`,
         "x-default": `/${post.slug}`
       }
@@ -100,7 +103,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description: post.description,
-      url: `/en/${post.slug}`,
+      url: canonicalUrl(`/en/${post.slug}`),
       locale: "en_US",
       siteName: "Babula Shots",
       images: [{ url: "/images/fotografo-de-bodas-4.webp", width: 1366, height: 2048 }]
@@ -193,11 +196,17 @@ export default async function EnglishSlugPage({ params }: PageProps) {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://boda.babulashotsrd.com/en/"
+            item: "https://babulashotsrd.com/"
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "Weddings",
+            item: "https://boda.babulashotsrd.com/en/"
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
             name: `Wedding photographer in ${city.city}`,
             item: canonical
           }
@@ -269,8 +278,9 @@ export default async function EnglishSlugPage({ params }: PageProps) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://boda.babulashotsrd.com/en/" },
-        { "@type": "ListItem", position: 2, name: post.h1, item: canonical }
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://babulashotsrd.com/" },
+        { "@type": "ListItem", position: 2, name: "Weddings", item: "https://boda.babulashotsrd.com/en/" },
+        { "@type": "ListItem", position: 3, name: post.h1, item: canonical }
       ]
     }
   ];

@@ -7,7 +7,9 @@
     "build": "next build",
     "postbuild": "node scripts/fix-export-language.mjs && node scripts/inline-css.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen:social-card": "node scripts/gen-social-card.mjs",
+    "check:meta": "node scripts/check-meta.mjs"
   },
   "dependencies": {
     "next": "^16.2.4",

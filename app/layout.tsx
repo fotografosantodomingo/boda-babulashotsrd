@@ -14,17 +14,34 @@ const routePairsJson = JSON.stringify(
   }, {})
 );
 
+const rootTitle = "Fotógrafo de bodas en República Dominicana | Babula Shots";
+const rootDescription = "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video profesional.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Fotógrafo de bodas en República Dominicana | Babula Shots",
+    default: rootTitle,
     template: "%s"
   },
-  description: "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video profesional.",
+  description: rootDescription,
   openGraph: {
     siteName: "Babula Shots Bodas",
     locale: "es_DO",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/images/social-card-1200x630.webp",
+        width: 1200,
+        height: 630,
+        alt: "Babula Shots Bodas"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: rootTitle,
+    description: rootDescription,
+    images: ["/images/social-card-1200x630.webp"]
   },
   robots: {
     index: true,

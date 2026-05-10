@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CityWeddingPage, citySeoEnhancements } from "@/components/CityWeddingPage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { blogPosts, findBlogPost } from "@/lib/blogPosts";
+import { canonicalUrl } from "@/lib/seo";
 import { cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
 
 type PageProps = {
@@ -57,6 +58,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         canonical: url,
         languages: {
           "es-DO": url,
+          es: url,
           en: `/en${url}`,
           "x-default": url
         }
@@ -64,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       openGraph: {
         title: city.title,
         description: city.description,
-        url,
+        url: canonicalUrl(url),
         images: [{ url: city.images[0], width: 1600, height: 2000, alt: city.h1 }],
         type: "website",
         locale: "es_DO"
@@ -88,6 +90,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/${post.slug}`,
       languages: {
         "es-DO": `/${post.slug}`,
+        es: `/${post.slug}`,
         en: `/en/${post.slug}`,
         "x-default": `/${post.slug}`
       }
@@ -95,7 +98,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `/${post.slug}`,
+      url: canonicalUrl(`/${post.slug}`),
       images: [{ url: "/images/fotografo-de-bodas-4.webp", width: 1366, height: 2048 }]
     }
   };
@@ -193,11 +196,17 @@ export default async function BlogPage({ params }: PageProps) {
             "@type": "ListItem",
             position: 1,
             name: "Inicio",
-            item: "https://boda.babulashotsrd.com/"
+            item: "https://babulashotsrd.com/"
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "Bodas",
+            item: "https://boda.babulashotsrd.com/"
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
             name: city.h1,
             item: canonical
           }
@@ -272,8 +281,9 @@ export default async function BlogPage({ params }: PageProps) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://boda.babulashotsrd.com/" },
-        { "@type": "ListItem", position: 2, name: post.h1, item: canonical }
+        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://babulashotsrd.com/" },
+        { "@type": "ListItem", position: 2, name: "Bodas", item: "https://boda.babulashotsrd.com/" },
+        { "@type": "ListItem", position: 3, name: post.h1, item: canonical }
       ]
     }
   ];
