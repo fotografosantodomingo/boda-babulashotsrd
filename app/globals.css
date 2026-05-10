@@ -1805,3 +1805,74 @@ h1 {
     padding: 0 1rem 1rem;
   }
 }
+
+/* ============================================
+   Smart gallery — preserves natural aspect ratios (no crop, no ratio change).
+   Use by wrapping a list of <figure class="sg-item"><img></figure> children in
+   a <div class="smart-gallery sg-(wide|tall|mixed) sg-(1|2|3|4|5|6|many)">.
+   Each <img> should carry inline aspect-ratio:W/H. Layout rules:
+     1 photo  → centred, big but not full width
+     2 photos → 50 / 50 row, no gaps
+     4 photos → 2 × 2 grid, no gaps
+     N tall   → equal-width row, full width
+     mobile   → single column, edge-to-edge
+   ============================================ */
+.smart-gallery {
+  display: grid;
+  gap: 0;
+  margin: 1.6em 0;
+  grid-template-columns: 1fr;
+}
+.smart-gallery .sg-item {
+  margin: 0;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.smart-gallery img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+@media (max-width: 719px) {
+  .smart-gallery {
+    grid-template-columns: 1fr !important;
+    margin-left: calc(var(--x) * -1);
+    margin-right: calc(var(--x) * -1);
+  }
+  .smart-gallery .sg-item { width: 100% !important; max-width: none !important; }
+}
+@media (min-width: 720px) {
+  .smart-gallery.sg-1 { grid-template-columns: 1fr; justify-items: center; }
+  .smart-gallery.sg-1 .sg-item { width: 80%; max-width: 1000px; }
+  .smart-gallery.sg-wide.sg-1 .sg-item { max-width: 1100px; }
+  .smart-gallery.sg-tall.sg-1 .sg-item { width: 55%; max-width: 640px; }
+  .smart-gallery.sg-2 { grid-template-columns: 1fr 1fr; }
+  .smart-gallery.sg-3 { grid-template-columns: repeat(3, 1fr); }
+  .smart-gallery.sg-wide.sg-4,
+  .smart-gallery.sg-mixed.sg-4 { grid-template-columns: 1fr 1fr; }
+  .smart-gallery.sg-tall.sg-4 { grid-template-columns: repeat(4, 1fr); }
+  .smart-gallery.sg-tall.sg-5 { grid-template-columns: repeat(5, 1fr); }
+  .smart-gallery.sg-wide.sg-5,
+  .smart-gallery.sg-mixed.sg-5 { grid-template-columns: repeat(3, 1fr); }
+  .smart-gallery.sg-tall.sg-6 { grid-template-columns: repeat(6, 1fr); }
+  .smart-gallery.sg-wide.sg-6,
+  .smart-gallery.sg-mixed.sg-6 { grid-template-columns: repeat(3, 1fr); }
+  .smart-gallery.sg-tall.sg-many { grid-template-columns: repeat(4, 1fr); }
+  .smart-gallery.sg-wide.sg-many,
+  .smart-gallery.sg-mixed.sg-many { grid-template-columns: repeat(3, 1fr); }
+}
+.smart-gallery .sg-item figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: .5rem .75rem;
+  font-size: .8rem;
+  color: #fff;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 100%);
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+.smart-gallery .sg-item:hover figcaption,
+.smart-gallery .sg-item:focus-within figcaption { opacity: 1; }
