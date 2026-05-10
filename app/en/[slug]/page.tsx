@@ -215,7 +215,7 @@ export default async function EnglishSlugPage({ params }: PageProps) {
 
   const post = findBlogPost(slug);
   if (!post) notFound();
-  const faq = englishArticleFaq(post.h1);
+  const faq = post.faq ?? englishArticleFaq(post.h1);
   const canonical = `https://boda.babulashotsrd.com/en/${post.slug}`;
 
   const schema = [
@@ -290,32 +290,38 @@ export default async function EnglishSlugPage({ params }: PageProps) {
         <section className="section">
           <div className="wrap article-grid">
             <article className="article-copy">
-              <section>
-                <h2>Table of contents</h2>
-                <ul className="service-list">
+              {post.bodyHtml ? (
+                <div dangerouslySetInnerHTML={{ __html: post.bodyHtml.replaceAll('href="/', 'href="/en/') }} />
+              ) : (
+                <>
+                  <section>
+                    <h2>Table of contents</h2>
+                    <ul className="service-list">
+                      {post.sections.map((section) => (
+                        <li key={section.heading}>{section.heading}</li>
+                      ))}
+                      <li>FAQ</li>
+                    </ul>
+                  </section>
                   {post.sections.map((section) => (
-                    <li key={section.heading}>{section.heading}</li>
+                    <section key={section.heading}>
+                      <h2>{section.heading}</h2>
+                      <p>{section.body}</p>
+                    </section>
                   ))}
-                  <li>FAQ</li>
-                </ul>
-              </section>
-              {post.sections.map((section) => (
-                <section key={section.heading}>
-                  <h2>{section.heading}</h2>
-                  <p>{section.body}</p>
-                </section>
-              ))}
-              <section>
-                <h2>FAQ</h2>
-                <div className="faq-stack">
-                  {faq.map((item) => (
-                    <article key={item.question}>
-                      <h3>{item.question}</h3>
-                      <p>{item.answer}</p>
-                    </article>
-                  ))}
-                </div>
-              </section>
+                  <section>
+                    <h2>FAQ</h2>
+                    <div className="faq-stack">
+                      {faq.map((item) => (
+                        <article key={item.question}>
+                          <h3>{item.question}</h3>
+                          <p>{item.answer}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                </>
+              )}
               <section>
                 <h2>Book wedding photography</h2>
                 <p>If you are planning a wedding in Dominican Republic, send your date, city and coverage needs to confirm availability.</p>

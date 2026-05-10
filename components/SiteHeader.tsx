@@ -1,39 +1,83 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ThemeLanguageControls } from "@/components/ThemeLanguageControls";
+import { bodaUrl, droneUrl, inmobiliariaUrl, mainBrandUrl, niche } from "@/lib/seo";
+
+const navItems: Array<{ label: string; href: string; current?: boolean; external?: boolean }> = [
+  { label: "Home", href: mainBrandUrl, external: true },
+  { label: "Bodas", href: bodaUrl + "/", current: true },
+  { label: "Inmobiliaria", href: inmobiliariaUrl, external: true },
+  { label: "Drone", href: droneUrl, external: true },
+  { label: "Contacto", href: "#contacto" }
+];
 
 export function SiteHeader() {
-  const pathname = usePathname() || "/";
-  const isEnglish = pathname === "/en" || pathname === "/en/" || pathname.startsWith("/en/");
-
   return (
-    <header className="site-header" data-site-header>
-      <Link className="brand" href={isEnglish ? "/en/" : "/"} aria-label="Babula Shots bodas" data-brand>
-        {isEnglish ? "Weddings" : "Boda"}
-      </Link>
-      <nav className="site-nav" aria-label="Navegación principal">
-        <Link href={isEnglish ? "/en/" : "/"} data-nav-main>
-          {isEnglish ? "Dominican Republic" : "República Dominicana"}
+    <header className="site-header" data-drawer-host>
+      <div className="header-row">
+        <ThemeLanguageControls />
+        <Link className="brand" href="/" aria-label={`Babula Shots ${niche.label}`}>
+          <span className="brand-niche">{niche.label}</span>
+          <span className="brand-tag">By Babula Shots</span>
         </Link>
-        <Link href={isEnglish ? "/en/fotografo-bodas-punta-cana" : "/fotografo-bodas-punta-cana"} data-nav-punta>
-          Punta Cana
-        </Link>
-        <Link href={isEnglish ? "/en/fotografo-bodas-santo-domingo" : "/fotografo-bodas-santo-domingo"} data-nav-santo>
-          Santo Domingo
-        </Link>
-        <Link href={isEnglish ? "/en/fotografo-bodas-la-romana" : "/fotografo-bodas-la-romana"} data-nav-romana>
-          La Romana
-        </Link>
-        <a href="https://inmobiliaria.babulashotsrd.com/" data-nav-real-estate>
-          {isEnglish ? "Real Estate" : "Inmobiliaria"}
-        </a>
-        <Link href={isEnglish ? "/en/#contacto" : "/#contacto"} data-nav-book>
-          {isEnglish ? "Book" : "Reserva"}
-        </Link>
+        <button
+          type="button"
+          className="hamburger"
+          aria-label="Abrir menu"
+          aria-controls="site-drawer"
+          aria-expanded="false"
+          data-drawer-toggle
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
+      </div>
+      <nav className="site-nav" aria-label="Main navigation">
+        {navItems.map((item) => (
+          <a
+            key={item.label}
+            className={`site-nav-link${item.current ? " is-current" : ""}`}
+            href={item.href}
+            aria-current={item.current ? "page" : undefined}
+            {...(item.external ? { rel: "noopener" } : {})}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
-      <ThemeLanguageControls />
+      <div className="site-drawer" id="site-drawer" data-drawer hidden>
+        <div className="site-drawer-backdrop" data-drawer-close aria-hidden="true" />
+        <aside className="site-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+          <div className="site-drawer-header">
+            <span className="brand">
+              <span className="brand-niche">{niche.label}</span>
+              <span className="brand-tag">By Babula Shots</span>
+            </span>
+            <button type="button" className="drawer-close" aria-label="Cerrar menu" data-drawer-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <nav className="site-drawer-nav" aria-label="Site navigation">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                className={`site-drawer-link${item.current ? " is-current" : ""}`}
+                href={item.href}
+                aria-current={item.current ? "page" : undefined}
+                {...(item.external ? { rel: "noopener" } : {})}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <div className="site-drawer-footer">
+            <p className="brand-tag">Premium photography agency</p>
+            <a className="drawer-secondary" href="https://www.fotografosantodomingo.com" rel="noopener">
+              fotografosantodomingo.com
+            </a>
+          </div>
+        </aside>
+      </div>
     </header>
   );
 }

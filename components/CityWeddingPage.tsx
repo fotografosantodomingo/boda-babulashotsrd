@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroImage } from "@/components/HeroImage";
 import { cityPath, findCityBySlug, slugForCityName, type WeddingCity } from "@/lib/weddingCities";
 
 const services = [
@@ -127,14 +128,11 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
   return (
     <main>
       <section className="city-hero">
-        <Image
+        <HeroImage
           src={city.images[0]}
-          alt={`Fotógrafo de bodas en ${city.city}`}
+          alt={isEnglish ? `Wedding photographer in ${city.city}` : `Fotógrafo de bodas en ${city.city}`}
           width={1600}
           height={2000}
-          priority
-          fetchPriority="high"
-          className="city-hero-image"
         />
         <div className="city-hero-content">
           <p className="eyebrow">Babula Shots · {city.province}</p>

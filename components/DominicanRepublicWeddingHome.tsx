@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CrossSiteCta } from "@/components/CrossSiteCta";
+import { HeroImage } from "@/components/HeroImage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { blogPosts } from "@/lib/blogPosts";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
@@ -262,14 +264,11 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
       <SeoJsonLd data={schema} />
       <main>
         <section className="city-hero">
-          <Image
+          <HeroImage
             src="/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp"
-            alt="Fotógrafo de bodas en República Dominicana"
+            alt={isEnglish ? "Wedding photographer in Dominican Republic" : "Fotógrafo de bodas en República Dominicana"}
             width={1200}
             height={1374}
-            priority
-            fetchPriority="high"
-            className="city-hero-image"
           />
           <div className="city-hero-content">
             <p className="eyebrow">{homeCopy.eyebrow}</p>
@@ -466,6 +465,8 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
             </div>
           </div>
         </section>
+
+        <CrossSiteCta locale={isEnglish ? "en" : "es"} />
 
         <section id="contacto" className="cta-section">
           <div className="wrap cta-grid">

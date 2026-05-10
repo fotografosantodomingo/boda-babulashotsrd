@@ -1,71 +1,106 @@
-import Image from "next/image";
 import Link from "next/link";
+import { bodaUrl, droneUrl, email, inmobiliariaUrl, mainBrandUrl, niche, phoneDisplay, santoDomingoHubUrl } from "@/lib/seo";
+import { cityPath, weddingCities } from "@/lib/weddingCities";
+
+const networkLinks: Array<{ label: string; href: string; description: string; current?: boolean }> = [
+  {
+    label: "Fotografia de Bodas",
+    href: bodaUrl,
+    description: "Bodas en Punta Cana, Santo Domingo y destinos en Rep. Dominicana",
+    current: true
+  },
+  { label: "Fotografia Inmobiliaria", href: inmobiliariaUrl, description: "Foto, video y drone para propiedades, agentes y desarrolladores" },
+  { label: "Tomas Aereas con Drone", href: droneUrl, description: "Drone para inmobiliaria, construccion, eventos y bodas" }
+];
+
+const alsoAtLinks: Array<{ label: string; href: string; primary: string; description: string }> = [
+  {
+    label: "babulashotsrd.com",
+    href: mainBrandUrl,
+    primary: "Marca principal",
+    description: "Agencia premium de foto y video en Republica Dominicana. Centro de la red Babula Shots."
+  },
+  {
+    label: "fotografosantodomingo.com",
+    href: santoDomingoHubUrl,
+    primary: "El mismo fotografo - nueva web",
+    description: "Pagina por Babula Shots con todos los servicios disponibles: bodas, retratos, comercial, eventos."
+  }
+];
 
 export function SiteFooter() {
-  const brandLinks = [
-    {
-      href: "https://babulashotsrd.com/",
-      name: "Babula Shots",
-      label: "Fotografía y producción principal"
-    },
-    {
-      href: "https://estudio.babulashotsrd.com/",
-      name: "Babula Studio",
-      label: "Fotos de estudio y retratos"
-    },
-    {
-      href: "https://dron.babulashotsrd.com/",
-      name: "Babula Drone",
-      label: "Drone, video aéreo y producción"
-    },
-    {
-      href: "https://inmobiliaria.babulashotsrd.com/",
-      name: "Babula Real Estate",
-      label: "Fotografía inmobiliaria"
-    }
-  ];
-
   return (
-    <footer className="footer">
-      <div className="wrap footer-grid">
-        <Link href="/" aria-label="Babula Shots home">
-          <Image
-            src="/images/cropped-babulashotslogo-1.webp"
-            width={240}
-            height={240}
-            alt="Babula Shots logo"
-          />
-        </Link>
-        <p>
-          Instagram
-          <br />
-          <a href="https://www.instagram.com/babulashotsrd/" target="_blank" rel="noopener noreferrer">
-            @babulashotsrd
-          </a>
-        </p>
-        <p>
-          Reserva
-          <br />
-          <a href="mailto:info@babulashotsrd.com?subject=Reserva%20de%20boda">
-            info@babulashotsrd.com
-          </a>
-        </p>
-        <p>
-          Teléfono
-          <br />
-          <a href="tel:+18097209547">809 720 95 47</a>
-        </p>
+    <footer className="site-footer">
+      <div className="footer-top">
+        <div className="footer-brand">
+          <p className="footer-brand-name">Babula Shots</p>
+          <p className="footer-brand-tag">{niche.label} - By Babula Shots</p>
+          <p className="footer-brand-snippet">
+            Fotografia y video de bodas en Republica Dominicana: Punta Cana, Santo Domingo, La Romana, Samana y bodas
+            destino. Parte de la red Babula Shots: bodas, inmobiliaria, drone y la marca principal.
+          </p>
+        </div>
+        <div className="footer-network" aria-label="Red Babula Shots">
+          <p className="footer-section-title">Red Babula Shots</p>
+          <ul>
+            {networkLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  aria-current={link.current ? "page" : undefined}
+                  rel="noopener"
+                  className={link.current ? "is-current" : ""}
+                >
+                  <span className="net-label">{link.label}</span>
+                  <span className="net-desc">{link.description}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="footer-contact">
+          <p className="footer-section-title">Contacto</p>
+          <p>
+            <a href={`tel:${phoneDisplay.replace(/\s/g, "")}`}>{phoneDisplay}</a>
+          </p>
+          <p>
+            <a href={`mailto:${email}`}>{email}</a>
+          </p>
+        </div>
       </div>
-      <div className="wrap brand-network" aria-label="Babula Shots servicios especializados">
-        <h2>Babula Shots network</h2>
-        <div className="brand-network-links">
-          {brandLinks.map((link) => (
-            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-              <span className="brand-network-title">{link.name}</span>
-              <span>{link.label}</span>
-            </a>
+      <div className="footer-also" aria-label="Tambien en">
+        <p className="footer-section-title">
+          <span aria-hidden="true">{"\u{1F310}"}</span> Tambien en
+        </p>
+        <ul>
+          {alsoAtLinks.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} rel="noopener">
+                <span className="also-label">
+                  {link.label}
+                  <span aria-hidden="true" className="also-arrow">
+                    {"→"}
+                  </span>
+                </span>
+                <span className="also-primary">{link.primary}</span>
+                <span className="also-desc">{link.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="footer-areas" aria-label="Areas que servimos">
+        <p className="footer-section-title">Areas que servimos</p>
+        <div>
+          {weddingCities.map((city) => (
+            <Link href={cityPath(city.slug)} key={city.slug}>
+              {city.city}
+            </Link>
           ))}
         </div>
+      </div>
+      <div className="footer-bottom">
+        <p>(c) {new Date().getFullYear()} Babula Shots. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

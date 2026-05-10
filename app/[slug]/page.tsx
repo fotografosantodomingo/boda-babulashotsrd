@@ -215,7 +215,7 @@ export default async function BlogPage({ params }: PageProps) {
 
   const post = findBlogPost(slug);
   if (!post) notFound();
-  const faq = articleFaq(post.h1);
+  const faq = post.faq ?? articleFaq(post.h1);
   const canonical = `https://boda.babulashotsrd.com/${post.slug}`;
 
   const schema = [
@@ -293,32 +293,38 @@ export default async function BlogPage({ params }: PageProps) {
         <section className="section">
           <div className="wrap article-grid">
             <article className="article-copy">
-              <section>
-                <h2>Tabla de contenidos</h2>
-                <ul className="service-list">
+              {post.bodyHtml ? (
+                <div dangerouslySetInnerHTML={{ __html: post.bodyHtml }} />
+              ) : (
+                <>
+                  <section>
+                    <h2>Tabla de contenidos</h2>
+                    <ul className="service-list">
+                      {post.sections.map((section) => (
+                        <li key={section.heading}>{section.heading}</li>
+                      ))}
+                      <li>Preguntas frecuentes</li>
+                    </ul>
+                  </section>
                   {post.sections.map((section) => (
-                    <li key={section.heading}>{section.heading}</li>
+                    <section key={section.heading}>
+                      <h2>{section.heading}</h2>
+                      <p>{section.body}</p>
+                    </section>
                   ))}
-                  <li>Preguntas frecuentes</li>
-                </ul>
-              </section>
-              {post.sections.map((section) => (
-                <section key={section.heading}>
-                  <h2>{section.heading}</h2>
-                  <p>{section.body}</p>
-                </section>
-              ))}
-              <section>
-                <h2>Preguntas frecuentes</h2>
-                <div className="faq-stack">
-                  {faq.map((item) => (
-                    <article key={item.question}>
-                      <h3>{item.question}</h3>
-                      <p>{item.answer}</p>
-                    </article>
-                  ))}
-                </div>
-              </section>
+                  <section>
+                    <h2>Preguntas frecuentes</h2>
+                    <div className="faq-stack">
+                      {faq.map((item) => (
+                        <article key={item.question}>
+                          <h3>{item.question}</h3>
+                          <p>{item.answer}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                </>
+              )}
               <section>
                 <h2>Reserva fotografía para tu boda</h2>
                 <p>Si estás organizando una boda en República Dominicana, envía fecha, ciudad y tipo de cobertura para confirmar disponibilidad.</p>
