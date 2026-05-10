@@ -61,8 +61,10 @@ img {
 }
 
 .wrap {
-  width: min(1160px, calc(100% - (var(--x) * 2)));
+  width: 100%;
+  max-width: 1160px;
   margin-inline: auto;
+  padding-inline: var(--x);
 }
 
 /* ----------------------------------------------------------------------
