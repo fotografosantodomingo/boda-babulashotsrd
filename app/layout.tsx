@@ -92,6 +92,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter />
         <WhatsAppFab />
         <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "004516fa11cb4f58aa7ecc12358ce14d"}'
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html:
               "try{var d=document,r=d.documentElement;function s(t){r.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}}d.addEventListener('click',function(e){var t=e.target,bt=t&&t.closest&&t.closest('[data-theme-toggle]');if(bt){s(r.dataset.theme==='dark'?'light':'dark');return}var dt=t&&t.closest&&t.closest('[data-drawer-toggle]');if(dt){var open=r.classList.toggle('drawer-open');dt.setAttribute('aria-expanded',open?'true':'false');var dr=d.getElementById('site-drawer');if(dr){if(open){dr.removeAttribute('hidden')}else{setTimeout(function(){if(!r.classList.contains('drawer-open'))dr.setAttribute('hidden','')},220)}}return}var dc=t&&t.closest&&t.closest('[data-drawer-close]');if(dc){r.classList.remove('drawer-open');var bt2=d.querySelector('[data-drawer-toggle]');if(bt2)bt2.setAttribute('aria-expanded','false');var dr2=d.getElementById('site-drawer');if(dr2)setTimeout(function(){if(!r.classList.contains('drawer-open'))dr2.setAttribute('hidden','')},220)}});d.addEventListener('keydown',function(e){if(e.key==='Escape'&&r.classList.contains('drawer-open')){r.classList.remove('drawer-open');var bt=d.querySelector('[data-drawer-toggle]');if(bt)bt.setAttribute('aria-expanded','false');var dr=d.getElementById('site-drawer');if(dr)setTimeout(function(){if(!r.classList.contains('drawer-open'))dr.setAttribute('hidden','')},220)}});var p=location.pathname;p=p.endsWith('/')?p:p+'/';var m=" + routePairsJson + ";var pair=m[p];if(pair){d.querySelectorAll('[data-lang-link=\"es\"]').forEach(function(a){a.setAttribute('href',pair.es)});d.querySelectorAll('[data-lang-link=\"en\"]').forEach(function(a){a.setAttribute('href',pair.en)});var es=p===pair.es,en=p===pair.en;d.querySelectorAll('[data-lang-link=\"es\"]').forEach(function(a){if(es)a.setAttribute('aria-current','page')});d.querySelectorAll('[data-lang-link=\"en\"]').forEach(function(a){if(en)a.setAttribute('aria-current','page')})}}catch(e){}"
