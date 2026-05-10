@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import { NetworkPage } from "@/components/NetworkPage";
 import { canonicalUrl } from "@/lib/seo";
 
-// Alias for the legacy /en/servicios/ path. Same English content as /en/services/
-// but canonical points at the EN slug so search engines index only one URL.
-const enPath = "/en/services/";
-const esPath = "/servicios/";
-const title = "Wedding Services | Babula Shots";
-const description = "Coverage, deliverables and timelines per wedding service: ceremony, reception, engagement, destination, album.";
+const enPath = "/en/locations/";
+const esPath = "/ubicaciones/";
+const title = "Wedding Locations | Babula Shots";
+const description = "Cities and zones we cover for weddings in the Dominican Republic: Santo Domingo, Punta Cana, Casa de Campo, Samana and 19+ more.";
 
 export const metadata: Metadata = {
   title,
@@ -20,7 +18,6 @@ export const metadata: Metadata = {
       "x-default": canonicalUrl(esPath)
     }
   },
-  robots: { index: false, follow: true },
   openGraph: {
     title,
     description,
@@ -28,9 +25,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Babula Shots"
-  }
+  },
+  twitter: { card: "summary_large_image", title, description }
 };
 
 export default function Page() {
-  return <NetworkPage niche="bodas" type="servicios" locale="en" />;
+  return <NetworkPage niche="bodas" type="ubicaciones" locale="en" />;
 }

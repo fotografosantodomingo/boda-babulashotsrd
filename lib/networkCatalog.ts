@@ -423,7 +423,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Tourism hub for resorts, destination weddings, villas and drone.",
     esDescription: "Punta Cana es el mercado más activo en bodas destino y propiedades premium. Cubrimos resorts (Hard Rock, Hyatt Ziva, Excellence, Iberostar), villas en Bávaro, Cap Cana y Cana Bay, más proyectos en preventa. Coordinamos permisos de hotel para drone y ofrecemos paquetes con traslado y alojamiento incluidos.",
     enDescription: "Punta Cana is the most active market for destination weddings and premium real estate. We cover resorts (Hard Rock, Hyatt Ziva, Excellence, Iberostar), villas in Bávaro, Cap Cana and Cana Bay, plus pre-construction projects. We coordinate hotel permits for drone and offer packages with travel and lodging included.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: [
       { esQ: "Cuánto cuesta agregar traslado a Punta Cana desde Santo Domingo?", esA: "El traslado redondo Santo Domingo-Punta Cana suma aproximadamente RD$8,000-12,000 a la sesión, dependiendo del paquete y si requiere pernocte. Para bodas destino o sesiones full-day el alojamiento se suma como línea separada. Sesiones que reservan con 30 días de anticipación suelen tener mejores tarifas combinadas.", enQ: "How much is Punta Cana transfer from Santo Domingo?", enA: "Round-trip Santo Domingo-Punta Cana transfer adds roughly RD$8,000-12,000 to the session depending on the package and whether overnight is required. For destination weddings or full-day shoots, lodging is a separate line item. Sessions booked 30+ days out often get better bundled rates." }
     ]
@@ -438,7 +438,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Casa de Campo, marinas and premium east-coast properties.",
     esDescription: "La Romana incluye Casa de Campo (uno de los mercados de villas más exclusivos del Caribe), Altos de Chavón, Marina Casa de Campo, Bayahibe y Saona. Trabajamos bodas destino en Casa de Campo, fotografía inmobiliaria de villas multi-millonarias, drone para resorts y proyectos en la zona. Tiempos de traslado desde Santo Domingo: ~1.5 horas.",
     enDescription: "La Romana includes Casa de Campo (one of the most exclusive villa markets in the Caribbean), Altos de Chavón, Marina Casa de Campo, Bayahibe and Saona. We work destination weddings in Casa de Campo, real estate photography of multi-million-dollar villas, drone for resorts and projects in the zone. Transfer time from Santo Domingo: ~1.5 hours.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -451,7 +451,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Resort and premium villa market in La Romana.",
     esDescription: "Casa de Campo es el resort y comunidad de villas más premium del Caribe. Trabajamos bodas en Altos de Chavón, fotografía inmobiliaria de villas con tarifas semanales de US$10,000+, drone para presentar propiedades a inversionistas internacionales. Tenemos pase de proveedor confirmado y conocemos las restricciones de la comunidad.",
     enDescription: "Casa de Campo is the most premium resort and villa community in the Caribbean. We work weddings at Altos de Chavón, real estate photography of villas with US$10,000+ weekly rentals, and drone to present properties to international investors. We hold a vendor pass and know the community's restrictions.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -464,7 +464,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Premium gated community with Punta Espada and marinas.",
     esDescription: "Cap Cana combina golf premium (Punta Espada, Las Iguanas), villas frente a acantilado, marinas y un mercado fuerte de proyectos en preventa. Cubrimos bodas con drone, fotografía inmobiliaria de propiedades multi-millonarias y producción de campañas para desarrolladores. Tenemos los permisos para acceso de proveedores con anticipación.",
     enDescription: "Cap Cana combines premium golf (Punta Espada, Las Iguanas), cliffside villas, marinas and a strong pre-construction market. We cover weddings with drone, real estate photography of multi-million-dollar properties and campaign production for developers. We arrange vendor access permits in advance.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -477,7 +477,7 @@ export const locations: SharedLocation[] = [
     enTagline: "All-inclusive hotels and Punta Cana's beach corridor.",
     esDescription: "Bávaro es el corredor de playa con la mayor concentración de hoteles all-inclusive en el Caribe. Trabajamos bodas destino en cadenas como Iberostar, Riu, Meliá, NH y Barceló, más drone para campañas turísticas y fotografía inmobiliaria de condominios y proyectos turísticos. La zona requiere coordinación con cada hotel.",
     enDescription: "Bávaro is the beach corridor with the highest concentration of all-inclusive resorts in the Caribbean. We work destination weddings at chains like Iberostar, Riu, Meliá, NH and Barceló, plus drone for tourism campaigns and real estate photography of condominiums and tourism projects. Requires per-hotel coordination.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -490,7 +490,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Fishing village with resorts and access to Saona island.",
     esDescription: "Bayahibe combina pueblo de pescadores auténtico, resorts (Dreams, Be Live, Iberostar) y acceso por mar a Saona y Catalina. Trabajamos bodas en playa, drone para resorts y campañas turísticas, y fotografía editorial para marcas de hospitalidad. Tiempos de traslado desde Punta Cana: ~1 hora.",
     enDescription: "Bayahibe combines an authentic fishing village, resorts (Dreams, Be Live, Iberostar) and sea access to Saona and Catalina. We work beach weddings, drone for resorts and tourism campaigns, and editorial photography for hospitality brands. Transfer time from Punta Cana: ~1 hour.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -516,7 +516,7 @@ export const locations: SharedLocation[] = [
     enTagline: "European market with weddings, real estate and drone.",
     esDescription: "Las Terrenas es el destino preferido de la comunidad europea (francés, italiano, alemán) con villas y condominios premium frente al mar. Cubrimos bodas destino en pequeños hoteles boutique como El Mosquito Art Hotel y Eva Luna, fotografía inmobiliaria para el mercado europeo, drone aéreo y producción editorial.",
     enDescription: "Las Terrenas is the preferred destination for the European community (French, Italian, German) with premium beachfront villas and condominiums. We cover destination weddings at boutique hotels like El Mosquito Art Hotel and Eva Luna, real estate photography for the European market, aerial drone and editorial production.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -529,7 +529,7 @@ export const locations: SharedLocation[] = [
     enTagline: "North coast with Cabarete, Sosúa and resorts.",
     esDescription: "Puerto Plata es la entrada a la costa norte: Playa Dorada, Cofresí, Maimón, más Cabarete (kitesurf y vida nocturna) y Sosúa (bahía y playa familiar). Trabajamos bodas, drone para resorts y deportes acuáticos, fotografía editorial de hoteles y eventos corporativos.",
     enDescription: "Puerto Plata is the entry to the north coast: Playa Dorada, Cofresí, Maimón, plus Cabarete (kitesurfing and nightlife) and Sosúa (bay and family beach). We work weddings, drone for resorts and water sports, editorial hotel photography and corporate events.",
-    niches: ["bodas", "drone"],
+    niches: ["bodas", "drone", "estudio"],
     faq: []
   },
   {
@@ -555,7 +555,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Mountain region with finca weddings, drone and editorial portraits.",
     esDescription: "Jarabacoa es la zona montaña más accesible desde Santiago y Santo Domingo. Trabajamos bodas en fincas privadas (Rancho Baiguate, Rancho La Cumbre), drone aéreo para mostrar la montaña y ríos, fotografía inmobiliaria de cabañas y propiedades de descanso, y sesiones editoriales con clima fresco.",
     enDescription: "Jarabacoa is the most accessible mountain region from Santiago and Santo Domingo. We work weddings at private estates (Rancho Baiguate, Rancho La Cumbre), aerial drone of the mountains and rivers, real estate photography of cabins and weekend retreats, and editorial sessions in cool weather.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -581,7 +581,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Family bay with villas, boutique hotels and drone.",
     esDescription: "Sosúa tiene una de las bahías más pintorescas del Caribe, con playas de aguas tranquilas ideales para familias. Trabajamos bodas más íntimas, fotografía inmobiliaria de villas frente al mar (mercado fuerte de canadienses y europeos), drone aéreo de la bahía y editorial para hoteles boutique.",
     enDescription: "Sosúa has one of the most picturesque bays in the Caribbean, with calm-water beaches ideal for families. We work more intimate weddings, real estate photography of beachfront villas (strong Canadian and European market), aerial drone of the bay and editorial for boutique hotels.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -594,7 +594,7 @@ export const locations: SharedLocation[] = [
     enTagline: "Religious and commercial hub near Punta Cana.",
     esDescription: "Higüey es el centro religioso y comercial de La Altagracia, conocido por la Basílica de Higüey. Trabajamos bodas religiosas tradicionales en la Basílica, fotografía inmobiliaria de propiedades en la zona, drone para hoteles y proyectos cercanos a Punta Cana, y eventos corporativos del sector turístico.",
     enDescription: "Higüey is the religious and commercial center of La Altagracia, known for the Basílica of Higüey. We work traditional religious weddings at the Basílica, real estate photography in the area, drone for hotels and projects near Punta Cana, and corporate events from the tourism sector.",
-    niches: ["bodas", "inmobiliaria", "drone"],
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
     faq: []
   },
   {
@@ -608,6 +608,97 @@ export const locations: SharedLocation[] = [
     esDescription: "Boca Chica está a 30 minutos del aeropuerto Las Américas y es la playa más accesible desde Santo Domingo. Trabajamos bodas más accesibles en hoteles como Don Juan Beach Resort, fotografía inmobiliaria de villas frente al mar y condominios, drone con permisos por la cercanía al aeropuerto.",
     enDescription: "Boca Chica is 30 minutes from Las Américas airport and the most accessible beach from Santo Domingo. We work more affordable weddings at hotels like Don Juan Beach Resort, real estate photography of beachfront villas and condominiums, drone with permits due to airport proximity.",
     niches: ["bodas", "inmobiliaria"],
+    faq: []
+  },
+  {
+    id: "bonao",
+    esName: "Bonao",
+    enName: "Bonao",
+    province: "Monseñor Nouel",
+    geo: { lat: 18.9367, lng: -70.4117 },
+    esTagline: "Centro del país con corporativo, retratos y eventos.",
+    enTagline: "Country's geographic center with corporate, portraits and events.",
+    esDescription: "Bonao es la ciudad central del país, equidistante entre Santo Domingo y Santiago (~1 hora de cada una). Trabajamos retratos corporativos para profesionales del sector minero, agroindustrial y manufactura, fotografía inmobiliaria de proyectos residenciales y eventos corporativos. Cubrimos sesiones en estudio coordinando hospedaje del equipo cuando es necesario.",
+    enDescription: "Bonao is the country's central city, equidistant between Santo Domingo and Santiago (~1 hour from each). We work corporate portraits for mining, agribusiness and manufacturing professionals, real estate photography of residential projects and corporate events. We cover studio sessions coordinating team lodging when needed.",
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
+    faq: []
+  },
+  {
+    id: "la-vega",
+    esName: "La Vega",
+    enName: "La Vega",
+    province: "La Vega",
+    geo: { lat: 19.2236, lng: -70.5269 },
+    esTagline: "Ciudad del Carnaval con bodas, eventos y retratos.",
+    enTagline: "Carnival city with weddings, events and portraits.",
+    esDescription: "La Vega es famosa por el Carnaval Vegano (febrero) y es una ciudad activa en el Cibao. Cubrimos bodas con tradición católica, eventos corporativos del sector ganadero y agroindustrial, retratos profesionales y editoriales relacionados al Carnaval, además de fotografía inmobiliaria de proyectos en Cerros de Gurabo y zonas residenciales premium.",
+    enDescription: "La Vega is famous for the Carnaval Vegano (February) and is an active city in the Cibao region. We cover Catholic-tradition weddings, corporate events from livestock and agribusiness sectors, professional and Carnival-related editorial portraits, plus real estate photography in Cerros de Gurabo and premium residential zones.",
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
+    faq: []
+  },
+  {
+    id: "moca",
+    esName: "Moca",
+    enName: "Moca",
+    province: "Espaillat",
+    geo: { lat: 19.3942, lng: -70.5253 },
+    esTagline: "Centro del Cibao con corporativo, fincas y eventos.",
+    enTagline: "Cibao region hub with corporate, country estates and events.",
+    esDescription: "Moca es el corazón del Cibao y un centro fuerte para sector cafetalero, agroindustrial y residencial premium. Cubrimos retratos corporativos para profesionales y empresarios, eventos corporativos, fotografía de fincas y propiedades de descanso, bodas tradicionales en iglesias del centro histórico y drone aéreo de proyectos.",
+    enDescription: "Moca is the heart of the Cibao and a strong hub for coffee, agribusiness and premium residential sectors. We cover corporate portraits for professionals and entrepreneurs, corporate events, photography of country estates and weekend properties, traditional weddings at historic-center churches and aerial drone of projects.",
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
+    faq: []
+  },
+  {
+    id: "san-pedro-de-macoris",
+    esName: "San Pedro de Macorís",
+    enName: "San Pedro de Macorís",
+    province: "San Pedro de Macorís",
+    geo: { lat: 18.4539, lng: -69.3081 },
+    esTagline: "Puerto industrial con corporativo, eventos y bodas.",
+    enTagline: "Industrial port with corporate, events and weddings.",
+    esDescription: "San Pedro de Macorís es un centro industrial fuerte (zona franca, sector eléctrico, agroindustria) y a 1 hora de Santo Domingo. Trabajamos retratos corporativos para empresas industriales, eventos corporativos, fotografía inmobiliaria, bodas en iglesias del centro y drone para proyectos industriales y residenciales.",
+    enDescription: "San Pedro de Macorís is a strong industrial center (free trade zone, electrical sector, agribusiness) and 1 hour from Santo Domingo. We work corporate portraits for industrial companies, corporate events, real estate photography, weddings at downtown churches and drone for industrial and residential projects.",
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
+    faq: []
+  },
+  {
+    id: "san-cristobal",
+    esName: "San Cristóbal",
+    enName: "San Cristóbal",
+    province: "San Cristóbal",
+    geo: { lat: 18.4172, lng: -70.1075 },
+    esTagline: "Provincia cercana a Santo Domingo con bodas y eventos.",
+    enTagline: "Province near Santo Domingo with weddings and events.",
+    esDescription: "San Cristóbal está a 30 minutos de Santo Domingo y combina mercado urbano con turismo de playa (Najayo, Palenque). Cubrimos bodas en hoteles de playa cercanos, eventos corporativos del sector industrial y de cemento, retratos corporativos para empresas locales y fotografía inmobiliaria de proyectos residenciales en zonas como Hato Damas y Madre Vieja.",
+    enDescription: "San Cristóbal is 30 minutes from Santo Domingo and combines urban market with beach tourism (Najayo, Palenque). We cover weddings at nearby beach hotels, corporate events from the industrial and cement sectors, corporate portraits for local businesses and real estate photography of residential projects in zones like Hato Damas and Madre Vieja.",
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
+    faq: []
+  },
+  {
+    id: "bani",
+    esName: "Baní",
+    enName: "Baní",
+    province: "Peravia",
+    geo: { lat: 18.2806, lng: -70.3306 },
+    esTagline: "Ciudad sureña con bodas, agro y retratos.",
+    enTagline: "Southern city with weddings, agriculture and portraits.",
+    esDescription: "Baní es la capital de Peravia, conocida por su producción de mango y sal de Las Salinas. Trabajamos bodas tradicionales del sur, eventos corporativos del sector agroindustrial, retratos corporativos y profesionales, fotografía inmobiliaria de proyectos residenciales y drone para playa Las Salinas y dunas. A 1 hora de Santo Domingo.",
+    enDescription: "Baní is the capital of Peravia province, known for its mango production and Las Salinas salt flats. We work traditional southern weddings, agribusiness corporate events, professional and corporate portraits, real estate photography of residential projects and drone for Las Salinas beach and dunes. 1 hour from Santo Domingo.",
+    niches: ["bodas", "inmobiliaria", "drone", "estudio"],
+    faq: []
+  },
+  {
+    id: "constanza",
+    esName: "Constanza",
+    enName: "Constanza",
+    province: "La Vega",
+    geo: { lat: 18.9117, lng: -70.7458 },
+    esTagline: "Valle de montaña con bodas en finca y drone.",
+    enTagline: "Mountain valley with farm weddings and aerial drone.",
+    esDescription: "Constanza es el valle más alto del Caribe (1,200m de altitud), conocido por su clima fresco, fincas de vegetales y flores, y paisajes montañosos. Trabajamos bodas en fincas privadas, drone aéreo cinematográfico de los valles, fotografía editorial con clima fresco, y campañas turísticas para hoteles de montaña.",
+    enDescription: "Constanza is the highest valley in the Caribbean (1,200m elevation), known for its cool climate, vegetable and flower farms, and mountain landscapes. We work weddings at private estates, cinematic aerial drone of the valleys, editorial photography with cool weather, and tourism campaigns for mountain hotels.",
+    niches: ["bodas", "drone"],
     faq: []
   }
 ];
@@ -630,7 +721,12 @@ export const packages: SharedPackage[] = [
   { id: "estudio-corporativo", niche: "estudio", esName: "Retratos corporativos", enName: "Corporate Portraits", priceDop: 10700, priceDisplay: "Desde RD$ 10,700 / US$ 180", bestFor: { es: "Equipos ejecutivos y headshots para empresas.", en: "Executive teams and corporate headshots." }, includes: { es: ["Múltiples looks y fondos", "Uso comercial autorizado", "Entrega en 24-48h"], en: ["Multiple looks and backdrops", "Authorized commercial use", "24-48h delivery"] }, durationMinutes: 60, source: "fotografosantodomingo.com" },
   { id: "estudio-comida", niche: "estudio", esName: "Alimentos y bebidas", enName: "Food and Beverage", priceDop: 14900, priceDisplay: "Desde RD$ 14,900 / US$ 250", bestFor: { es: "Restaurantes, marcas de bebida y catálogos gastronómicos.", en: "Restaurants, beverage brands and food catalogues." }, includes: { es: ["Sesión en estudio o locación", "30 imágenes editadas", "Apta para redes y menús"], en: ["Studio or location session", "30 edited images", "Optimized for social and menus"] }, durationMinutes: 120, source: "fotografosantodomingo.com" },
   { id: "estudio-maternidad", niche: "estudio", esName: "Maternidad", enName: "Maternity", priceDop: 8940, priceDisplay: "Desde RD$ 8,940 / US$ 150", bestFor: { es: "Sesión íntima de embarazo, idealmente semanas 30-36.", en: "Intimate pregnancy session, ideally weeks 30-36." }, includes: { es: ["Sesión íntima en locación", "30 fotos editadas", "Galería privada"], en: ["Intimate location session", "30 edited photos", "Private gallery"] }, durationMinutes: 60, source: "fotografosantodomingo.com" },
-  { id: "estudio-boudoir", niche: "estudio", esName: "Sesión boudoir", enName: "Boudoir Session", priceDop: 23800, priceDisplay: "Desde RD$ 23,800 / US$ 400", bestFor: { es: "Sesión empoderamiento femenino o regalo de aniversario.", en: "Female empowerment or anniversary gift session." }, includes: { es: ["Estudio privado o habitación de hotel de lujo", "Iluminación profesional + dirección experta", "Galería privada en 48-72h"], en: ["Private studio or luxury hotel room", "Professional lighting + expert direction", "Private gallery in 48-72h"] }, durationMinutes: 120, source: "fotografosantodomingo.com" }
+  { id: "estudio-boudoir", niche: "estudio", esName: "Sesión boudoir", enName: "Boudoir Session", priceDop: 23800, priceDisplay: "Desde RD$ 23,800 / US$ 400", bestFor: { es: "Sesión empoderamiento femenino o regalo de aniversario.", en: "Female empowerment or anniversary gift session." }, includes: { es: ["Estudio privado o habitación de hotel de lujo", "Iluminación profesional + dirección experta", "Galería privada en 48-72h"], en: ["Private studio or luxury hotel room", "Professional lighting + expert direction", "Private gallery in 48-72h"] }, durationMinutes: 120, source: "fotografosantodomingo.com" },
+  { id: "estudio-familia", niche: "estudio", esName: "Sesión familiar", enName: "Family Session", priceDop: 8940, priceDisplay: "Desde RD$ 8,940 / US$ 150", bestFor: { es: "Familias hasta 6 personas con niños o bebés.", en: "Families up to 6 people with kids or babies." }, includes: { es: ["Sesión en estudio o exterior", "20 fotos editadas", "Galería privada online", "Entrega en 5-7 días"], en: ["Studio or outdoor session", "20 edited photos", "Private online gallery", "5-7 day delivery"] }, durationMinutes: 60, source: "fotografosantodomingo.com" },
+  { id: "estudio-newborn", niche: "estudio", esName: "Sesión newborn", enName: "Newborn Session", priceDop: 11920, priceDisplay: "Desde RD$ 11,920 / US$ 200", bestFor: { es: "Bebés de 5 a 21 días con setup de estudio especializado.", en: "Babies 5 to 21 days old with specialized studio setup." }, includes: { es: ["Estudio climatizado y privado", "Props y mantas incluidas", "25 fotos editadas suaves", "Galería en 7 días"], en: ["Climate-controlled private studio", "Props and blankets included", "25 softly edited photos", "Gallery in 7 days"] }, durationMinutes: 180, source: "fotografosantodomingo.com" },
+  { id: "estudio-headshot-team", niche: "estudio", esName: "Headshots de equipo", enName: "Team Headshots", priceDop: 17880, priceDisplay: "Desde RD$ 17,880 / US$ 300", bestFor: { es: "Equipos de 5-15 personas para LinkedIn y web corporativa.", en: "Teams of 5-15 people for LinkedIn and corporate web." }, includes: { es: ["Setup en oficina o estudio", "Mismo fondo y luz para todos", "3 fotos editadas por persona", "Derechos de uso comercial"], en: ["Office or studio setup", "Same backdrop and light for everyone", "3 edited photos per person", "Commercial usage rights"] }, durationMinutes: 180, source: "fotografosantodomingo.com" },
+  { id: "estudio-fashion-editorial", niche: "estudio", esName: "Editorial de moda", enName: "Fashion Editorial", priceDop: 35760, priceDisplay: "Desde RD$ 35,760 / US$ 600", bestFor: { es: "Marcas de moda, agencias de modelos y proyectos editoriales.", en: "Fashion brands, modeling agencies and editorial projects." }, includes: { es: ["Producción completa", "Múltiples looks y fondos", "50+ fotos editadas", "Cesión de derechos para uso editorial y comercial"], en: ["Full production", "Multiple looks and backdrops", "50+ edited photos", "Editorial and commercial usage rights transfer"] }, durationMinutes: 240, source: "fotografosantodomingo.com" },
+  // ESTUDIO end
 ];
 
 /* ============ FAQS (24 = 8 global + 4 per niche) ============ */
@@ -668,7 +764,15 @@ export const faqs: NetworkFaq[] = [
   { id: "estudio-location", scope: "estudio", esQ: "Dónde queda el estudio?", esA: "El estudio Babula Shots está en Santo Domingo, en una ubicación privada con parqueo fácil de acceso. La dirección exacta se comparte al confirmar la reserva por temas de seguridad y privacidad de los clientes. Es un espacio profesional con varios fondos, iluminación controlada, área de cambio y wifi para los acompañantes.", enQ: "Where is the studio located?", enA: "The Babula Shots studio is in Santo Domingo, in a private location with easy parking. The exact address is shared at booking confirmation for client security and privacy. It's a professional space with multiple backdrops, controlled lighting, a change area and wifi for companions." },
   { id: "estudio-makeup", scope: "estudio", esQ: "Ofrecen servicio de maquillaje y peinado?", esA: "Sí. Tenemos una makeup artist y peinadora aliadas que vienen al estudio bajo solicitud (add-on con costo aparte). El servicio se reserva con 5 días de anticipación. Para sesiones corporativas el maquillaje es más natural; para books de modelo o sesiones editoriales se ajusta al concepto que acordemos antes.", enQ: "Do you offer makeup and hair services?", enA: "Yes. We have an allied makeup artist and hairstylist who come to the studio on request (add-on with separate cost). The service books 5 days in advance. For corporate sessions makeup is more natural; for model books or editorial sessions it's tuned to the concept we agree on beforehand." },
   { id: "estudio-backdrops", scope: "estudio", esQ: "Qué fondos tiene disponible el estudio?", esA: "Tenemos fondos de papel sin costuras (blanco, gris, negro, beige, verde y rojo), fondos de tela texturizada, ciclorama curvo blanco para cuerpo entero y un set escenográfico con paredes movibles para sets editoriales. Si necesitas un fondo específico (color, textura, marca) lo conseguimos con 7 días de anticipación.", enQ: "What backdrops are available?", enA: "We have seamless paper backdrops (white, gray, black, beige, green and red), textured fabric backdrops, a white curved cyclorama for full-body shots and a scenographic set with movable walls for editorial setups. If you need a specific backdrop (color, texture, branded) we source it with 7 days of advance notice." },
-  { id: "estudio-children", scope: "estudio", esQ: "Trabajan con niños y bebés en estudio?", esA: "Sí. Tenemos experiencia con sesiones de bebés (recomendamos a partir de 2 semanas para newborn), sesiones familiares con niños, sesiones de cumpleaños y comuniones. El estudio tiene aire acondicionado controlado, área para alimentación y un set de props (peluches, mantas, sombreros) que rotamos según la edad del niño.", enQ: "Do you work with children and babies?", enA: "Yes. We have experience with baby sessions (we recommend starting at 2 weeks for newborn), family sessions with children, birthday and communion sessions. The studio has controlled AC, a feeding area and a props set (stuffed animals, blankets, hats) that we rotate based on the child's age." }
+  { id: "estudio-children", scope: "estudio", esQ: "Trabajan con niños y bebés en estudio?", esA: "Sí. Tenemos experiencia con sesiones de bebés (recomendamos a partir de 2 semanas para newborn), sesiones familiares con niños, sesiones de cumpleaños y comuniones. El estudio tiene aire acondicionado controlado, área para alimentación y un set de props (peluches, mantas, sombreros) que rotamos según la edad del niño.", enQ: "Do you work with children and babies?", enA: "Yes. We have experience with baby sessions (we recommend starting at 2 weeks for newborn), family sessions with children, birthday and communion sessions. The studio has controlled AC, a feeding area and a props set (stuffed animals, blankets, hats) that we rotate based on the child's age." },
+  { id: "estudio-duration", scope: "estudio", esQ: "Cuánto dura una sesión de fotos en estudio?", esA: "La duración estándar es de 60 minutos para retratos individuales, 90-120 minutos para sesiones corporativas con varios looks, 60 minutos para maternidad y familiares, 2-3 horas para newborn (con descansos para alimentar al bebé), y 2-4 horas para editoriales de moda con producción. Te confirmamos la duración exacta al cotizar y la sesión cubre desde el primer disparo hasta el último.", enQ: "How long does a studio session last?", enA: "Standard duration is 60 minutes for individual portraits, 90-120 minutes for corporate sessions with multiple looks, 60 minutes for maternity and family, 2-3 hours for newborn (with feeding breaks), and 2-4 hours for fashion editorials with production. We confirm exact duration at quote time and the session covers from first shot to last." },
+  { id: "estudio-outfit-changes", scope: "estudio", esQ: "Puedo cambiarme de ropa durante la sesión?", esA: "Sí. El estudio tiene un área de cambio privada con espejo de cuerpo entero, ganchos y un vapor de plancha para que la ropa se vea perfecta. En una sesión de 60 minutos caben cómodamente 2 looks; en 90 minutos hasta 3. Recomendamos llegar 15 minutos antes con la ropa lista para optimizar el tiempo de cámara y maximizar las fotos finales.", enQ: "Can I change outfits during the session?", enA: "Yes. The studio has a private change area with full-length mirror, hangers and a garment steamer so clothes look perfect. A 60-minute session comfortably fits 2 looks; 90 minutes fits up to 3. We recommend arriving 15 minutes early with clothes ready to maximize camera time and final photos." },
+  { id: "estudio-delivery", scope: "estudio", esQ: "Cómo recibo mis fotos después de la sesión?", esA: "Recibes una galería online privada con todas las fotos editadas, accesible desde tu correo y compartible por link con quien decidas. Desde la galería puedes descargar en alta resolución (para imprimir) y baja resolución (para redes sociales). Los tiempos de entrega son: retratos 5-7 días, corporativos 24-48 horas, newborn 7 días, editoriales 7-10 días.", enQ: "How do I receive my photos?", enA: "You get a private online gallery with all edited photos, accessible from your email and shareable by link with anyone you choose. From the gallery you can download in high resolution (for printing) and low resolution (for social media). Delivery times: portraits 5-7 days, corporate 24-48 hours, newborn 7 days, editorials 7-10 days." },
+  { id: "estudio-makeup-included", scope: "estudio", esQ: "Tus sesiones de fotos incluyen maquillaje o peinado?", esA: "Las sesiones estándar no incluyen maquillaje o peinado, pero tenemos una makeup artist y peinadora aliadas que vienen al estudio bajo solicitud (add-on con costo aparte: RD$3,500-6,000 según servicio). El servicio se reserva con 5 días de anticipación. Para corporativos recomendamos maquillaje natural; para books de modelo o editoriales se ajusta al concepto que acordemos antes.", enQ: "Do your sessions include makeup or hair?", enA: "Standard sessions don't include makeup or hair, but we have an allied makeup artist and hairstylist who come to the studio on request (add-on with separate cost: RD$3,500-6,000 depending on service). Books with 5 days advance notice. For corporate we recommend natural makeup; for model books or editorials it's tuned to the agreed concept." },
+  { id: "estudio-availability", scope: "estudio", esQ: "Cómo comprobar la disponibilidad?", esA: "Escríbenos por WhatsApp al +1 809 720 9547 con la fecha tentativa, el tipo de sesión y la cantidad de personas. Te respondemos en menos de 24 horas con disponibilidad confirmada y una propuesta detallada. El calendario del estudio se llena con 1-3 semanas de anticipación, especialmente fines de semana, así que recomendamos reservar lo antes posible.", enQ: "How do I check availability?", enA: "Message us on WhatsApp at +1 809 720 9547 with the tentative date, session type and number of people. We reply in under 24 hours with confirmed availability and a detailed proposal. The studio calendar fills up 1-3 weeks ahead, especially weekends, so we recommend booking as early as possible." },
+  { id: "estudio-prices-location", scope: "estudio", esQ: "Los precios de los planes son válidos solo en Santo Domingo?", esA: "Los precios publicados aplican para sesiones en nuestro estudio en Santo Domingo. Para sesiones en otras ciudades (Santiago, Punta Cana, La Romana, Casa de Campo, Cap Cana, Bávaro y otras) sumamos un travel fee fijo que cubre transporte y, cuando aplica, una noche de hospedaje del equipo. Cotiza tu zona específica por WhatsApp y te enviamos el precio total en menos de 24 horas.", enQ: "Are the package prices valid only in Santo Domingo?", enA: "Published prices apply for sessions at our Santo Domingo studio. For sessions in other cities (Santiago, Punta Cana, La Romana, Casa de Campo, Cap Cana, Bávaro and others) we add a flat travel fee covering transport and, when applicable, one night of team lodging. Quote your specific zone via WhatsApp and we send the total price in under 24 hours." },
+  { id: "global-language", scope: "global", esQ: "Atienden en inglés?", esA: "Sí. Atendemos por WhatsApp, email y en sesión en español e inglés. Para clientes internacionales (US, Canadá, Europa) coordinamos toda la comunicación pre-sesión por email en inglés y enviamos contratos bilingües si lo prefieres. El equipo de fotografía habla inglés a nivel profesional y conoce las referencias culturales de bodas y sesiones americanas, canadienses y europeas.", enQ: "Do you speak English?", enA: "Yes. We work in WhatsApp, email and on-set in Spanish and English. For international clients (US, Canada, Europe) we coordinate all pre-session communication via email in English and send bilingual contracts on request. The photo team speaks professional English and knows the cultural references of American, Canadian and European weddings and sessions." },
+  { id: "global-raw-files", scope: "global", esQ: "Entregan los archivos RAW originales?", esA: "Por política no entregamos archivos RAW. Los RAW son archivos brutos sin edición que pueden dar una impresión equivocada de la calidad final del trabajo. Lo que sí entregamos: archivos JPEG editados en alta resolución, listos para imprimir hasta tamaño grande, con derechos de uso personal o comercial según el contrato. Para clientes que requieren RAW por necesidad de archivo profesional cotizamos como add-on.", enQ: "Do you deliver original RAW files?", enA: "As a policy we don't deliver RAW files. RAWs are unedited raw files that can give a wrong impression of the final work quality. What we deliver: edited JPEG files at high resolution, print-ready up to large sizes, with personal or commercial usage rights per the contract. For clients who require RAW for professional archival purposes we quote as an add-on." }
 ];
 
 /* ============ HELPERS ============ */

@@ -8,7 +8,7 @@ import {
   servicesByNiche,
   type Niche
 } from "@/lib/networkCatalog";
-import { canonicalUrl, organizationSchema, phoneE164, siteUrl } from "@/lib/seo";
+import { canonicalUrl, organizationSchema, phoneE164, phoneDisplay, whatsappUrl, siteUrl } from "@/lib/seo";
 
 type Locale = "es" | "en";
 type PageType = "servicios" | "ubicaciones" | "precios" | "faq";
@@ -123,43 +123,83 @@ export function NetworkPage({ niche, type, locale }: { niche: Niche; type: PageT
       </section>
 
       {type === "servicios" && (
-        <section className="section">
-          <div className="wrap">
-            <h2 className="section-heading-h2">{isEn ? "All services" : "Todos los servicios"}</h2>
-            <div className="card-grid">
-              {services.map((s) => (
-                <article key={s.id} className="card">
-                  <span>{isEn ? "Service" : "Servicio"}</span>
-                  <h3>{isEn ? s.enName : s.esName}</h3>
-                  <p>{isEn ? s.enTagline : s.esTagline}</p>
-                  <ul className="service-list">
-                    {(isEn ? s.deliverables.en : s.deliverables.es).map((d) => (
-                      <li key={d}>{d}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+        <>
+          <section className="section">
+            <div className="wrap">
+              <div className="value-strip">
+                <div className="value-strip-head">
+                  <p className="section-tag">{isEn ? "What you get" : "Que entregamos"}</p>
+                  <h3>{isEn ? "Edited gallery, fast turnaround, commercial rights" : "Galeria editada, entrega rapida, derechos comerciales"}</h3>
+                </div>
+                <ul className="value-list">
+                  <li><strong>48-72h</strong>{" "}{isEn ? "delivery for portraits and corporate" : "entrega retratos y corporativo"}</li>
+                  <li><strong>{isEn ? "Online" : "Online"}</strong>{" "}{isEn ? "shareable private gallery" : "galeria privada compartible"}</li>
+                  <li><strong>{isEn ? "Sony + Profoto" : "Sony + Profoto"}</strong>{" "}{isEn ? "professional gear, full backup" : "equipo pro con backup"}</li>
+                  <li><strong>{isEn ? "Bilingual" : "Bilingue"}</strong>{" "}{isEn ? "team (ES/EN) for international clients" : "equipo (ES/EN) para clientes internacionales"}</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <section className="section section-divider">
+            <div className="wrap">
+              <h2 className="section-heading-h2">{isEn ? "All services" : "Todos los servicios"}</h2>
+              <div className="card-grid">
+                {services.map((s) => (
+                  <article key={s.id} className="card">
+                    <span>{isEn ? "Service" : "Servicio"}</span>
+                    <h3>{isEn ? s.enName : s.esName}</h3>
+                    <p>{isEn ? s.enTagline : s.esTagline}</p>
+                    <p className="card-description">{isEn ? s.enDescription : s.esDescription}</p>
+                    <ul className="service-list">
+                      {(isEn ? s.deliverables.en : s.deliverables.es).map((d) => (
+                        <li key={d}>{d}</li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       {type === "ubicaciones" && (
-        <section className="section">
-          <div className="wrap">
-            <h2 className="section-heading-h2">{isEn ? "All cities served" : "Todas las ciudades"}</h2>
-            <div className="card-grid">
-              {locations.map((l) => (
-                <article key={l.id} className="card">
-                  <span>{l.province}</span>
-                  <h3>{isEn ? l.enName : l.esName}</h3>
-                  <p>{isEn ? l.enTagline : l.esTagline}</p>
-                  <p className="source-note">{isEn ? l.enDescription : l.esDescription}</p>
-                </article>
-              ))}
+        <>
+          <section className="section">
+            <div className="wrap">
+              <div className="value-strip">
+                <div className="value-strip-head">
+                  <p className="section-tag">{isEn ? "Coverage" : "Cobertura"}</p>
+                  <h3>
+                    {isEn
+                      ? `${locations.length} cities across the Dominican Republic`
+                      : `${locations.length} ciudades en toda Republica Dominicana`}
+                  </h3>
+                </div>
+                <ul className="value-list">
+                  <li><strong>{isEn ? "No fee" : "Sin cargo"}</strong>{" "}{isEn ? "travel to Santo Domingo and Distrito Nacional" : "traslado en Santo Domingo y Distrito Nacional"}</li>
+                  <li><strong>{isEn ? "Flat fee" : "Tarifa fija"}</strong>{" "}{isEn ? "to Punta Cana, Santiago, Casa de Campo, Bavaro" : "para Punta Cana, Santiago, Casa de Campo, Bavaro"}</li>
+                  <li><strong>{isEn ? "Quoted" : "Cotizable"}</strong>{" "}{isEn ? "for Las Terrenas, Samana, Puerto Plata, Cabarete and other zones" : "para Las Terrenas, Samana, Puerto Plata, Cabarete y otras zonas"}</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <section className="section section-divider">
+            <div className="wrap">
+              <h2 className="section-heading-h2">{isEn ? "All cities served" : "Todas las ciudades"}</h2>
+              <div className="card-grid">
+                {locations.map((l) => (
+                  <article key={l.id} className="card">
+                    <span>{l.province}</span>
+                    <h3>{isEn ? l.enName : l.esName}</h3>
+                    <p>{isEn ? l.enTagline : l.esTagline}</p>
+                    <p className="card-description">{isEn ? l.enDescription : l.esDescription}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       {type === "precios" && (
@@ -224,6 +264,30 @@ export function NetworkPage({ niche, type, locale }: { niche: Niche; type: PageT
           </div>
         </section>
       )}
+
+      <section className="section booking-cta" id="contacto">
+        <div className="wrap">
+          <div className="booking-cta-grid">
+            <div>
+              <p className="section-tag">{isEn ? "Ready to book" : "Listo para reservar"}</p>
+              <h2>{isEn ? "Reserve your session today" : "Reserva tu sesion hoy"}</h2>
+              <p>
+                {isEn
+                  ? "Message us on WhatsApp with your tentative date and we reply with availability and a detailed quote in under 24 hours. Booking confirms with a 50% deposit."
+                  : "Escribenos por WhatsApp con tu fecha tentativa y te respondemos con disponibilidad y cotizacion detallada en menos de 24 horas. Reserva con 50% de deposito."}
+              </p>
+            </div>
+            <div className="booking-cta-actions">
+              <a className="button button-light" href={whatsappUrl(isEn ? "Hello, I'd like to check availability for a session." : "Hola, quiero consultar disponibilidad para una sesion.")} rel="noopener">
+                {isEn ? "WhatsApp" : "WhatsApp"} {phoneDisplay}
+              </a>
+              <a className="button button-ghost" href={`tel:${phoneE164}`}>
+                {isEn ? "Call" : "Llamar"} {phoneDisplay}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

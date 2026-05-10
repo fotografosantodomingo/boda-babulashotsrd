@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { NetworkPage } from "@/components/NetworkPage";
 import { canonicalUrl } from "@/lib/seo";
 
-// Alias for the legacy /en/servicios/ path. Same English content as /en/services/
-// but canonical points at the EN slug so search engines index only one URL.
 const enPath = "/en/services/";
 const esPath = "/servicios/";
 const title = "Wedding Services | Babula Shots";
@@ -20,7 +18,6 @@ export const metadata: Metadata = {
       "x-default": canonicalUrl(esPath)
     }
   },
-  robots: { index: false, follow: true },
   openGraph: {
     title,
     description,
@@ -28,7 +25,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Babula Shots"
-  }
+  },
+  twitter: { card: "summary_large_image", title, description }
 };
 
 export default function Page() {

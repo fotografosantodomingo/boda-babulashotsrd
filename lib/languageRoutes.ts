@@ -14,9 +14,9 @@ const normalizePath = (pathname: string) => {
 
 const routePairs: LanguagePaths[] = [
   { es: "/", en: "/en/" },
-  { es: "/servicios/", en: "/en/servicios/" },
-  { es: "/ubicaciones/", en: "/en/ubicaciones/" },
-  { es: "/precios/", en: "/en/precios/" },
+  { es: "/servicios/", en: "/en/services/" },
+  { es: "/ubicaciones/", en: "/en/locations/" },
+  { es: "/precios/", en: "/en/prices/" },
   { es: "/faq/", en: "/en/faq/" },
   { es: "/fotografo-bodas-republica-dominicana/", en: "/en/fotografo-bodas-republica-dominicana/" },
   ...weddingCities.map((city) => ({ es: cityPath(city.slug), en: `/en${cityPath(city.slug)}` })),

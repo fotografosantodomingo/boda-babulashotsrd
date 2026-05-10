@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ThemeLanguageControls } from "@/components/ThemeLanguageControls";
-import { mainBrandUrl, niche } from "@/lib/seo";
+import { niche } from "@/lib/seo";
 
 const navItems: Array<{ label: string; href: string; external?: boolean }> = [
-  { label: "Home", href: mainBrandUrl, external: true },
+  { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/servicios/" },
   { label: "Ubicaciones", href: "/ubicaciones/" },
   { label: "Precios", href: "/precios/" },

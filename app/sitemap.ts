@@ -8,7 +8,7 @@ const baseUrl = "https://boda.babulashotsrd.com";
 const lastModified = new Date("2026-05-05");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const sharedPaths = ["/servicios/", "/en/servicios/", "/ubicaciones/", "/en/ubicaciones/", "/precios/", "/en/precios/", "/faq/", "/en/faq/"];
+  const sharedPaths = ["/servicios/", "/en/services/", "/ubicaciones/", "/en/locations/", "/precios/", "/en/prices/", "/faq/", "/en/faq/"];
   return [
     {
       url: baseUrl,
