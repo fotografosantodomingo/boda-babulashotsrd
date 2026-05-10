@@ -1876,3 +1876,32 @@ h1 {
 }
 .smart-gallery .sg-item:hover figcaption,
 .smart-gallery .sg-item:focus-within figcaption { opacity: 1; }
+
+/* ============================================
+   Global photo rules (parent + all subdomains)
+   - Never dim photos with opacity
+   - Hero/banner overlays must sit BEHIND the image, never above
+   - Mobile: hero/cover photos go edge-to-edge (no border-radius, no border)
+   ============================================ */
+img, picture { opacity: 1 !important; }
+
+.hero::after,
+.city-hero::after,
+.cover-parallax::after { z-index: 0; }
+
+.hero img, .hero-media, .hero-image,
+.city-hero img, .city-hero-image,
+.article-hero img,
+.cover-parallax-bg { position: relative; z-index: 2; }
+
+@media (max-width: 719px) {
+  .hero-media,
+  .hero img,
+  .article-hero,
+  .article-hero img,
+  .city-hero-image,
+  .cover-parallax {
+    border-radius: 0 !important;
+    border: 0 !important;
+  }
+}
