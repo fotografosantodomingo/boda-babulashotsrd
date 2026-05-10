@@ -11,11 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sharedPaths = ["/servicios/", "/en/services/", "/ubicaciones/", "/en/locations/", "/precios/", "/en/prices/", "/faq/", "/en/faq/"];
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified
     },
     {
-      url: `${baseUrl}/en`,
+      url: `${baseUrl}/en/`,
       lastModified
     },
     ...sharedPaths.map((p) => ({ url: `${baseUrl}${p}`, lastModified })),
@@ -28,11 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified
     })),
     ...blogPosts.map((post) => ({
-      url: `${baseUrl}/${post.slug}`,
+      url: `${baseUrl}/${post.slug}/`,
       lastModified
     })),
     ...blogPosts.map((post) => ({
-      url: `${baseUrl}/en/${post.slug}`,
+      url: `${baseUrl}/en/${post.slug}/`,
       lastModified
     }))
   ];

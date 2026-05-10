@@ -270,7 +270,7 @@ export const weddingCities: WeddingCity[] = [
 ];
 
 export function cityPath(slug: string) {
-  return `/fotografo-bodas-${slug}`;
+  return `/fotografo-bodas-${slug}/`;
 }
 
 export function slugForCityName(name: string) {
