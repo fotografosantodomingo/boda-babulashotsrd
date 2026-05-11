@@ -129,7 +129,7 @@ export function NetworkPage({ niche, type, locale }: { niche: Niche; type: PageT
               <div className="value-strip">
                 <div className="value-strip-head">
                   <p className="section-tag">{isEn ? "What you get" : "Que entregamos"}</p>
-                  <h3>{isEn ? "Edited gallery, fast turnaround, commercial rights" : "Galeria editada, entrega rapida, derechos comerciales"}</h3>
+                  <h2>{isEn ? "Edited gallery, fast turnaround, commercial rights" : "Galeria editada, entrega rapida, derechos comerciales"}</h2>
                 </div>
                 <ul className="value-list">
                   <li><strong>48-72h</strong>{" "}{isEn ? "delivery for portraits and corporate" : "entrega retratos y corporativo"}</li>
@@ -170,11 +170,11 @@ export function NetworkPage({ niche, type, locale }: { niche: Niche; type: PageT
               <div className="value-strip">
                 <div className="value-strip-head">
                   <p className="section-tag">{isEn ? "Coverage" : "Cobertura"}</p>
-                  <h3>
+                  <h2>
                     {isEn
                       ? `${locations.length} cities across the Dominican Republic`
                       : `${locations.length} ciudades en toda Republica Dominicana`}
-                  </h3>
+                  </h2>
                 </div>
                 <ul className="value-list">
                   <li><strong>{isEn ? "No fee" : "Sin cargo"}</strong>{" "}{isEn ? "travel to Santo Domingo and Distrito Nacional" : "traslado en Santo Domingo y Distrito Nacional"}</li>

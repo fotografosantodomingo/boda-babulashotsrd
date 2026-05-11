@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: canonicalUrl(enPath),
     languages: {
       "es-DO": canonicalUrl(esPath),
+      es: canonicalUrl(esPath),
       en: canonicalUrl(enPath),
       "x-default": canonicalUrl(esPath)
     }
