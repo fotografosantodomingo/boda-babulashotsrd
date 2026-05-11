@@ -157,6 +157,18 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
         </div>
       </section>
 
+      <section className="section">
+        <div className="wrap split">
+          <p className="section-tag">{isEnglish ? "Local context" : "Contexto local"}</p>
+          <div className="copy-stack">
+            <h2>{isEnglish ? `About ${city.city}` : `Sobre ${city.city}`}</h2>
+            {(isEnglish ? city.enLocalContext : city.localContext).map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section alt-section">
         <div className="wrap split">
           <p className="section-tag">{isEnglish ? "Local intent" : "Intención local"}</p>
@@ -324,6 +336,36 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
           </div>
         </div>
       </section>
+
+      {city.sisterCities && city.sisterCities.length > 0 ? (
+        <section className="section">
+          <div className="wrap split">
+            <p className="section-tag">{isEnglish ? "Related destinations" : "Destinos relacionados"}</p>
+            <div className="copy-stack">
+              <h2>{isEnglish ? `We also cover weddings near ${city.city}` : `Trabajamos también cerca de ${city.city}`}</h2>
+              <p>
+                {isEnglish
+                  ? `If your wedding plans span more than one location, these nearby destinations share the same coverage team and visual style as ${city.city}.`
+                  : `Si tu boda combina más de una locación, estos destinos cercanos comparten el mismo equipo de cobertura y la misma estética que usamos en ${city.city}.`}
+              </p>
+              <div className="internal-links">
+                {city.sisterCities.map((sisterSlug) => {
+                  const sister = findCityBySlug(sisterSlug);
+                  if (!sister) return null;
+                  const href = `${isEnglish ? "/en" : ""}${cityPath(sister.slug)}`;
+                  return (
+                    <Link key={sisterSlug} href={href}>
+                      {isEnglish
+                        ? `Wedding photographer in ${sister.city}`
+                        : `Fotógrafo de bodas en ${sister.city}`}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="wrap split">
