@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles } from "@/lib/articles";
 import { blogPosts } from "@/lib/blogPosts";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
@@ -19,6 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified
     },
     ...sharedPaths.map((p) => ({ url: `${baseUrl}${p}`, lastModified })),
+    // Blog index (Spanish only for now — English /en/blog/ index can come later)
+    { url: `${baseUrl}/blog/`, lastModified },
+    // City wedding pages
     ...weddingCities.map((city) => ({
       url: `${baseUrl}${cityPath(city.slug)}`,
       lastModified
@@ -27,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/en${cityPath(city.slug)}`,
       lastModified
     })),
+    // Legacy flat-URL blog posts
     ...blogPosts.map((post) => ({
       url: `${baseUrl}/${post.slug}/`,
       lastModified
@@ -34,6 +39,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPosts.map((post) => ({
       url: `${baseUrl}/en/${post.slug}/`,
       lastModified
-    }))
+    })),
+    // New bilingual articles at /blog/ + /en/blog/
+    ...articles.map((a) => ({
+      url: `${baseUrl}/blog/${a.slug}/`,
+      lastModified: new Date(a.dateModified)
+    })),
+    ...articles
+      .filter((a) => a.en?.enSlug)
+      .map((a) => ({
+        url: `${baseUrl}/en/blog/${a.en!.enSlug}/`,
+        lastModified: new Date(a.dateModified)
+      }))
   ];
 }

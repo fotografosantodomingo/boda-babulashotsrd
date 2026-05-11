@@ -1,3 +1,4 @@
+import { articles } from "@/lib/articles";
 import { blogPosts } from "@/lib/blogPosts";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
@@ -19,8 +20,15 @@ const routePairs: LanguagePaths[] = [
   { es: "/precios/", en: "/en/prices/" },
   { es: "/faq/", en: "/en/faq/" },
   { es: "/fotografo-bodas-republica-dominicana/", en: "/en/fotografo-bodas-republica-dominicana/" },
+  { es: "/blog/", en: "/en/blog/" },
   ...weddingCities.map((city) => ({ es: cityPath(city.slug), en: `/en${cityPath(city.slug)}` })),
-  ...blogPosts.map((post) => ({ es: `/${post.slug}`, en: `/en/${post.slug}` }))
+  // Legacy flat-URL blog posts (same slug for both languages)
+  ...blogPosts.map((post) => ({ es: `/${post.slug}`, en: `/en/${post.slug}` })),
+  // New bilingual articles at /blog/ + /en/blog/ — auto-derived from articles.ts.
+  // Adding a new article with an `en` field automatically wires up the language toggle.
+  ...articles
+    .filter((a) => a.en?.enSlug)
+    .map((a) => ({ es: `/blog/${a.slug}/`, en: `/en/blog/${a.en!.enSlug}/` }))
 ].map((pair) => ({ es: normalizePath(pair.es), en: normalizePath(pair.en) }));
 
 export function languagePathsFor(pathname: string): LanguagePaths {
