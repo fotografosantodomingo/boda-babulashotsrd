@@ -43,7 +43,7 @@ export function whatsappUrl(message: string) {
 // ──────────────────────────────────────────────────────────────────────────
 
 // Brand logo / image used by Organization + as Publisher inside Article schemas.
-export const brandLogoUrl = `${mainBrandUrl}/wp-content/uploads/2024/06/Babula-Shots-Logo.webp`;
+export const brandLogoUrl = `${mainBrandUrl}/wp-content/uploads/2023/05/cropped-babulashotslogo-1.png`;
 
 // ISO 8601 datetime helper. Dominican Republic = UTC-4 year-round (no DST).
 // Use for datePublished/dateModified — bare "YYYY-MM-DD" fails Rich Results
