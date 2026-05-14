@@ -1922,3 +1922,45 @@ img, picture { opacity: 1 !important; }
     border: 0 !important;
   }
 }
+
+/* ============================================
+   Wedding prices page (/precios/, /en/prices/)
+   ============================================ */
+
+.wp-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.4rem;
+  justify-content: center;
+}
+
+.wp-values .card { text-align: left; }
+
+.wp-package-card {
+  display: flex;
+  flex-direction: column;
+}
+.wp-package-card .service-list { flex: 1; }
+
+.wp-package-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.wp-package-actions .button-light {
+  width: 100%;
+  text-align: center;
+}
+
+.wp-custom-tier {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  border: 1px dashed currentColor;
+  border-radius: 14px;
+  max-width: 760px;
+}
+.wp-custom-tier .section-tag { margin-bottom: .5rem; }
+.wp-custom-tier h3 { font-size: 1.35rem; margin: 0 0 .75rem; }
+.wp-custom-tier p { margin: 0 0 1.1rem; line-height: 1.7; }

@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { NetworkPage } from "@/components/NetworkPage";
+import { WeddingPricesPage, getWeddingPricesMetadata } from "@/components/WeddingPricesPage";
 import { canonicalUrl } from "@/lib/seo";
 
 const enPath = "/en/prices/";
 const esPath = "/precios/";
-const title = "Wedding Prices | Babula Shots";
-const description = "Wedding package prices in Dominican pesos with US dollar equivalent. Network rate card from fotografosantodomingo.com.";
+const base = getWeddingPricesMetadata("en");
 
 export const metadata: Metadata = {
-  title,
-  description,
+  ...base,
   alternates: {
     canonical: canonicalUrl(enPath),
     languages: {
@@ -19,16 +17,13 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title,
-    description,
-    url: canonicalUrl(enPath),
-    type: "website",
+    ...base.openGraph,
     locale: "en_US",
-    siteName: "Babula Shots"
+    siteName: "Babula Shots Weddings"
   },
-  twitter: { card: "summary_large_image", title, description }
+  twitter: { card: "summary_large_image", title: base.title, description: base.description }
 };
 
 export default function Page() {
-  return <NetworkPage niche="bodas" type="precios" locale="en" />;
+  return <WeddingPricesPage locale="en" />;
 }
