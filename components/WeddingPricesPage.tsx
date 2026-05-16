@@ -434,8 +434,8 @@ export function getWeddingPricesMetadata(locale: Locale) {
   const path = isEn ? "/en/precios/" : "/precios/";
   return {
     title: isEn
-      ? "Wedding photography pricing in the Dominican Republic | Babula Shots"
-      : "Precios de fotografía de bodas en República Dominicana | Babula Shots",
+      ? "Wedding Photography Prices Dominican Republic · 4.9★ 98 Google Reviews"
+      : "Precios de fotografía de bodas en República Dominicana · 4.9★ 98 reseñas Google",
     description: t.lead.slice(0, 158),
     alternates: { canonical: canonicalUrl(path) },
     openGraph: {

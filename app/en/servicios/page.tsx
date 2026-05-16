@@ -6,7 +6,7 @@ import { canonicalUrl } from "@/lib/seo";
 // but canonical points at the EN slug so search engines index only one URL.
 const enPath = "/en/services/";
 const esPath = "/servicios/";
-const title = "Wedding Services | Babula Shots";
+const title = "Wedding Photography Services DR · 4.9★ Babula Shots";
 const description = "Coverage, deliverables and timelines per wedding service: ceremony, reception, engagement, destination, album.";
 
 export const metadata: Metadata = {

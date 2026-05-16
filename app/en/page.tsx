@@ -3,7 +3,7 @@ import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWedd
 import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Wedding photographer in Dominican Republic | Babula Shots",
+  title: "Wedding Photographer Dominican Republic · 4.9★ 98 Google Reviews",
   description: "Wedding photographer in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic. Destination weddings and beach resorts. Quote on WhatsApp.",
   alternates: {
     canonical: "/en",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Wedding photographer in Dominican Republic | Babula Shots",
+    title: "Wedding Photographer Dominican Republic · 4.9★ 98 Google Reviews",
     description: "Professional wedding photography in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic.",
     url: canonicalUrl("/en"),
     locale: "en_US",

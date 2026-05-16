@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWeddingHome";
 
 export const metadata: Metadata = {
-  title: "Fotógrafo de bodas en República Dominicana | Babula Shots",
+  title: "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google",
   description: "Fotógrafo de bodas en República Dominicana para Santo Domingo, Punta Cana, La Romana, Samaná, Puerto Plata y bodas destino.",
   alternates: {
     canonical: "/",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Fotógrafo de bodas en República Dominicana | Babula Shots",
+    title: "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google",
     description: "Cobertura profesional para bodas en República Dominicana con estilo natural, editorial y cinematográfico.",
     url: "/",
     locale: "es_DO",

@@ -51,7 +51,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (city) {
     const esUrl = cityPath(city.slug);
     const enUrl = `/en${esUrl}`;
-    const title = `Wedding photographer in ${city.city} | Babula Shots`;
+    const cityLabel = city.city.replace(/ RD$/, "");
+    const title = `Wedding Photographer ${cityLabel}, DR · 4.9★ 98 Google Reviews`;
     const description = `Wedding photographer in ${city.city} for destination weddings, ceremonies, portraits and edited galleries in Dominican Republic.`;
 
     return {
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const post = findBlogPost(slug);
   if (!post) return {};
-  const title = `${post.title} | Babula Shots`;
+  const title = `${post.title} · 4.9★ 98 Google Reviews`;
 
   return {
     title,

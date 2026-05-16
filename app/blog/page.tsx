@@ -4,7 +4,7 @@ import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { articles } from "@/lib/articles";
 import { canonicalUrl, organizationSchema, siteUrl } from "@/lib/seo";
 
-const title = "Blog de bodas | Babula Shots";
+const title = "Blog de bodas en República Dominicana · Guías Babula Shots";
 const description =
   "Guías, tips y artículos sobre fotografía de bodas en República Dominicana: locaciones, resorts, paquetes, requisitos legales y consejos de fotógrafo profesional.";
 

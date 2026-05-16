@@ -301,7 +301,9 @@ export function getNetworkPageMetadata(niche: Niche, type: PageType, locale: Loc
     : niche === "inmobiliaria" ? (isEn ? "Real Estate" : "Inmobiliaria")
     : niche === "drone" ? "Drone"
     : isEn ? "Studio" : "Estudio";
-  const title = `${isEn ? t.en : t.es} ${niceNiche} | Babula Shots`;
+  const title = isEn
+    ? `${t.en} ${niceNiche} · 4.9★ 98 Google Reviews`
+    : `${t.es} ${niceNiche} · 4.9★ 98 reseñas Google`;
   const description = (isEn ? intro.en : intro.es).slice(0, 158);
   return {
     title,

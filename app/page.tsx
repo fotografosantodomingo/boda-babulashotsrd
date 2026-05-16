@@ -3,7 +3,7 @@ import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWedd
 import { canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Fotógrafo de bodas en República Dominicana | Babula Shots",
+  title: "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google",
   description: "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video. Cotiza por WhatsApp.",
   alternates: {
     canonical: "/",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Fotógrafo de bodas en República Dominicana | Babula Shots",
+    title: "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google",
     description: "Fotografía profesional de bodas en Santo Domingo, Punta Cana, La Romana, Samaná y toda República Dominicana.",
     url: canonicalUrl("/"),
     locale: "es_DO",
