@@ -1,5 +1,4 @@
 import { articles } from "@/lib/articles";
-import { blogPosts } from "@/lib/blogPosts";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
 type LanguagePaths = {
@@ -22,8 +21,10 @@ const routePairs: LanguagePaths[] = [
   { es: "/fotografo-bodas-republica-dominicana/", en: "/en/fotografo-bodas-republica-dominicana/" },
   { es: "/blog/", en: "/en/blog/" },
   ...weddingCities.map((city) => ({ es: cityPath(city.slug), en: `/en${cityPath(city.slug)}` })),
-  // Legacy flat-URL blog posts (same slug for both languages)
-  ...blogPosts.map((post) => ({ es: `/${post.slug}`, en: `/en/${post.slug}` })),
+  // Legacy /{slug}/ Spanish-only posts are NOT paired — they have no English
+  // counterpart. languagePathsFor() returns en:"" for those, signalling the
+  // EN switcher to hide. /en/{slug}/ used to render Spanish content wrapped in
+  // English shell (mixed-language mess) — now 301-redirected to /{slug}/.
   // New bilingual articles at /blog/ + /en/blog/ — auto-derived from articles.ts.
   // Adding a new article with an `en` field automatically wires up the language toggle.
   ...articles

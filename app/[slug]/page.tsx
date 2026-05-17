@@ -91,7 +91,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: {
         "es-DO": `/${post.slug}`,
         es: `/${post.slug}`,
-        en: `/en/${post.slug}`,
         "x-default": `/${post.slug}`
       }
     },

@@ -6,10 +6,26 @@
 /en/fotografo-bodas-republica-dominicana/ /en/ 301
 /wedding-photographer-in-dominican-republic/ /en/ 301
 /wedding-photographer-in-santo-domingo/ /en/fotografo-bodas-santo-domingo/ 301
-/wedding-photographer-prices-in-dominican-republic/ /en/cuanto-cuesta-fotografo-bodas-republica-dominicana/ 301
-/wedding-quote-in-dr/ /en/cuanto-cuesta-fotografo-bodas-republica-dominicana/ 301
+# Old English-marketing slugs that used to land on /en/{spanish-slug}/. Those
+# /en/ pages are gone (Spanish content with English shell — mixed-language).
+# Redirect to the Spanish canonical so visitors get coherent content.
+/wedding-photographer-prices-in-dominican-republic/ /cuanto-cuesta-fotografo-bodas-republica-dominicana/ 301
+/wedding-quote-in-dr/ /cuanto-cuesta-fotografo-bodas-republica-dominicana/ 301
 /cotizacion-de-bodas-en-rd/ /cuanto-cuesta-fotografo-bodas-republica-dominicana/ 301
 /fotografo-de-bodas-republica-dominicana-2/ / 301
 /sesion-de-fotos/ / 301
 /tag/* / 301
 /attachment_tag/* / 301
+# 11 legacy Spanish-only blog posts: kill their /en/ variants (used to render
+# Spanish body with English wrapping; broken bilingually). 301 to Spanish canonical.
+/en/boda-destino-republica-dominicana/ /boda-destino-republica-dominicana/ 301
+/en/boda-en-casa-de-campo-la-romana/ /boda-en-casa-de-campo-la-romana/ 301
+/en/boda-en-las-terrenas-samana/ /boda-en-las-terrenas-samana/ 301
+/en/buscas-un-lugar-unico-para-tu-preboda/ /buscas-un-lugar-unico-para-tu-preboda/ 301
+/en/celebra-el-amor-en-el-caribe-desde-ceremonias-intimas-hasta-grandes-eventos/ /celebra-el-amor-en-el-caribe-desde-ceremonias-intimas-hasta-grandes-eventos/ 301
+/en/cuanto-cuesta-fotografo-bodas-republica-dominicana/ /cuanto-cuesta-fotografo-bodas-republica-dominicana/ 301
+/en/fotografia-de-bodas-en-republica-dominicana-primer-baile-romantico/ /fotografia-de-bodas-en-republica-dominicana-primer-baile-romantico/ 301
+/en/fotografo-bodas-playa-punta-cana/ /fotografo-bodas-playa-punta-cana/ 301
+/en/los-extranjeros-pueden-contraer-matrimonio-civil-en-la-republica-dominicana/ /los-extranjeros-pueden-contraer-matrimonio-civil-en-la-republica-dominicana/ 301
+/en/mejores-lugares-para-bodas-punta-cana/ /mejores-lugares-para-bodas-punta-cana/ 301
+/en/mejores-lugares-para-fotos-boda-santo-domingo/ /mejores-lugares-para-fotos-boda-santo-domingo/ 301
