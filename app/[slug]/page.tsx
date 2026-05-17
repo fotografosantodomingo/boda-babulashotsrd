@@ -3,9 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CityWeddingPage, citySeoEnhancements } from "@/components/CityWeddingPage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
-import { blogPosts, findBlogPost } from "@/lib/blogPosts";
+import { blogPosts, defaultBlogPostHero, findBlogPost } from "@/lib/blogPosts";
 import { canonicalUrl } from "@/lib/seo";
-import { cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
+import { cityImages, cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title: city.title,
         description: city.description,
         url: canonicalUrl(url),
-        images: [{ url: city.images[0], width: 1600, height: 2000, alt: city.h1 }],
+        images: [{ url: cityImages(city)[0], width: 1600, height: 2000, alt: city.h1 }],
         type: "website",
         locale: "es_DO"
       },
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         card: "summary_large_image",
         title: city.title,
         description: city.description,
-        images: [city.images[0]]
+        images: [cityImages(city)[0]]
       }
     };
   }
@@ -138,7 +138,7 @@ export default async function BlogPage({ params }: PageProps) {
         "@type": "LocalBusiness",
         name: "Babula Shots",
         url: canonical,
-        image: `https://boda.babulashotsrd.com${city.images[0]}`,
+        image: `https://boda.babulashotsrd.com${cityImages(city)[0]}`,
         telephone: "+18097209547",
         email: "info@babulashotsrd.com",
         address: {
@@ -225,6 +225,8 @@ export default async function BlogPage({ params }: PageProps) {
   if (!post) notFound();
   const faq = post.faq ?? articleFaq(post.h1);
   const canonical = `https://boda.babulashotsrd.com/${post.slug}`;
+  const hero = post.hero ?? defaultBlogPostHero;
+  const heroAbsolute = `https://boda.babulashotsrd.com${hero.src}`;
 
   const schema = [
     {
@@ -235,7 +237,7 @@ export default async function BlogPage({ params }: PageProps) {
       mainEntityOfPage: canonical,
       datePublished: "2026-05-05",
       dateModified: "2026-05-05",
-      image: "https://boda.babulashotsrd.com/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp",
+      image: heroAbsolute,
       author: {
         "@type": "Organization",
         name: "Babula Shots"
@@ -297,6 +299,19 @@ export default async function BlogPage({ params }: PageProps) {
             <h1>{post.h1}</h1>
             <p>{post.intro}</p>
           </div>
+          {post.hero ? (
+            <figure className="article-hero-figure">
+              <img
+                src={hero.src}
+                alt={hero.alt}
+                width={hero.width}
+                height={hero.height}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </figure>
+          ) : null}
         </section>
 
         <section className="section">

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWeddingHome";
-import { canonicalUrl } from "@/lib/seo";
+import { canonicalUrl, ratingBadgeEs } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google",
+  title: "Fotógrafo de bodas en República Dominicana" + ratingBadgeEs,
   description: "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video. Cotiza por WhatsApp.",
   alternates: {
     canonical: "/",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en República Dominicana" + ratingBadgeEs,
     description: "Fotografía profesional de bodas en Santo Domingo, Punta Cana, La Romana, Samaná y toda República Dominicana.",
     url: canonicalUrl("/"),
     locale: "es_DO",

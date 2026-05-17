@@ -1,3 +1,12 @@
+import { ratingBadgeEs } from "@/lib/seo";
+
+export type BlogPostHero = {
+  src: string;       // absolute or root-relative path, e.g. /images/foo.webp
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -8,12 +17,26 @@ export type BlogPost = {
   sections: { heading: string; body: string }[];
   faq?: { question: string; answer: string }[];
   links: { href: string; label: string }[];
+  /**
+   * Per-post hero image. When omitted, the renderer falls back to
+   * `defaultBlogPostHero` (currently the network's generic Punta Cana hero).
+   * Set this once a real photo for the post arrives — Article schema +
+   * page hero both read from this field.
+   */
+  hero?: BlogPostHero;
+};
+
+export const defaultBlogPostHero: BlogPostHero = {
+  src: "/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp",
+  alt: "Babula Shots — fotografía de bodas en República Dominicana",
+  width: 1366,
+  height: 2048
 };
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "mejores-lugares-para-bodas-punta-cana",
-    title: "Mejores lugares para bodas en Punta Cana · 4.9★ 98 reseñas Google",
+    title: "Mejores lugares para bodas en Punta Cana" + ratingBadgeEs,
     description: "Guía de lugares para bodas en Punta Cana: playa, resorts, Cap Cana, Bávaro y espacios ideales para fotografía.",
     h1: "Mejores lugares para bodas en Punta Cana",
     intro: "Punta Cana es uno de los destinos más fuertes para bodas en el Caribe. La decisión del lugar define la luz, el ritmo de la cobertura y el estilo visual de la galería.",
@@ -132,7 +155,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "fotografia-de-bodas-en-republica-dominicana-primer-baile-romantico",
-    title: "Primer baile en bodas en República Dominicana · 4.9★ 98 reseñas Google",
+    title: "Primer baile en bodas en República Dominicana" + ratingBadgeEs,
     description: "Guía para fotografiar el primer baile en bodas en República Dominicana: luz, timing, locaciones y consejos para parejas.",
     h1: "Primer baile en bodas en República Dominicana",
     intro: "El primer baile es uno de los momentos más emotivos y esperados en cualquier boda en República Dominicana. Más allá de la tradición, representa la primera vez que la pareja se mueve al unísono como esposos frente a sus familiares y amigos. Ya sea en una espectacular boda en la playa de Punta Cana, en una elegante villa en Casa de Campo (La Romana), o en un lujoso salón en Santo Domingo, la fotografía de este instante requiere técnica, anticipación y sensibilidad.",
@@ -177,7 +200,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "celebra-el-amor-en-el-caribe-desde-ceremonias-intimas-hasta-grandes-eventos",
-    title: "Bodas en el Caribe en República Dominicana · 4.9★ 98 reseñas Google",
+    title: "Bodas en el Caribe en República Dominicana" + ratingBadgeEs,
     description: "Guía para bodas en el Caribe dominicano: Punta Cana, Samaná, La Romana, resorts, villas y fotografía profesional.",
     h1: "Bodas en el Caribe en República Dominicana: De lo íntimo a lo grandioso",
     intro: "La República Dominicana se ha consolidado como el destino número uno en el Caribe para celebrar bodas. Su combinación de playas de arena blanca, resorts todo incluido de clase mundial, villas privadas y una cultura cálida y acogedora la convierten en el escenario ideal para cualquier estilo de celebración. Desde una ceremonia elopement (solo la pareja) en las montañas de Jarabacoa, hasta un mega-evento de 300 invitados en un resort de Punta Cana, este país ofrece logística y belleza inigualables.",

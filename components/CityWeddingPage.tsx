@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CallbackForm } from "@/components/CallbackForm";
 import { HeroImage } from "@/components/HeroImage";
-import { cityPath, findCityBySlug, slugForCityName, type WeddingCity } from "@/lib/weddingCities";
+import { cityImages, cityPath, findCityBySlug, slugForCityName, type WeddingCity } from "@/lib/weddingCities";
 
 const services = [
   "Cobertura completa de boda",
@@ -125,7 +125,7 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
     <main>
       <section className="city-hero">
         <HeroImage
-          src={city.images[0]}
+          src={cityImages(city)[0]}
           alt={isEnglish ? `Wedding photographer in ${city.city}` : `Fotógrafo de bodas en ${city.city}`}
           width={1600}
           height={2000}
@@ -190,7 +190,7 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
 
       <section className="section">
         <div className="wrap gallery-grid">
-          {city.images.map((image, index) => (
+          {cityImages(city).map((image, index) => (
             <Image
               key={image}
               src={image}

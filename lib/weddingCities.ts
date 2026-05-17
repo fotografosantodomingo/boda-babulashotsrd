@@ -1,3 +1,5 @@
+import { ratingBadgeEs } from "@/lib/seo";
+
 export type WeddingCity = {
   city: string;
   slug: string;
@@ -10,12 +12,29 @@ export type WeddingCity = {
   localAngle: string;
   venues: string[];
   nearby: string[];
+  /**
+   * Placeholder image pool — currently shared across cities via `imageSet`.
+   * The renderer reads `customImages` first if set, falling back to `images`.
+   * DON'T edit `images` to swap in real per-city photos; set `customImages`
+   * instead so other cities don't lose their existing placeholders.
+   */
   images: string[];
+  /**
+   * Real per-city photos delivered for this city specifically. Set this when
+   * city-specific photography is available. First entry is the hero; the rest
+   * fill the gallery. Overrides `images` entirely (not merged).
+   */
+  customImages?: string[];
   supportingKeywords: string[];
   localContext: string[];
   enLocalContext: string[];
   sisterCities: string[];
 };
+
+/** Returns the effective image array for a city — custom first, placeholder fallback. */
+export function cityImages(city: WeddingCity): string[] {
+  return city.customImages && city.customImages.length > 0 ? city.customImages : city.images;
+}
 
 const imageSet = {
   punta: "/images/fotografo-de-boda-playa-punta-cana.webp",
@@ -35,7 +54,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "punta-cana",
     province: "La Altagracia",
     priority: 1,
-    title: "Fotógrafo de bodas en Punta Cana · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Punta Cana" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Punta Cana para bodas destino, ceremonias en la playa y resorts. Cobertura profesional con estilo natural y editorial.",
     h1: "Fotógrafo de bodas en Punta Cana",
     intro: "Punta Cana es uno de los destinos más importantes para bodas en República Dominicana. En Babula Shots capturamos ceremonias en la playa, bodas destino, sesiones de pareja y celebraciones en resorts con una estética natural, elegante y cinematográfica.",
@@ -61,8 +80,8 @@ export const weddingCities: WeddingCity[] = [
     slug: "santo-domingo",
     province: "Distrito Nacional",
     priority: 1,
-    title: "Fotógrafo de bodas en Santo Domingo · 4.9★ 98 reseñas Google",
-    description: "Fotógrafo de bodas en Santo Domingo para bodas elegantes, ceremonias civiles, Zona Colonial y celebraciones premium.",
+    title: "Fotógrafo de bodas en Santo Domingo" + ratingBadgeEs,
+    description: "Fotógrafo de bodas en Santo Domingo: ceremonias civiles, Zona Colonial, Catedral Primada y Plaza España. Cobertura premium, galería editada en 4-6 semanas.",
     h1: "Fotógrafo de bodas en Santo Domingo",
     intro: "Santo Domingo ofrece escenarios perfectos para bodas elegantes, ceremonias civiles, sesiones urbanas y eventos premium. Babula Shots documenta bodas en la ciudad con una mezcla de fotografía documental, dirección natural y estética editorial.",
     localAngle: "La Zona Colonial, hoteles, iglesias y espacios privados permiten una narrativa visual muy completa: preparación, retratos, ceremonia y fiesta con contraste entre arquitectura, ciudad y emoción real.",
@@ -87,8 +106,8 @@ export const weddingCities: WeddingCity[] = [
     slug: "la-romana",
     province: "La Romana",
     priority: 1,
-    title: "Fotógrafo de bodas en La Romana · 4.9★ 98 reseñas Google",
-    description: "Fotógrafo de bodas en La Romana y Casa de Campo. Cobertura profesional para bodas destino, playa y eventos privados.",
+    title: "Fotógrafo de bodas en La Romana" + ratingBadgeEs,
+    description: "Fotógrafo de bodas en La Romana y Casa de Campo: Altos de Chavón, Marina, villas privadas. Cobertura completa, galería editada en 4-6 semanas.",
     h1: "Fotógrafo de bodas en La Romana",
     intro: "La Romana es ideal para bodas destino, celebraciones privadas y eventos en espacios premium como Casa de Campo, Altos de Chavón y playas cercanas. Creamos imágenes elegantes, naturales y listas para galería, álbum e impresión.",
     localAngle: "Aquí las bodas suelen mezclar lujo, privacidad y paisajes cálidos. Diseñamos la cobertura para aprovechar traslados, golden hour y retratos de pareja sin cortar el ritmo del evento.",
@@ -113,7 +132,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "samana",
     province: "Samaná",
     priority: 1,
-    title: "Fotógrafo de bodas en Samaná · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Samaná" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Samaná para bodas de playa, celebraciones íntimas y bodas destino con estética natural.",
     h1: "Fotógrafo de bodas en Samaná",
     intro: "Samaná combina playas, montañas, villas y rincones naturales con una energía íntima perfecta para bodas destino. Documentamos cada celebración con fotografía emocional, editorial y preparada para galerías premium.",
@@ -139,7 +158,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "puerto-plata",
     province: "Puerto Plata",
     priority: 1,
-    title: "Fotógrafo de bodas en Puerto Plata · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Puerto Plata" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Puerto Plata para bodas de playa, Cabarete, Sosúa y celebraciones en la costa norte.",
     h1: "Fotógrafo de bodas en Puerto Plata",
     intro: "Puerto Plata ofrece costa, montaña, hoteles y playas de la zona norte para bodas con carácter tropical y elegante. Babula Shots crea reportajes completos con una mirada documental y cinematográfica.",
@@ -165,8 +184,8 @@ export const weddingCities: WeddingCity[] = [
     slug: "santiago",
     province: "Santiago",
     priority: 2,
-    title: "Fotógrafo de bodas en Santiago RD · 4.9★ 98 reseñas Google",
-    description: "Fotógrafo de bodas en Santiago de los Caballeros para ceremonias elegantes, iglesias, salones y recepciones premium.",
+    title: "Fotógrafo de bodas en Santiago RD" + ratingBadgeEs,
+    description: "Fotógrafo de bodas en Santiago RD: ceremonias en Iglesia La Altagracia, Centro León y recepciones en Camp David Ranch o Hodelpa Gran Almirante.",
     h1: "Fotógrafo de bodas en Santiago RD",
     intro: "Santiago de los Caballeros es una ciudad clave para bodas elegantes, ceremonias religiosas y celebraciones familiares. Nuestro enfoque combina retrato editorial, momentos espontáneos y una estética cuidada.",
     localAngle: "Las bodas en Santiago suelen tener mucha vida familiar, iglesias importantes y recepciones con ritmo. Cubrimos los momentos formales sin perder emoción ni naturalidad.",
@@ -191,7 +210,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "las-terrenas",
     province: "Samaná",
     priority: 2,
-    title: "Fotógrafo de bodas en Las Terrenas · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Las Terrenas" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Las Terrenas para bodas de playa, villas privadas y celebraciones destino en Samaná.",
     h1: "Fotógrafo de bodas en Las Terrenas",
     intro: "Las Terrenas es uno de los lugares más buscados para bodas íntimas frente al mar. Fotografíamos bodas destino, elopements, sesiones pre-boda y celebraciones en villas con un estilo elegante y real.",
@@ -217,7 +236,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "bayahibe",
     province: "La Altagracia",
     priority: 2,
-    title: "Fotógrafo de bodas en Bayahíbe · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Bayahíbe" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Bayahíbe y Dominicus para bodas de playa, resorts y sesiones frente al mar.",
     h1: "Fotógrafo de bodas en Bayahíbe",
     intro: "Bayahíbe combina playa, resorts y una atmósfera tranquila para bodas destino con luz caribeña. Creamos fotografías naturales, románticas y listas para compartir, imprimir y conservar.",
@@ -243,8 +262,8 @@ export const weddingCities: WeddingCity[] = [
     slug: "jarabacoa",
     province: "La Vega",
     priority: 2,
-    title: "Fotógrafo de bodas en Jarabacoa · 4.9★ 98 reseñas Google",
-    description: "Fotógrafo de bodas en Jarabacoa para bodas de montaña, fincas, villas y sesiones pre-boda naturales.",
+    title: "Fotógrafo de bodas en Jarabacoa" + ratingBadgeEs,
+    description: "Fotógrafo de bodas en Jarabacoa: bodas de montaña en pinares, fincas y Cordillera Central. Cobertura completa, galería editada en 4-6 semanas.",
     h1: "Fotógrafo de bodas en Jarabacoa",
     intro: "Jarabacoa es perfecta para bodas de montaña, fincas, villas y celebraciones íntimas con una estética natural. Babula Shots documenta cada evento con atención a paisaje, emoción y detalles.",
     localAngle: "Las bodas de montaña tienen una atmósfera distinta: clima fresco, vegetación y luz suave. Aprovechamos esos elementos para crear una galería con personalidad y calidez.",
@@ -269,7 +288,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "boca-chica",
     province: "Santo Domingo",
     priority: 2,
-    title: "Fotógrafo de bodas en Boca Chica · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Boca Chica" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Boca Chica para bodas de playa cerca de Santo Domingo, ceremonias íntimas y sesiones de pareja.",
     h1: "Fotógrafo de bodas en Boca Chica",
     intro: "Boca Chica es una opción cercana a Santo Domingo para bodas de playa, ceremonias íntimas y sesiones de pareja. Ofrecemos cobertura profesional con dirección natural y edición cuidada.",
@@ -295,8 +314,8 @@ export const weddingCities: WeddingCity[] = [
     slug: "higuey",
     province: "La Altagracia",
     priority: 3,
-    title: "Fotógrafo de bodas en Higüey · 4.9★ 98 reseñas Google",
-    description: "Fotógrafo de bodas en Higüey y La Altagracia para ceremonias religiosas, bodas civiles y eventos cerca de Punta Cana.",
+    title: "Fotógrafo de bodas en Higüey" + ratingBadgeEs,
+    description: "Fotógrafo de bodas en Higüey: ceremonias en la Basílica de la Altagracia (vitrales Mac Lean), bodas civiles y eventos cerca de Punta Cana.",
     h1: "Fotógrafo de bodas en Higüey",
     intro: "Higüey es un punto importante para bodas religiosas, celebraciones familiares y eventos cerca de Punta Cana. Fotografíamos ceremonias, recepciones y sesiones con una estética natural y profesional.",
     localAngle: "Para parejas que celebran en La Altagracia, Higüey ofrece cercanía con Punta Cana y una identidad local fuerte para reportajes de boda con contexto dominicano.",
@@ -321,7 +340,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "san-pedro-de-macoris",
     province: "San Pedro de Macorís",
     priority: 3,
-    title: "Fotógrafo de bodas en San Pedro de Macorís · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en San Pedro de Macorís" + ratingBadgeEs,
     description: "Fotógrafo de bodas en San Pedro de Macorís, Juan Dolio y zonas cercanas para bodas elegantes y de playa.",
     h1: "Fotógrafo de bodas en San Pedro de Macorís",
     intro: "San Pedro de Macorís conecta Santo Domingo, Juan Dolio y La Romana, lo que lo convierte en un punto estratégico para bodas de playa y celebraciones familiares. Cubrimos el evento con una narrativa completa.",
@@ -347,7 +366,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "la-vega",
     province: "La Vega",
     priority: 3,
-    title: "Fotógrafo de bodas en La Vega · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en La Vega" + ratingBadgeEs,
     description: "Fotógrafo de bodas en La Vega para ceremonias, recepciones, sesiones de pareja y eventos familiares.",
     h1: "Fotógrafo de bodas en La Vega",
     intro: "La Vega es ideal para bodas familiares, eventos urbanos y celebraciones cerca de Jarabacoa y Constanza. Creamos reportajes limpios, emocionales y pensados para conservar cada momento importante.",
@@ -373,7 +392,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "barahona",
     province: "Barahona",
     priority: 3,
-    title: "Fotógrafo de bodas en Barahona · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Barahona" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Barahona para bodas de playa, sesiones de pareja y celebraciones íntimas en el sur.",
     h1: "Fotógrafo de bodas en Barahona",
     intro: "Barahona ofrece paisajes del sur, playas, montaña y una atmósfera distinta para bodas con carácter. Babula Shots documenta celebraciones íntimas y sesiones de pareja con estética natural.",
@@ -399,7 +418,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "constanza",
     province: "La Vega",
     priority: 3,
-    title: "Fotógrafo de bodas en Constanza · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Constanza" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Constanza para bodas de montaña, fincas, villas y sesiones pre-boda.",
     h1: "Fotógrafo de bodas en Constanza",
     intro: "Constanza tiene una estética de montaña única en República Dominicana, perfecta para bodas íntimas, sesiones pre-boda y celebraciones en fincas. Creamos imágenes cálidas, elegantes y naturales.",
@@ -425,7 +444,7 @@ export const weddingCities: WeddingCity[] = [
     slug: "cabarete",
     province: "Puerto Plata",
     priority: 3,
-    title: "Fotógrafo de bodas en Cabarete · 4.9★ 98 reseñas Google",
+    title: "Fotógrafo de bodas en Cabarete" + ratingBadgeEs,
     description: "Fotógrafo de bodas en Cabarete para bodas de playa, costa norte, elopements y celebraciones frente al mar.",
     h1: "Fotógrafo de bodas en Cabarete",
     intro: "Cabarete es una opción vibrante para bodas de playa, celebraciones relajadas y sesiones de pareja en la costa norte. Babula Shots crea reportajes con movimiento, luz natural y emoción real.",

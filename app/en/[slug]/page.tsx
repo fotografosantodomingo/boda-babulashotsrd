@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CityWeddingPage, citySeoEnhancements } from "@/components/CityWeddingPage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
-import { canonicalUrl } from "@/lib/seo";
-import { cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
+import { canonicalUrl, ratingBadgeEn } from "@/lib/seo";
+import { cityImages, cityPath, findCityBySlug, weddingCities } from "@/lib/weddingCities";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const esUrl = cityPath(city.slug);
   const enUrl = `/en${esUrl}`;
   const cityLabel = city.city.replace(/ RD$/, "");
-  const title = `Wedding Photographer ${cityLabel}, DR · 4.9★ 98 Google Reviews`;
-  const description = `Wedding photographer in ${city.city} for destination weddings, ceremonies, portraits and edited galleries in Dominican Republic.`;
+  const title = `Wedding Photographer ${cityLabel}, DR${ratingBadgeEn}`;
+  const description = `Wedding photographer in ${city.city}, Dominican Republic. Destination weddings, beach ceremonies, edited galleries delivered in 4-6 weeks. Quote on WhatsApp.`;
 
   return {
     title,
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       url: canonicalUrl(enUrl),
-      images: [{ url: city.images[0], width: 1600, height: 2000, alt: title }],
+      images: [{ url: cityImages(city)[0], width: 1600, height: 2000, alt: title }],
       type: "website",
       locale: "en_US",
       siteName: "Babula Shots"
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description,
-      images: [city.images[0]]
+      images: [cityImages(city)[0]]
     }
   };
 }
@@ -89,7 +89,7 @@ export default async function EnglishSlugPage({ params }: PageProps) {
       "@type": "LocalBusiness",
       name: "Babula Shots",
       url: canonical,
-      image: `https://boda.babulashotsrd.com${city.images[0]}`,
+      image: `https://boda.babulashotsrd.com${cityImages(city)[0]}`,
       telephone: "+18097209547",
       email: "info@babulashotsrd.com",
       address: {

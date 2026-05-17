@@ -62,7 +62,9 @@ export const postalAddress = {
   addressCountry: "DO"
 };
 
-// Brand-wide aggregate rating (4.9/5 from 98 Google reviews).
+// Brand-wide aggregate rating. Bump ratingCount+reviewCount when the Google
+// Business count changes — title suffixes + visible ContactSection badge +
+// JSON-LD all derive from this constant, so a single edit syncs everything.
 export const aggregateRating = {
   "@type": "AggregateRating" as const,
   ratingValue: "4.9",
@@ -71,6 +73,12 @@ export const aggregateRating = {
   ratingCount: "98",
   reviewCount: "98"
 };
+
+// CTR-focused title suffix. Append to base titles to render
+// "· 4.9★ 98 reseñas Google" / "· 4.9★ 98 Google Reviews" in SERPs.
+// Reads from aggregateRating so the title stays in sync with schema + badge.
+export const ratingBadgeEs = ` · ${aggregateRating.ratingValue}★ ${aggregateRating.reviewCount} reseñas Google`;
+export const ratingBadgeEn = ` · ${aggregateRating.ratingValue}★ ${aggregateRating.reviewCount} Google Reviews`;
 
 // Santo Domingo center fallback. TODO: replace with actual studio coordinates.
 export const geoCoordinates = {

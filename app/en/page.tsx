@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { DominicanRepublicWeddingHome } from "@/components/DominicanRepublicWeddingHome";
-import { canonicalUrl } from "@/lib/seo";
+import { canonicalUrl, ratingBadgeEn } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Wedding Photographer Dominican Republic · 4.9★ 98 Google Reviews",
+  title: "Wedding Photographer Dominican Republic" + ratingBadgeEn,
   description: "Wedding photographer in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic. Destination weddings and beach resorts. Quote on WhatsApp.",
   alternates: {
     canonical: "/en",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Wedding Photographer Dominican Republic · 4.9★ 98 Google Reviews",
+    title: "Wedding Photographer Dominican Republic" + ratingBadgeEn,
     description: "Professional wedding photography in Santo Domingo, Punta Cana, La Romana, Samaná and across Dominican Republic.",
     url: canonicalUrl("/en"),
     locale: "en_US",

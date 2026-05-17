@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { faqsForNiche, packagesByNiche } from "@/lib/networkCatalog";
-import { canonicalUrl, organizationSchema, phoneDisplay, phoneE164, siteUrl, whatsappUrl } from "@/lib/seo";
+import { canonicalUrl, organizationSchema, phoneDisplay, phoneE164, ratingBadgeEn, ratingBadgeEs, siteUrl, whatsappUrl } from "@/lib/seo";
 
 type Locale = "es" | "en";
 
@@ -434,8 +434,8 @@ export function getWeddingPricesMetadata(locale: Locale) {
   const path = isEn ? "/en/precios/" : "/precios/";
   return {
     title: isEn
-      ? "Wedding Photography Prices Dominican Republic · 4.9★ 98 Google Reviews"
-      : "Precios de fotografía de bodas en República Dominicana · 4.9★ 98 reseñas Google",
+      ? "Wedding Photography Prices Dominican Republic" + ratingBadgeEn
+      : "Precios de fotografía de bodas en República Dominicana" + ratingBadgeEs,
     description: t.lead.slice(0, 158),
     alternates: { canonical: canonicalUrl(path) },
     openGraph: {

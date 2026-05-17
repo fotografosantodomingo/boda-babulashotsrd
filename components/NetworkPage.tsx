@@ -8,7 +8,7 @@ import {
   servicesByNiche,
   type Niche
 } from "@/lib/networkCatalog";
-import { canonicalUrl, organizationSchema, phoneE164, phoneDisplay, whatsappUrl, siteUrl } from "@/lib/seo";
+import { canonicalUrl, organizationSchema, phoneE164, phoneDisplay, ratingBadgeEn, ratingBadgeEs, whatsappUrl, siteUrl } from "@/lib/seo";
 
 type Locale = "es" | "en";
 type PageType = "servicios" | "ubicaciones" | "precios" | "faq";
@@ -302,8 +302,8 @@ export function getNetworkPageMetadata(niche: Niche, type: PageType, locale: Loc
     : niche === "drone" ? "Drone"
     : isEn ? "Studio" : "Estudio";
   const title = isEn
-    ? `${t.en} ${niceNiche} · 4.9★ 98 Google Reviews`
-    : `${t.es} ${niceNiche} · 4.9★ 98 reseñas Google`;
+    ? `${t.en} ${niceNiche}${ratingBadgeEn}`
+    : `${t.es} ${niceNiche}${ratingBadgeEs}`;
   const description = (isEn ? intro.en : intro.es).slice(0, 158);
   return {
     title,

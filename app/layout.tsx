@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { allLanguageRoutePairs } from "@/lib/languageRoutes";
-import { assetPath, siteUrl } from "@/lib/seo";
+import { assetPath, ratingBadgeEs, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const routePairsJson = JSON.stringify(
@@ -15,7 +15,7 @@ const routePairsJson = JSON.stringify(
   }, {})
 );
 
-const rootTitle = "Fotógrafo de bodas en República Dominicana · 4.9★ 98 reseñas Google";
+const rootTitle = "Fotógrafo de bodas en República Dominicana" + ratingBadgeEs;
 const rootDescription = "Fotógrafo de bodas en República Dominicana. Capturamos tu día especial en Santo Domingo, Punta Cana y todo RD. Fotografía y video profesional.";
 
 export const metadata: Metadata = {
