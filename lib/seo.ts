@@ -87,6 +87,25 @@ export const geoCoordinates = {
   longitude: -69.9312
 };
 
+// Wedding-coverage cities. Per schema_standards.md rule 6, list specific cities + country.
+export const localBusinessAreaServed = [
+  { "@type": "City", name: "Santo Domingo" },
+  { "@type": "City", name: "Punta Cana" },
+  { "@type": "City", name: "La Romana" },
+  { "@type": "City", name: "Casa de Campo" },
+  { "@type": "City", name: "Samaná" },
+  { "@type": "City", name: "Las Terrenas" },
+  { "@type": "City", name: "Puerto Plata" },
+  { "@type": "City", name: "Santiago" },
+  { "@type": "City", name: "Bayahíbe" },
+  { "@type": "City", name: "Jarabacoa" },
+  { "@type": "Country", name: "Dominican Republic" }
+];
+
+// Numeric priceRange computed from wedding packages (Boda Esencial → Día Completo de Lujo).
+// Per schema_standards.md rule 5: prefer concrete numeric ranges over "$$".
+export const localBusinessPriceRange = "RD$53,600-RD$149,000";
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -102,5 +121,18 @@ export const organizationSchema = {
   address: postalAddress,
   // NOTE: NOT using `parentOrganization` — GSC counts the parent's name as a
   // duplicate of the outer name. Brand hierarchy is conveyed by sameAs below.
-  sameAs: [mainBrandUrl, bodaUrl, inmobiliariaUrl, droneUrl, santoDomingoHubUrl, "https://www.instagram.com/babulashotsrd/"]
+  sameAs: [mainBrandUrl, bodaUrl, inmobiliariaUrl, droneUrl, santoDomingoHubUrl, "https://www.instagram.com/babulashotsrd/", "https://www.wikidata.org/wiki/Q139892828"]
 };
+
+export function breadcrumbSchema(items: Array<{ name: string; path?: string; item?: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: entry.name,
+      item: entry.item ?? canonicalUrl(entry.path ?? "/")
+    }))
+  };
+}
