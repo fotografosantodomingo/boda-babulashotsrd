@@ -119,6 +119,11 @@ export const organizationSchema = {
   image: brandLogoUrl,
   logo: brandLogoUrl,
   address: postalAddress,
+  founder: {
+    "@type": "Person",
+    name: "Michal Nikodem Babula",
+    sameAs: "https://www.wikidata.org/wiki/Q139892966"
+  },
   // NOTE: NOT using `parentOrganization` — GSC counts the parent's name as a
   // duplicate of the outer name. Brand hierarchy is conveyed by sameAs below.
   sameAs: [mainBrandUrl, bodaUrl, inmobiliariaUrl, droneUrl, santoDomingoHubUrl, "https://www.instagram.com/babulashotsrd/", "https://www.wikidata.org/wiki/Q139892828"]
