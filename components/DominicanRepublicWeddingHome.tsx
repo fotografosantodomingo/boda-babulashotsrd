@@ -233,7 +233,70 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
         telephone: "+18097209547",
         url: "https://boda.babulashotsrd.com/"
       },
-      areaServed: "Dominican Republic"
+      areaServed: "Dominican Republic",
+      // Numeric Offers from the shared raw-pricing.json catalogue. Listing
+      // packages with concrete priceCurrency=DOP unlocks LLM citations like
+      // "Boda Esencial costs RD$53,600" and qualifies for Google Service
+      // Listings when the cluster matures (currently boda has thin GSC data
+      // — these offers seed the structure for when impressions grow).
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: isEnglish ? "Wedding photography packages" : "Paquetes de fotografía de bodas",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            "@id": "https://boda.babulashotsrd.com/#offer-esencial",
+            name: isEnglish ? "Boda Esencial — 4h ceremony coverage" : "Boda Esencial — 4h cobertura de ceremonia",
+            description: isEnglish
+              ? "4h ceremony coverage, high-resolution edited photos, private online gallery, 14-day delivery."
+              : "4h cobertura de ceremonia, fotos editadas en alta resolución, galería online privada, entrega en 14 días.",
+            price: "53600",
+            priceCurrency: "DOP",
+            availability: "https://schema.org/InStock",
+            url: "https://boda.babulashotsrd.com/precios/",
+            category: "Wedding photography"
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://boda.babulashotsrd.com/#offer-premium",
+            name: isEnglish ? "Boda Premium — 6h day coverage" : "Boda Premium — 6h cobertura del día",
+            description: isEnglish
+              ? "6h coverage, 1h engagement session, designed album, high-resolution edited photos."
+              : "6h cobertura del día, sesión de compromiso de 1h, álbum diseñado, fotos editadas en alta resolución.",
+            price: "89400",
+            priceCurrency: "DOP",
+            availability: "https://schema.org/InStock",
+            url: "https://boda.babulashotsrd.com/precios/",
+            category: "Wedding photography"
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://boda.babulashotsrd.com/#offer-dia-completo",
+            name: isEnglish ? "Día Completo de Lujo — 8h full-day coverage" : "Día Completo de Lujo — 8h cobertura día completo",
+            description: isEnglish
+              ? "8h full-day coverage, engagement + bridal session, premium album, optional second photographer."
+              : "8h cobertura día completo, sesión compromiso + bridal, álbum premium, opción de segundo fotógrafo.",
+            price: "149000",
+            priceCurrency: "DOP",
+            availability: "https://schema.org/InStock",
+            url: "https://boda.babulashotsrd.com/precios/",
+            category: "Wedding photography"
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://boda.babulashotsrd.com/#offer-compromiso",
+            name: isEnglish ? "Sesión de Compromiso — 1h engagement session" : "Sesión de Compromiso — 1h",
+            description: isEnglish
+              ? "1h session at the location of your choice, 40 high-resolution edited photos, private online gallery."
+              : "Sesión en locación a elección, 40 fotos editadas en alta resolución, galería online privada.",
+            price: "10700",
+            priceCurrency: "DOP",
+            availability: "https://schema.org/InStock",
+            url: "https://boda.babulashotsrd.com/precios/",
+            category: "Engagement session"
+          }
+        ]
+      }
     },
     {
       "@context": "https://schema.org",
