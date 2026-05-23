@@ -21,6 +21,9 @@ const routePairs: LanguagePaths[] = [
   { es: "/fotografo-bodas-republica-dominicana/", en: "/en/fotografo-bodas-republica-dominicana/" },
   { es: "/blog/", en: "/en/blog/" },
   ...weddingCities.map((city) => ({ es: cityPath(city.slug), en: `/en${cityPath(city.slug)}` })),
+  // Hand-translated legacy blog post (highest GSC impressions among ES-only boda posts).
+  { es: "/los-extranjeros-pueden-contraer-matrimonio-civil-en-la-republica-dominicana/",
+    en: "/en/foreigners-marriage-requirements-dominican-republic/" },
   // Legacy /{slug}/ Spanish-only posts are NOT paired — they have no English
   // counterpart. languagePathsFor() returns en:"" for those, signalling the
   // EN switcher to hide. /en/{slug}/ used to render Spanish content wrapped in
