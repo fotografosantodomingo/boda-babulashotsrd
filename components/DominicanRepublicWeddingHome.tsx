@@ -5,7 +5,14 @@ import { CrossSiteCta } from "@/components/CrossSiteCta";
 import { HeroImage } from "@/components/HeroImage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { blogPosts } from "@/lib/blogPosts";
-import { mainBrandUrl } from "@/lib/seo";
+import {
+  aggregateRating,
+  geoCoordinates,
+  localBusinessAreaServed,
+  localBusinessPriceRange,
+  mainBrandUrl,
+  postalAddress
+} from "@/lib/seo";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
 type DominicanRepublicWeddingHomeProps = {
@@ -161,22 +168,33 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "Babula Shots",
+      // Distinct @id so Google doesn't merge this entity with LocalBusiness
+      // (which would surface "duplicate url" warnings on Rich Results validator).
+      "@id": "https://boda.babulashotsrd.com/#organization",
+      name: "Babula Shots Bodas",
       url: "https://boda.babulashotsrd.com/",
       telephone: "+18097209547",
       email: "info@babulashotsrd.com",
+      image: "https://boda.babulashotsrd.com/images/cropped-babulashotslogo-1.webp",
       logo: "https://boda.babulashotsrd.com/images/cropped-babulashotslogo-1.webp",
+      address: postalAddress,
+      founder: {
+        "@type": "Person",
+        name: "Michal Nikodem Babula",
+        sameAs: "https://www.wikidata.org/wiki/Q139892966"
+      },
       sameAs: [
         "https://www.instagram.com/babulashotsrd/",
         "https://babulashotsrd.com/",
         "https://estudio.babulashotsrd.com/",
         "https://dron.babulashotsrd.com/",
-        "https://inmobiliaria.babulashotsrd.com/"
+        "https://inmobiliaria.babulashotsrd.com/",
+        "https://www.wikidata.org/wiki/Q139892828"
       ],
       subOrganization: [
-        { "@type": "Organization", name: "Babula Studio", url: "https://estudio.babulashotsrd.com/" },
-        { "@type": "Organization", name: "Babula Drone", url: "https://dron.babulashotsrd.com/" },
-        { "@type": "Organization", name: "Babula Real Estate", url: "https://inmobiliaria.babulashotsrd.com/" }
+        { "@type": "Organization", name: "Babula Shots Estudio", url: "https://estudio.babulashotsrd.com/", "@id": "https://estudio.babulashotsrd.com/#organization" },
+        { "@type": "Organization", name: "Babula Shots Drone", url: "https://dron.babulashotsrd.com/", "@id": "https://dron.babulashotsrd.com/#organization" },
+        { "@type": "Organization", name: "Babula Shots Inmobiliaria", url: "https://inmobiliaria.babulashotsrd.com/", "@id": "https://inmobiliaria.babulashotsrd.com/#organization" }
       ]
     },
     {
@@ -207,18 +225,26 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
       "@id": "https://boda.babulashotsrd.com/#localbusiness",
       name: "Babula Shots",
       url: "https://boda.babulashotsrd.com/",
-      areaServed: "Dominican Republic",
       telephone: "+18097209547",
       email: "info@babulashotsrd.com",
-      priceRange: "$$",
       image: "https://boda.babulashotsrd.com/images/punta-cana-fotografoo-de-bodas-scaled-e1726885635986.webp",
-      address: { "@type": "PostalAddress", addressCountry: "DO" },
+      // priceRange computed from real wedding-package prices in raw-pricing.json
+      // (Boda Esencial → Día Completo de Lujo). Per schema_standards.md rule 5.
+      priceRange: localBusinessPriceRange,
+      address: postalAddress,
+      geo: geoCoordinates,
+      // areaServed lists specific wedding-cities + country (rule 6).
+      areaServed: localBusinessAreaServed,
+      // aggregateRating on LocalBusiness (NOT Organization) per rule 2c — Google's
+      // Review Snippet validator only accepts LocalBusiness as the host type.
+      aggregateRating,
       sameAs: [
         "https://www.instagram.com/babulashotsrd/",
         "https://babulashotsrd.com/",
         "https://estudio.babulashotsrd.com/",
         "https://dron.babulashotsrd.com/",
-        "https://inmobiliaria.babulashotsrd.com/"
+        "https://inmobiliaria.babulashotsrd.com/",
+        "https://www.wikidata.org/wiki/Q139892828"
       ]
     },
     {
@@ -226,12 +252,12 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
       "@type": "Service",
       name: isEnglish ? "Wedding photography in Dominican Republic" : "Fotografía de bodas en República Dominicana",
       serviceType: "Wedding Photography",
+      // Reference LocalBusiness by @id (avoids duplicate entity that GSC would
+      // flag as "duplicate name" — the LocalBusiness above already carries the
+      // full provider data).
       provider: {
         "@type": "LocalBusiness",
-        "@id": "https://boda.babulashotsrd.com/#localbusiness",
-        name: "Babula Shots",
-        telephone: "+18097209547",
-        url: "https://boda.babulashotsrd.com/"
+        "@id": "https://boda.babulashotsrd.com/#localbusiness"
       },
       areaServed: "Dominican Republic",
       // Numeric Offers from the shared raw-pricing.json catalogue. Listing
