@@ -72,6 +72,21 @@ export function NetworkPage({ niche, type, locale }: { niche: Niche; type: PageT
     });
   }
 
+  // Embed FAQPage schema on servicios / ubicaciones / precios too —
+  // each of those pages renders a visible "Respuestas rapidas" section
+  // with up to 6 Q&As. Schema must mirror exactly what's visible (no invention).
+  if (type !== "faq" && faqs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.slice(0, 6).map((f) => ({
+        "@type": "Question",
+        name: isEn ? f.enQ : f.esQ,
+        acceptedAnswer: { "@type": "Answer", text: isEn ? f.enA : f.esA }
+      }))
+    });
+  }
+
   if (type === "servicios") {
     services.forEach((s) => {
       schemas.push({
