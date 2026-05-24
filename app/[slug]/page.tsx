@@ -83,16 +83,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = findBlogPost(slug);
   if (!post) return {};
 
+  const languages: Record<string, string> = {
+    "es-DO": `/${post.slug}/`,
+    es: `/${post.slug}/`,
+    "x-default": `/${post.slug}/`
+  };
+  if (post.en?.enSlug) languages.en = canonicalUrl(`/en/${post.en.enSlug}/`);
+
   return {
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `/${post.slug}`,
-      languages: {
-        "es-DO": `/${post.slug}`,
-        es: `/${post.slug}`,
-        "x-default": `/${post.slug}`
-      }
+      canonical: `/${post.slug}/`,
+      languages
     },
     openGraph: {
       title: post.title,

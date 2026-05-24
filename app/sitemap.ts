@@ -31,14 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/en${cityPath(city.slug)}`,
       lastModified
     })),
-    // Legacy flat-URL blog posts — Spanish-only. The /en/{slug}/ variants are
-    // 301-redirected (see public/_redirects); excluded from sitemap.
+    // Legacy flat-URL blog posts — Spanish at /{slug}/, English mirrors at /en/<enSlug>/
+    // when the post has an `en` field (auto-wired from blogPosts.ts).
     ...blogPosts.map((post) => ({
       url: `${baseUrl}/${post.slug}/`,
       lastModified
     })),
-    // Hand-translated EN counterpart of the marriage-requirements legacy post.
-    { url: `${baseUrl}/en/foreigners-marriage-requirements-dominican-republic/`, lastModified },
+    ...blogPosts
+      .filter((p) => p.en?.enSlug)
+      .map((p) => ({
+        url: `${baseUrl}/en/${p.en!.enSlug}/`,
+        lastModified
+      })),
     // New bilingual articles at /blog/ + /en/blog/
     ...articles.map((a) => ({
       url: `${baseUrl}/blog/${a.slug}/`,
