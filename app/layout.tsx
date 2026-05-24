@@ -93,12 +93,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ContactSection />
         <SiteFooter />
         <WhatsAppFab />
+        {/* Babula Shots HITL chat widget (replaces Tawk.to as of 2026-05-24).
+           Loads ~9KB bundle from chat.babulashotsrd.com on idle.
+           1-line revert: re-enable the Tawk block below + remove this one. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){function l(){var s=document.createElement('script');s.async=true;s.src='https://chat.babulashotsrd.com/widget.js';s.dataset.bbSite='boda';document.body.appendChild(s);}if(window.requestIdleCallback){window.requestIdleCallback(l,{timeout:3000})}else{window.addEventListener('load',function(){setTimeout(l,1000)})}})();"
+          }}
+        />
+        {/* Old Tawk widget — commented out 2026-05-24, kept for fast revert.
+           To restore: uncomment + delete the chat.babulashotsrd.com block above.
         <script
           dangerouslySetInnerHTML={{
             __html:
               "(function(){function l(){var T=window.Tawk_API||(window.Tawk_API={});window.Tawk_LoadStart=new Date();var s=document.createElement('script');s.async=true;s.src='https://embed.tawk.to/6a021c184704c71c37755d17/1joc3rgdh';s.charset='UTF-8';s.setAttribute('crossorigin','*');document.body.appendChild(s);}if(window.requestIdleCallback){window.requestIdleCallback(l,{timeout:3000})}else{window.addEventListener('load',function(){setTimeout(l,1000)})}})();"
           }}
         />
+        */}
         <script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
