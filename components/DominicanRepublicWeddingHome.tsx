@@ -45,6 +45,18 @@ const portfolioImages = [
   {
     src: "/images/mejor-fotografos-de-boda-republica-dominicana.webp",
     alt: "Fotografía de boda premium en República Dominicana"
+  },
+  {
+    src: "https://res.cloudinary.com/dwewurxla/image/upload/v1777557414/fotografo-bodas-punta-cana-dominican-republic_ddvngs.webp",
+    alt: "Fotógrafo de bodas en Punta Cana, República Dominicana"
+  },
+  {
+    src: "https://res.cloudinary.com/dwewurxla/image/upload/v1777557414/fotografo-profesional-bayahibe-boda-playa_mctgis.webp",
+    alt: "Fotógrafo profesional de boda en la playa de Bayahíbe"
+  },
+  {
+    src: "https://res.cloudinary.com/dwewurxla/image/upload/v1777557413/fotografo-boda-cabarete-republica-dominicana_fnmbvz.webp",
+    alt: "Fotógrafo de boda en Cabarete, República Dominicana"
   }
 ];
 

@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { bodaUrl, droneUrl, email, inmobiliariaUrl, mainBrandUrl, niche, phoneDisplay, santoDomingoHubUrl } from "@/lib/seo";
+import { droneUrl, email, estudioUrl, inmobiliariaUrl, mainBrandUrl, niche, phoneDisplay, santoDomingoHubUrl } from "@/lib/seo";
 import { cityPath, weddingCities } from "@/lib/weddingCities";
 
 const networkLinks: Array<{ label: string; href: string; description: string; current?: boolean }> = [
   {
-    label: "Fotografia de Bodas",
-    href: bodaUrl,
-    description: "Bodas en Punta Cana, Santo Domingo y destinos en Rep. Dominicana",
-    current: true
+    label: "Fotografia de Estudio",
+    href: estudioUrl,
+    description: "Retratos, corporativo, moda, comida y sesiones en estudio en Santo Domingo"
   },
   { label: "Fotografia Inmobiliaria", href: inmobiliariaUrl, description: "Foto, video y drone para propiedades, agentes y desarrolladores" },
   { label: "Tomas Aereas con Drone", href: droneUrl, description: "Drone para inmobiliaria, construccion, eventos y bodas" }

@@ -5,6 +5,7 @@ export const mainBrandUrl = "https://babulashotsrd.com";
 export const bodaUrl = "https://boda.babulashotsrd.com";
 export const inmobiliariaUrl = "https://inmobiliaria.babulashotsrd.com";
 export const droneUrl = "https://dron.babulashotsrd.com";
+export const estudioUrl = "https://estudio.babulashotsrd.com";
 export const santoDomingoHubUrl = "https://www.fotografosantodomingo.com";
 export const bookingUrl = "https://babulashotsrd.com/";
 export const phoneDisplay = "809 720 95 47";
