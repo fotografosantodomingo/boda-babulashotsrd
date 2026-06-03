@@ -238,6 +238,11 @@ const ARTICLES: Article[] = [
     ],
     related: [
       {
+        href: "/blog/mejores-lugares-bodas-santo-domingo/",
+        label: "Mejores lugares para bodas en Santo Domingo",
+        description: "Guía complementaria — los 10 mejores venues en Santo Domingo si buscas algo fuera del resort."
+      },
+      {
         href: "/fotografo-bodas-punta-cana/",
         label: "Fotógrafo de bodas en Punta Cana",
         description: "Servicio completo de fotografía de bodas en Punta Cana: cobertura, paquetes, sesiones pre-boda y next-day."
@@ -251,11 +256,6 @@ const ARTICLES: Article[] = [
         href: "/ubicaciones/",
         label: "Ubicaciones para bodas",
         description: "Todos los destinos donde cubrimos bodas en República Dominicana."
-      },
-      {
-        href: "/precios/",
-        label: "Precios y paquetes",
-        description: "Tarifas publicadas para todos nuestros paquetes de fotografía de boda."
       }
     ],
     ogImageAlt: "Bodas todo incluido en Punta Cana — guía completa de Babula Shots",
@@ -427,6 +427,11 @@ const ARTICLES: Article[] = [
       ],
       related: [
         {
+          href: "/en/blog/best-wedding-venues-santo-domingo/",
+          label: "Best wedding venues in Santo Domingo",
+          description: "Companion guide — the 10 best Santo Domingo venues if you want something beyond a resort."
+        },
+        {
           href: "/en/fotografo-bodas-punta-cana/",
           label: "Wedding photographer in Punta Cana",
           description: "Full wedding photography service in Punta Cana: coverage, packages, engagement and next-day sessions."
@@ -440,11 +445,6 @@ const ARTICLES: Article[] = [
           href: "/en/locations/",
           label: "Wedding locations",
           description: "All destinations where we cover weddings in the Dominican Republic."
-        },
-        {
-          href: "/en/prices/",
-          label: "Prices and packages",
-          description: "Published rates for all our wedding photography packages."
         }
       ],
       ogImageAlt: "All-inclusive resort weddings in Punta Cana — Babula Shots complete guide"

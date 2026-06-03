@@ -4,6 +4,7 @@ import { CallbackForm } from "@/components/CallbackForm";
 import { CrossSiteCta } from "@/components/CrossSiteCta";
 import { HeroImage } from "@/components/HeroImage";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
+import { articles } from "@/lib/articles";
 import { blogPosts } from "@/lib/blogPosts";
 import {
   aggregateRating,
@@ -59,6 +60,11 @@ const venues = [
 ];
 
 const featuredGuides = blogPosts.slice(0, 7);
+// Long-form pillar guides (venues, all-inclusive) live under /blog/ in
+// articles.ts and were not surfaced anywhere on the homepage. Feature them
+// first so the homepage's authority flows into the strongest assets
+// (e.g. the Santo Domingo venues guide, currently page-1 but climbable).
+const featuredArticles = articles;
 
 const faqItems = [
   {
@@ -457,6 +463,20 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
                 : "Estas guías apoyan las páginas locales con contexto de precios, venues y bodas destino para parejas que comparan locaciones en República Dominicana."}
             </p>
             <div className="city-card-grid">
+              {featuredArticles
+                .filter((a) => !isEnglish || a.en)
+                .map((a) => {
+                  const href = isEnglish ? `/en/blog/${a.en!.enSlug}/` : `/blog/${a.slug}/`;
+                  const heading = isEnglish ? a.en!.h1 : a.h1;
+                  const blurb = isEnglish ? a.en!.metaDescription : a.metaDescription;
+                  return (
+                    <Link key={a.slug} href={href} className="city-card">
+                      <span>{isEnglish ? "Guide" : "Guía"}</span>
+                      <span className="city-card-title">{heading}</span>
+                      <em>{blurb}</em>
+                    </Link>
+                  );
+                })}
               {featuredGuides.map((post) => (
                 <Link key={post.slug} href={`${isEnglish ? "/en" : ""}/${post.slug}`} className="city-card">
                   <span>{isEnglish ? "Guide" : "Guía"}</span>
