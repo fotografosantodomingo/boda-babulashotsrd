@@ -395,6 +395,25 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
           </div>
         </section>
 
+        <section className="hero-photo-row" aria-label={isEnglish ? "Featured weddings" : "Bodas destacadas"}>
+          <img
+            src="https://res.cloudinary.com/dwewurxla/image/upload/v1777557414/fotografo-bodas-punta-cana-dominican-republic_ddvngs.webp"
+            alt={isEnglish ? "Wedding photographer in Punta Cana, Dominican Republic" : "Fotógrafo de bodas en Punta Cana, República Dominicana"}
+            width={2366}
+            height={1578}
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://res.cloudinary.com/dwewurxla/image/upload/v1777557414/fotografo-profesional-bayahibe-boda-playa_mctgis.webp"
+            alt={isEnglish ? "Professional beach wedding photographer in Bayahíbe" : "Fotógrafo profesional de boda en la playa de Bayahíbe"}
+            width={2457}
+            height={1639}
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
         <section className="trust-bar" aria-label="Experiencia y autoridad">
           <div className="wrap">
             <p>{homeCopy.trust}</p>

@@ -576,6 +576,27 @@ h1 {
   background: var(--bg);
 }
 
+/* Wide 2-up photo band directly below the hero. Both source images are 3:2,
+   so natural ratio keeps a clean single row with matching heights (no crop).
+   Stacks to one column on mobile. */
+.hero-photo-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.hero-photo-row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .hero-photo-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .trust-bar {
   padding: 1rem var(--x);
   border-top: 1px solid rgba(255,255,255,.18);
