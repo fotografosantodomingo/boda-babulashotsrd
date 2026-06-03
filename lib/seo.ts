@@ -71,12 +71,19 @@ export const aggregateRating = {
   ratingValue: "4.9",
   bestRating: "5",
   worstRating: "1",
-  ratingCount: "98",
-  reviewCount: "98"
+  ratingCount: "100",
+  reviewCount: "100"
 };
 
+// Live Google rating fetch (client-side). ratingCount above is the static
+// fallback baked into JSON-LD + titles; this lets the visible badge update to
+// the real-time Google count on page load. Key is referrer-restricted to the
+// babulashotsrd.com domains + Places API only, so it's safe to expose client-side.
+export const googlePlaceId = "ChIJwTKDbC2Jr44R_OH44Jzl5-0";
+export const googlePlacesKey = "AIzaSyAOW9duWy_e5aidAt0p-Q5Qwnjf2IuP3ds";
+
 // CTR-focused title suffix. Append to base titles to render
-// "· 4.9★ 98 reseñas Google" / "· 4.9★ 98 Google Reviews" in SERPs.
+// "· 4.9★ 100 reseñas Google" / "· 4.9★ 100 Google Reviews" in SERPs.
 // Reads from aggregateRating so the title stays in sync with schema + badge.
 export const ratingBadgeEs = ` · ${aggregateRating.ratingValue}★ ${aggregateRating.reviewCount} reseñas Google`;
 export const ratingBadgeEn = ` · ${aggregateRating.ratingValue}★ ${aggregateRating.reviewCount} Google Reviews`;
