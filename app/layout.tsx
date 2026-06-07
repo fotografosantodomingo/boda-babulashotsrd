@@ -20,6 +20,9 @@ const rootDescription = "Fotógrafo de bodas en República Dominicana. Capturamo
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google: "O1tSOujyggdY8fJKs7scDwU6Gwfs_aEH9YSWLMHg1kw"
+  },
   title: {
     default: rootTitle,
     template: "%s"
