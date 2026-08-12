@@ -38,6 +38,9 @@ export type ArticleEn = {
   faq: ArticleFaq[];
   related: ArticleRelated[];
   ogImageAlt?: string;
+  // English alt text for `Article.gallery`, same order/length as the base
+  // array. Falls back to the Spanish alt per-image when omitted or shorter.
+  galleryAlt?: string[];
 };
 
 export type Article = {
@@ -55,6 +58,9 @@ export type Article = {
   faq: ArticleFaq[];
   related: ArticleRelated[];
   ogImageAlt?: string;
+  // Optional full-width photo grid rendered between the article body and the
+  // related-pages section (same .gallery-grid treatment as CityWeddingPage).
+  gallery?: ArticleImage[];
   en?: ArticleEn;
 };
 
@@ -639,6 +645,11 @@ const ARTICLES: Article[] = [
         href: "/blog/bodas-todo-incluido-punta-cana/",
         label: "Bodas todo incluido en Punta Cana",
         description: "Guía complementaria — opciones de resort para boda destino."
+      },
+      {
+        href: "/blog/propuesta-matrimonio-zona-colonial-santo-domingo/",
+        label: "Propuesta de matrimonio en la Zona Colonial",
+        description: "Fotografía de propuesta oculta modo ninja entre la arquitectura colonial de Santo Domingo."
       }
     ],
     ogImageAlt: "Mejores lugares para bodas en Santo Domingo — guía completa de Babula Shots",
@@ -819,9 +830,293 @@ const ARTICLES: Article[] = [
           href: "/en/blog/all-inclusive-resort-weddings-punta-cana/",
           label: "All-inclusive resort weddings in Punta Cana",
           description: "Complementary guide — resort options for destination weddings."
+        },
+        {
+          href: "/en/blog/marriage-proposal-photographer-zona-colonial-santo-domingo/",
+          label: "Marriage proposal photography in the Zona Colonial",
+          description: "Hidden, ninja-mode proposal coverage among Santo Domingo's colonial architecture."
         }
       ],
       ogImageAlt: "Best wedding venues in Santo Domingo — Babula Shots complete guide"
+    }
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // P3c — Proposal photography in the Zona Colonial, Santo Domingo (bilingual)
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    slug: "propuesta-matrimonio-zona-colonial-santo-domingo",
+    title:
+      "Propuesta de Matrimonio en la Zona Colonial de Santo Domingo: Guía Completa — Babula Shots",
+    metaDescription:
+      "Fotografía de propuesta de matrimonio oculta en la Zona Colonial de Santo Domingo — mejores locaciones, modo ninja, permisos, precios desde US$270. Guía de fotógrafo profesional.",
+    h1: "Propuesta de Matrimonio en la Zona Colonial de Santo Domingo",
+    eyebrow: "Bodas · Propuestas · Zona Colonial",
+    datePublished: "2026-08-12T15:00:00-04:00",
+    dateModified: "2026-08-12T15:00:00-04:00",
+    hero: {
+      src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-1.webp",
+      alt: "Propuesta de matrimonio oculta en la Zona Colonial de Santo Domingo — Babula Shots",
+      width: 1600,
+      height: 1067
+    },
+    introParagraphs: [
+      "La Zona Colonial de Santo Domingo — el asentamiento europeo más antiguo de América, Patrimonio de la Humanidad de la UNESCO — es uno de los escenarios más impresionantes del Caribe para una propuesta de matrimonio. Calles adoquinadas de más de 500 años, murallas de fortaleza, patios coloniales y la luz dorada del atardecer sobre el río Ozama crean un fondo que ningún resort puede replicar.",
+      "En Babula Shots cubrimos propuestas de matrimonio ocultas en modo ninja: llegamos antes que la pareja, nos posicionamos con teleobjetivo entre la arquitectura colonial, y capturamos cada reacción sin que ella sepa que estamos ahí. Esta guía cubre las mejores locaciones dentro de la Zona Colonial, cómo funciona la cobertura oculta, los permisos que a veces se necesitan, y precios reales.",
+      "Si estás planeando una propuesta sorpresa en Santo Domingo — con o sin fotógrafo — esta guía te da el contexto para elegir la locación correcta y el momento del día perfecto para que todo salga como lo imaginaste."
+    ],
+    sections: [
+      {
+        heading: "Por qué la Zona Colonial para tu propuesta",
+        body: [
+          "**Patrimonio de la Humanidad desde 1990.** La Zona Colonial fue el primer asentamiento europeo permanente en América — cada calle, muralla y patio tiene más de cinco siglos de historia. No hay otro lugar en el Caribe con esta densidad de arquitectura colonial auténtica.",
+          "**Luz dorada sobre el río Ozama.** La Zona Colonial mira al oeste sobre el río Ozama, dando algunos de los atardeceres más dramáticos de Santo Domingo — ideal para el momento exacto de la propuesta.",
+          "**Variedad de escenarios en pocas cuadras.** En un radio caminable tienes plazas abiertas, callejones íntimos, murallas con vista al río, y fachadas de mansiones coloniales — suficiente variedad para planear una ruta completa sin necesitar transporte.",
+          "**Ambiente urbano, no solo playa.** A diferencia de una propuesta en playa (más común en Punta Cana), la Zona Colonial ofrece un ambiente romántico urbano con restaurantes, terrazas y arquitectura — perfecto para parejas que viven en o visitan Santo Domingo."
+        ]
+      },
+      {
+        heading: "Las mejores locaciones dentro de la Zona Colonial",
+        body: [
+          "**Catedral Primada de América.** La primera catedral de las Américas — su fachada y la Plaza de España frente a ella son de los fondos más fotogénicos de la ciudad para el momento del sí.",
+          "**Alcázar de Colón.** El patio y la fachada del palacio de Diego Colón, con vista a la Plaza España — requiere coordinación previa con el Ministerio de Cultura para sesiones comerciales.",
+          "**Calle Las Damas.** La calle más antigua de América, adoquinada y bordeada de mansiones coloniales — excelente para una caminata romántica antes del momento sorpresa.",
+          "**Fortaleza Ozama.** Las murallas y torres con vista al río Ozama dan un ángulo más dramático y menos concurrido que la Plaza España.",
+          "**Parque Colón.** Frente a la Catedral, con bancas bajo los árboles — una opción más relajada y menos formal para una propuesta discreta entre el movimiento normal de la plaza."
+        ]
+      },
+      {
+        heading: "Cómo funciona la cobertura oculta en la Zona Colonial",
+        body: [
+          "**Llegamos 45 minutos antes.** Reconocemos la ruta, identificamos cobertura natural — arcos, esquinas de plaza, terrazas de café — y nos posicionamos con teleobjetivo de 30 a 50 metros según el ancho de la calle.",
+          "**Sistema de señales por WhatsApp.** Nos avisas cuando estés a 10 minutos. Confirmamos posición. A partir de ahí, silencio total hasta que el momento termine.",
+          "**Cada segundo capturado.** La caminata, la pausa, la rodilla, el anillo, las lágrimas, el sí, el abrazo — desde múltiples ángulos para no perder nada.",
+          "**La doble sorpresa.** Editamos una galería de vista previa de 20 a 30 fotos durante la noche y te la entregamos privadamente a la mañana siguiente — ella se ve a sí misma diciendo sí por primera vez."
+        ]
+      },
+      {
+        heading: "Permisos y logística en la Zona Colonial",
+        body: [
+          "**Espacios públicos: sin permiso necesario.** Calle Las Damas, Parque Colón, y la mayoría de las calles y plazas abiertas no requieren permiso para fotografía no comercial.",
+          "**Alcázar de Colón y Fortaleza Ozama: coordinación previa.** Estos monumentos son administrados por el Ministerio de Cultura y pueden requerir permiso para sesiones fotográficas formales. Lo coordinamos como parte de la reserva.",
+          "**Tráfico y horario.** Fines de semana la Zona Colonial se llena de turistas — para más privacidad recomendamos temprano en la mañana (8-9 AM) o justo antes del atardecer entre semana.",
+          "**Estacionamiento.** Limitado y a veces complicado — llegamos por nuestra cuenta con anticipación para no depender de encontrar espacio cerca del punto de encuentro."
+        ]
+      },
+      {
+        heading: "Precios y qué incluye",
+        body: [
+          "**Paquete estándar: US$270 + 18% ITBIS.** Cobertura oculta completa en modo ninja, teleobjetivo listo, galería de vista previa la misma noche.",
+          "**Qué incluye:** posicionamiento oculto 45 minutos antes, cobertura completa del momento desde múltiples ángulos, 20-30 fotos editadas en galería privada overnight, galería completa editada en 48 horas.",
+          "**Extras opcionales:** álbum impreso premium entregado en tu hotel dentro de 48-72 horas, segundo fotógrafo para ángulos adicionales, retratos de pareja de 20-30 minutos después de revelarnos.",
+          "**Cómo reservar:** escríbenos por WhatsApp con tu locación preferida dentro de la Zona Colonial, fecha y hora aproximada — coordinamos todo el resto en privado."
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: "¿Cómo se mantienen ocultos en las calles estrechas de la Zona Colonial?",
+        a: "Reconocemos la locación con anticipación y usamos arcos, esquinas de plazas y terrazas de café como cobertura natural, posicionados con teleobjetivo a 30-50 metros según el ancho de la calle. Ella nunca nos ve llegar."
+      },
+      {
+        q: "¿Podemos hacer la propuesta en un lugar específico como la Catedral Primada o el Alcázar de Colón?",
+        a: "Sí — son algunos de nuestros lugares favoritos. Algunos monumentos requieren coordinación de permisos con anticipación, la cual gestionamos como parte de tu reserva para que no tengas que lidiar con el papeleo."
+      },
+      {
+        q: "¿Puede ver las fotos a la mañana siguiente como segunda sorpresa?",
+        a: "Sí — esto es lo que llamamos la doble sorpresa. Editamos una galería de vista previa de 20-30 fotos durante la noche y te la entregamos privadamente a la mañana siguiente. Tú decides cuándo y cómo mostrársela."
+      },
+      {
+        q: "¿Cuál es el mejor momento del día para una propuesta en la Zona Colonial?",
+        a: "La hora dorada, entre las 5:30 y las 6:10 PM, da la luz más cálida sobre las fachadas históricas. La mañana temprano (8-9 AM) es una alternativa más tranquila con menos turistas en las plazas."
+      },
+      {
+        q: "¿Cuánto cuesta una propuesta de matrimonio oculta en Santo Domingo?",
+        a: "El paquete estándar comienza en US$270 + 18% ITBIS e incluye cobertura oculta completa y galería de vista previa overnight. Paquetes personalizados están disponibles para rutas en múltiples locaciones, segundo fotógrafo o álbum impreso — contáctanos para cotizar."
+      }
+    ],
+    related: [
+      {
+        href: "/blog/mejores-lugares-bodas-santo-domingo/",
+        label: "Los 10 mejores lugares para bodas en Santo Domingo",
+        description: "Guía complementaria de venues — incluye opciones en la Zona Colonial para el día completo de tu boda."
+      },
+      {
+        href: "/fotografo-bodas-santo-domingo/",
+        label: "Fotógrafo de bodas en Santo Domingo",
+        description: "Servicio completo de fotografía de bodas en Santo Domingo, incluyendo la Zona Colonial."
+      },
+      {
+        href: "/precios/",
+        label: "Precios y paquetes",
+        description: "Tarifas completas para bodas, propuestas y sesiones de pareja."
+      },
+      {
+        href: "/ubicaciones/",
+        label: "Ubicaciones donde cubrimos bodas",
+        description: "Todos los destinos donde cubrimos bodas y propuestas en República Dominicana."
+      }
+    ],
+    ogImageAlt: "Propuesta de matrimonio oculta en la Zona Colonial de Santo Domingo — Babula Shots",
+    gallery: [
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-2.webp",
+        alt: "Pareja caminando por la Calle Las Damas durante una propuesta de matrimonio en la Zona Colonial",
+        width: 1600,
+        height: 1067
+      },
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-3.webp",
+        alt: "Momento del sí frente a la Catedral Primada de América en Santo Domingo",
+        width: 1600,
+        height: 1017
+      },
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-4.webp",
+        alt: "Fotógrafo oculto con teleobjetivo cubriendo una propuesta de matrimonio en la Zona Colonial",
+        width: 1600,
+        height: 1067
+      },
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-5.webp",
+        alt: "Anillo de compromiso frente a la arquitectura colonial de Santo Domingo",
+        width: 1600,
+        height: 1067
+      },
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-6.webp",
+        alt: "Atardecer dorado sobre el río Ozama desde la Fortaleza Ozama, Zona Colonial",
+        width: 1600,
+        height: 900
+      },
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-7.webp",
+        alt: "Pareja abrazada tras la propuesta de matrimonio en el Alcázar de Colón",
+        width: 1600,
+        height: 1067
+      },
+      {
+        src: "/images/fotografo-propuesta-zona-colonial-santo-domingo-8.webp",
+        alt: "Retrato de pareja recién comprometida en las murallas coloniales de Santo Domingo",
+        width: 1600,
+        height: 900
+      }
+    ],
+    en: {
+      enSlug: "marriage-proposal-photographer-zona-colonial-santo-domingo",
+      title:
+        "Marriage Proposal Photography in the Zona Colonial, Santo Domingo: Complete Guide — Babula Shots",
+      metaDescription:
+        "Hidden marriage proposal photography in Santo Domingo's Zona Colonial — best locations, ninja mode, permits, prices from US$270. Professional photographer guide.",
+      h1: "Marriage Proposal Photography in the Zona Colonial, Santo Domingo",
+      eyebrow: "Weddings · Proposals · Zona Colonial",
+      introParagraphs: [
+        "Santo Domingo's Zona Colonial — the oldest European settlement in the Americas, a UNESCO World Heritage Site — is one of the most striking backdrops in the Caribbean for a marriage proposal. Cobblestone streets over 500 years old, fortress walls, colonial courtyards, and golden sunset light over the Ozama River create a setting no resort can replicate.",
+        "At Babula Shots we cover hidden, ninja-mode marriage proposals: we arrive before the couple, position ourselves with a telephoto lens among the colonial architecture, and capture every reaction without her ever knowing we're there. This guide covers the best locations within the Zona Colonial, how hidden coverage works, permits sometimes required, and real pricing.",
+        "If you're planning a surprise proposal in Santo Domingo — with or without a photographer — this guide gives you the context to choose the right location and the perfect time of day so everything happens exactly as you imagined."
+      ],
+      sections: [
+        {
+          heading: "Why the Zona Colonial for your proposal",
+          body: [
+            "**UNESCO World Heritage Site since 1990.** The Zona Colonial was the first permanent European settlement in the Americas — every street, wall, and courtyard carries over five centuries of history. There's no other place in the Caribbean with this density of authentic colonial architecture.",
+            "**Golden light over the Ozama River.** The Zona Colonial faces west over the Ozama River, giving some of Santo Domingo's most dramatic sunsets — ideal for the exact moment of the proposal.",
+            "**Variety of settings within a few blocks.** Within walking distance you have open plazas, intimate alleyways, river-facing walls, and colonial mansion facades — enough variety to plan a complete route without needing transport.",
+            "**Urban atmosphere, not just beach.** Unlike a beach proposal (more common in Punta Cana), the Zona Colonial offers a romantic urban setting with restaurants, terraces, and architecture — perfect for couples living in or visiting Santo Domingo."
+          ]
+        },
+        {
+          heading: "Best locations within the Zona Colonial",
+          body: [
+            "**Catedral Primada de América.** The first cathedral in the Americas — its facade and the Plaza de España in front of it are some of the most photogenic backdrops in the city for the yes moment.",
+            "**Alcázar de Colón.** The courtyard and facade of Diego Columbus's palace, overlooking Plaza España — requires advance coordination with the Ministry of Culture for commercial sessions.",
+            "**Calle Las Damas.** The oldest street in the Americas, cobblestoned and lined with colonial mansions — excellent for a romantic walk before the surprise moment.",
+            "**Fortaleza Ozama.** The walls and towers overlooking the Ozama River give a more dramatic, less crowded angle than Plaza España.",
+            "**Parque Colón.** Facing the Cathedral, with benches under the trees — a more relaxed, less formal option for a discreet proposal amid the plaza's everyday movement."
+          ]
+        },
+        {
+          heading: "How hidden coverage works in the Zona Colonial",
+          body: [
+            "**We arrive 45 minutes early.** We scout the route, identify natural cover — archways, plaza corners, café terraces — and position ourselves with a telephoto lens 30 to 50 meters away depending on street width.",
+            "**WhatsApp signal system.** You message us when you're 10 minutes away. We confirm position. From that point — complete radio silence until the moment is done.",
+            "**Every second captured.** The walk, the pause, the knee, the ring, the tears, the yes, the embrace — from multiple angles so nothing is missed.",
+            "**The double surprise.** We edit a preview gallery of 20 to 30 photos overnight and deliver it privately the next morning — she sees herself saying yes for the very first time."
+          ]
+        },
+        {
+          heading: "Permits and logistics in the Zona Colonial",
+          body: [
+            "**Public spaces: no permit needed.** Calle Las Damas, Parque Colón, and most open streets and plazas require no permit for non-commercial photography.",
+            "**Alcázar de Colón and Fortaleza Ozama: advance coordination.** These landmarks are managed by the Ministry of Culture and may require a permit for formal photo sessions. We handle this as part of your booking.",
+            "**Traffic and timing.** Weekends fill the Zona Colonial with tourists — for more privacy we recommend early morning (8-9 AM) or just before sunset on weekdays.",
+            "**Parking.** Limited and sometimes difficult — we arrive on our own ahead of time so we don't depend on finding space near the meeting point."
+          ]
+        },
+        {
+          heading: "Pricing and what's included",
+          body: [
+            "**Standard package: $270 USD + 18% tax.** Full hidden ninja-mode coverage, telephoto lens ready, same-night preview gallery.",
+            "**What's included:** hidden positioning 45 minutes ahead, full coverage of the moment from multiple angles, 20-30 edited photos in an overnight private gallery, full edited gallery within 48 hours.",
+            "**Optional extras:** premium printed album delivered to your hotel within 48-72 hours, second photographer for additional angles, 20-30 minute couple portraits after we reveal ourselves.",
+            "**How to book:** message us on WhatsApp with your preferred location within the Zona Colonial, date, and approximate time — we coordinate everything else privately."
+          ]
+        }
+      ],
+      faq: [
+        {
+          q: "How do you stay hidden in the Zona Colonial's narrow streets?",
+          a: "We scout the location in advance and use archways, plaza corners, and café terraces as natural cover, positioned with a telephoto lens 30-50 meters away depending on the street width. She never sees us arrive."
+        },
+        {
+          q: "Can we do the proposal at a specific landmark like the Catedral Primada or Alcázar de Colón?",
+          a: "Yes — these are some of our favorite spots. Some landmarks require advance permit coordination, which we handle as part of your booking so you don't have to deal with the paperwork."
+        },
+        {
+          q: "Can she see the photos the next morning as a second surprise?",
+          a: "Yes — this is what we call the double surprise. We edit a preview gallery of 20-30 photos overnight and deliver it privately by the next morning. You choose when and how to show her."
+        },
+        {
+          q: "What is the best time of day for a proposal in the Zona Colonial?",
+          a: "Golden hour, around 5:30-6:10 PM, gives the warmest light on the historic facades. Early morning (8-9 AM) is a quieter alternative with fewer tourists in the plazas."
+        },
+        {
+          q: "How much does a hidden marriage proposal cost in Santo Domingo?",
+          a: "The standard package starts at $270 USD + 18% tax and includes full hidden coverage and an overnight preview gallery. Custom packages are available for multi-location routes, a second photographer, or a printed album — contact us for a quote."
+        }
+      ],
+      related: [
+        {
+          href: "/en/blog/best-wedding-venues-santo-domingo/",
+          label: "The 10 best wedding venues in Santo Domingo",
+          description: "Companion venue guide — includes Zona Colonial options for your full wedding day."
+        },
+        {
+          href: "/en/fotografo-bodas-santo-domingo/",
+          label: "Wedding photographer in Santo Domingo",
+          description: "Full wedding photography service in Santo Domingo, including the Zona Colonial."
+        },
+        {
+          href: "/en/prices/",
+          label: "Pricing and packages",
+          description: "Full rates for weddings, proposals, and couple sessions."
+        },
+        {
+          href: "/en/locations/",
+          label: "Locations we cover",
+          description: "All destinations where we cover weddings and proposals in the Dominican Republic."
+        }
+      ],
+      ogImageAlt: "Hidden marriage proposal photography in the Zona Colonial, Santo Domingo — Babula Shots",
+      galleryAlt: [
+        "Couple walking down Calle Las Damas during a marriage proposal in the Zona Colonial",
+        "The yes moment in front of the Catedral Primada de América in Santo Domingo",
+        "Hidden photographer with a telephoto lens covering a marriage proposal in the Zona Colonial",
+        "Engagement ring against Santo Domingo's colonial architecture",
+        "Golden sunset over the Ozama River from Fortaleza Ozama, Zona Colonial",
+        "Couple embracing after the marriage proposal at the Alcázar de Colón",
+        "Portrait of a newly engaged couple on the colonial walls of Santo Domingo"
+      ]
     }
   }
 ];

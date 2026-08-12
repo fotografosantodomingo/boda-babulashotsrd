@@ -266,6 +266,25 @@ export default async function Page({ params }: PageProps) {
         </section>
       </article>
 
+      {article.gallery && article.gallery.length > 0 && (
+        <section className="section">
+          <div className="wrap gallery-grid">
+            {article.gallery.map((img) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                width={img.width}
+                height={img.height}
+                loading="lazy"
+                decoding="async"
+                className="gallery-image"
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       {article.related.length > 0 && (
         <section className="section alt-section" aria-labelledby="related-h2">
           <div className="wrap">
