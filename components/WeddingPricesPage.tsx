@@ -396,7 +396,7 @@ export function WeddingPricesPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section booking-cta" id="contacto">
+      <section className="section booking-cta" id="contacto-cta">
         <div className="wrap">
           <div className="booking-cta-grid">
             <div>

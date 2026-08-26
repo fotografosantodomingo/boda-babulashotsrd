@@ -425,7 +425,7 @@ export function CityWeddingPage({ city, locale = "es" }: { city: WeddingCity; lo
         </div>
       </section>
 
-      <section id="contacto" className="cta-section">
+      <section id="contacto-cta" className="cta-section">
         <div className="wrap cta-grid">
           <div>
             <p className="eyebrow">{isEnglish ? "Availability" : "Disponibilidad"}</p>

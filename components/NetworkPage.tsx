@@ -280,7 +280,7 @@ export function NetworkPage({ niche, type, locale }: { niche: Niche; type: PageT
         </section>
       )}
 
-      <section className="section booking-cta" id="contacto">
+      <section className="section booking-cta" id="contacto-cta">
         <div className="wrap">
           <div className="booking-cta-grid">
             <div>

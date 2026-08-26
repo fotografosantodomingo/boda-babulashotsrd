@@ -618,7 +618,7 @@ export function DominicanRepublicWeddingHome({ canonicalPath, locale = "es" }: D
 
         <CrossSiteCta locale={isEnglish ? "en" : "es"} />
 
-        <section id="contacto" className="cta-section">
+        <section id="contacto-cta" className="cta-section">
           <div className="wrap cta-grid">
             <div>
               <p className="eyebrow">{homeCopy.ctaEyebrow}</p>
