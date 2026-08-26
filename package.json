@@ -7,7 +7,7 @@
     "build": "next build",
     "postbuild": "node scripts/fix-export-language.mjs && node scripts/inline-css.mjs",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "gen:social-card": "node scripts/gen-social-card.mjs",
     "check:meta": "node scripts/check-meta.mjs",
     "deploy:callback-worker": "cd worker && npx wrangler deploy"
@@ -22,6 +22,8 @@
     "@types/node": "22.10.7",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
     "typescript": "5.7.3"
   },
   "overrides": {
