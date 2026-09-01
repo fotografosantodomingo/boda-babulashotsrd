@@ -1,6 +1,14 @@
+"use client";
+import { usePathname } from "next/navigation";
+import { languagePathsFor } from "@/lib/languageRoutes";
+
 type Props = { es: string; en: string };
 
-export function ThemeLanguageControls({ es = "/", en = "/en/" }: Partial<Props> = {}) {
+export function ThemeLanguageControls(props: Partial<Props> = {}) {
+  const pathname = usePathname() || "/";
+  const computed = languagePathsFor(pathname);
+  const es = props.es ?? computed.es;
+  const en = props.en ?? computed.en;
   return (
     <div className="header-controls" aria-label="Site preferences">
       <div className="lang-toggle" role="group" aria-label="Idioma">
